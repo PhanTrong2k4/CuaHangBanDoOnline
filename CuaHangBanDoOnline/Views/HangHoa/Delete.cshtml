@@ -1,0 +1,15 @@
+﻿@model CuaHangBanDoOnline.Models.HangHoa
+
+<h2>Xóa hàng hóa</h2>
+<p>Bạn có chắc chắn muốn xóa hàng hóa này?</p>
+<table class="table">
+    <tr><th>Mã Hàng Hóa</th><td>@Model.MaHangHoa</td></tr>
+    <tr><th>Tên Hàng Hóa</th><td>@Model.TenHangHoa</td></tr>
+    <tr><th>Giá</th><td>@Model.GiaBan.ToString("N0") VNĐ</td></tr>
+    <tr><th>Mô Tả</th><td>@Model.MoTa</td></tr>
+</table>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="MaHangHoa" />
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

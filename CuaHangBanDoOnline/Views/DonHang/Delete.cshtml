@@ -1,0 +1,15 @@
+﻿@model CuaHangBanDoOnline.Models.DonHang
+
+<h2>Xóa đơn hàng</h2>
+<p>Bạn có chắc chắn muốn xóa đơn hàng này?</p>
+<table class="table">
+    <tr><th>Mã Đơn Hàng</th><td>@Model.MaDonHang</td></tr>
+    <tr><th>Khách Hàng</th><td>@Model.NguoiDung</td></tr>
+    <tr><th>Ngày Đặt</th><td>@Model.NgayDatHang.ToString("dd/MM/yyyy")</td></tr>
+    <tr><th>Trạng Thái</th><td>@Model.TrangThai</td></tr>
+</table>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="MaDonHang" />
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

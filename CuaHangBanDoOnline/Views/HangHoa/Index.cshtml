@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CuaHangBanDoOnline.Models.HangHoa>
+
+<h2>Danh sách hàng hóa</h2>
+<a asp-action="Create" class="btn btn-primary">Thêm hàng hóa</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mã Hàng Hóa</th>
+            <th>Tên Hàng Hóa</th>
+            <th>Giá</th>
+            <th>Mô Tả</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaHangHoa</td>
+                <td>@item.TenHangHoa</td>
+                <td>@item.GiaBan.ToString("N0") VNĐ</td>
+                <td>@item.MoTa</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.MaHangHoa" class="btn btn-info">Chi tiết</a>
+                    <a asp-action="Edit" asp-route-id="@item.MaHangHoa" class="btn btn-warning">Sửa</a>
+                    <a asp-action="Delete" asp-route-id="@item.MaHangHoa" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

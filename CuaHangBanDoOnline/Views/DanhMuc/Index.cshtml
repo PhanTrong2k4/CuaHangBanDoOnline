@@ -1,0 +1,28 @@
+﻿@model IEnumerable<CuaHangBanDoOnline.Models.DanhMuc>
+
+<h2>Danh sách danh mục</h2>
+<a asp-action="Create" class="btn btn-primary">Thêm danh mục</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mã Danh Mục</th>
+            <th>Tên Danh Mục</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaDanhMuc</td>
+                <td>@item.TenDanhMuc</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.MaDanhMuc" class="btn btn-info">Chi tiết</a>
+                    <a asp-action="Edit" asp-route-id="@item.MaDanhMuc" class="btn btn-warning">Sửa</a>
+                    <a asp-action="Delete" asp-route-id="@item.MaDanhMuc" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

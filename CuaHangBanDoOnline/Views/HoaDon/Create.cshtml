@@ -1,0 +1,16 @@
+﻿@model CuaHangBanDoOnline.Models.HoaDon
+
+<h2>Thêm hóa đơn</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label>Ngày Tạo</label>
+        <input asp-for="NgayTao" type="date" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Tổng Tiền</label>
+        <input asp-for="TongTien" type="number" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

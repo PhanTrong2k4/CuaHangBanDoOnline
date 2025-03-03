@@ -1,0 +1,12 @@
+﻿@model CuaHangBanDoOnline.Models.DanhMuc
+
+<h2>Thêm danh mục</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label>Tên Danh Mục</label>
+        <input asp-for="TenDanhMuc" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

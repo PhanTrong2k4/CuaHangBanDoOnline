@@ -142,3 +142,4 @@ C:\Users\ADMIN\Desktop\WEBASP.NET\CuaHangBanDoOnline\CuaHangBanDoOnline\obj\Debu
 C:\Users\ADMIN\Desktop\WEBASP.NET\CuaHangBanDoOnline\CuaHangBanDoOnline\obj\Debug\net8.0\CuaHangBanDoOnline.pdb
 C:\Users\ADMIN\Desktop\WEBASP.NET\CuaHangBanDoOnline\CuaHangBanDoOnline\obj\Debug\net8.0\CuaHangBanDoOnline.genruntimeconfig.cache
 C:\Users\ADMIN\Desktop\WEBASP.NET\CuaHangBanDoOnline\CuaHangBanDoOnline\obj\Debug\net8.0\ref\CuaHangBanDoOnline.dll
+C:\Users\ADMIN\Desktop\WEBASP.NET\CuaHangBanDoOnline\CuaHangBanDoOnline\obj\Debug\net8.0\CuaHangBanDoOnline.sourcelink.json

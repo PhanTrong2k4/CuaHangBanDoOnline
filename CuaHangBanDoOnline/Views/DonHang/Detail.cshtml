@@ -1,0 +1,11 @@
+﻿@model CuaHangBanDoOnline.Models.DonHang
+
+<h2>Chi tiết đơn hàng</h2>
+<table class="table">
+    <tr><th>Mã Đơn Hàng</th><td>@Model.MaDonHang</td></tr>
+    <tr><th>Khách Hàng</th><td>@Model.NguoiDung</td></tr>
+    <tr><th>Ngày Đặt</th><td>@Model.NgayDatHang.ToString("dd/MM/yyyy")</td></tr>
+    <tr><th>Trạng Thái</th><td>@Model.TrangThai</td></tr>
+</table>
+<a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+<a asp-action="Edit" asp-route-id="@Model.MaDonHang" class="btn btn-warning">Sửa</a>

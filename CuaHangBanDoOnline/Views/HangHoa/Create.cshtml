@@ -1,0 +1,20 @@
+﻿@model CuaHangBanDoOnline.Models.HangHoa
+
+<h2>Thêm hàng hóa</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label>Tên Hàng Hóa</label>
+        <input asp-for="TenHangHoa" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Giá</label>
+        <input asp-for="GiaBan" type="number" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Mô Tả</label>
+        <textarea asp-for="MoTa" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

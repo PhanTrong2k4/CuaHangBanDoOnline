@@ -1,4 +1,5 @@
 ﻿using CuaHangBanDoOnline.Models;
+using CuaHangBanDoOnline.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,11 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 // Đăng ký DbContext với DI container
 builder.Services.AddDbContext<CuaHangDbContext>(options =>
     options.UseSqlServer(connectionString));
+builder.Services.AddScoped<IHangHoaRepository,HangHoaRepository>();
+builder.Services.AddScoped<IDanhMucRepository, DanhMucRepository>();
+builder.Services.AddScoped<IDonHangRepository, DonHangRepository>();
+builder.Services.AddScoped<IHoadonRepository, HoadonRepository>();
+builder.Services.AddScoped<IThanhToanRepository, ThanhToanRepository>();
 
 // Thêm dịch vụ cho MVC (Controllers + Views)
 builder.Services.AddControllersWithViews();
