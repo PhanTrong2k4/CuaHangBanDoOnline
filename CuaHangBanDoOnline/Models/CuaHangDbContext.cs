@@ -8,7 +8,6 @@ namespace CuaHangBanDoOnline.Models
         {
         }
 
-        // DbSet cho các bảng
         public DbSet<User> NguoiDungs { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<HangHoa> HangHoas { get; set; }
@@ -19,7 +18,7 @@ namespace CuaHangBanDoOnline.Models
         public DbSet<GioHang> GioHangs { get; set; }
         public DbSet<ChiTietGioHang> ChiTietGioHangs { get; set; }
         public DbSet<ChiTietDonHang> ChiTietDonHangs { get; set; }
-
+        public DbSet<HangHoaDanhMuc> HangHoaDanhMucs { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -35,23 +34,20 @@ namespace CuaHangBanDoOnline.Models
             });
 
             // Cấu hình DonHang -> NguoiDung
-            modelBuilder.Entity<DonHang>(entity =>
-            {
-                entity.HasOne(dh => dh.NguoiDung)
-                      .WithMany()
-                      .HasForeignKey(dh => dh.MaNguoiDung)
-                      .OnDelete(DeleteBehavior.Cascade);
-            });
+            modelBuilder.Entity<DonHang>()
+    .HasOne(dh => dh.NguoiDung)
+    .WithMany(nd => nd.DonHangs)
+    .HasForeignKey(dh => dh.MaNguoiDung)
+    .OnDelete(DeleteBehavior.Restrict);
+
 
             // Cấu hình HoaDon -> DonHang
-            modelBuilder.Entity<HoaDon>(entity =>
-            {
-                entity.HasKey(hd => hd.MaHoaDon);
-                entity.HasOne(hd => hd.DonHang)
-                      .WithMany()
-                      .HasForeignKey(hd => hd.MaDonHang)
-                      .OnDelete(DeleteBehavior.Cascade);
-            });
+            modelBuilder.Entity<HoaDon>()
+     .HasOne(h => h.NguoiDung)
+     .WithMany(u => u.HoaDons)
+     .HasForeignKey(h => h.MaNguoiDung)
+     .OnDelete(DeleteBehavior.Restrict); // Không xóa cascade
+
 
             // Cấu hình ThanhToan -> DonHang
             modelBuilder.Entity<ThanhToan>(entity =>
@@ -109,16 +105,22 @@ namespace CuaHangBanDoOnline.Models
                       .HasForeignKey(ctgh => ctgh.MaHangHoa)
                       .OnDelete(DeleteBehavior.Cascade);
             });
+            modelBuilder.Entity<HangHoaDanhMuc>()
+        .HasKey(dmhh => new { dmhh.MaDanhMuc, dmhh.MaHangHoa }); 
 
-            // Cấu hình HangHoa -> DanhMuc
-            modelBuilder.Entity<HangHoa>(entity =>
-            {
-                entity.HasKey(hh =>hh.MaHangHoa );
-                entity.HasOne(hh => hh.DanhMuc) // HangHoa có 1 DanhMuc
-                      .WithMany(dm => dm.HangHoas) // DanhMuc có nhiều HangHoas
-                      .HasForeignKey(hh => hh.MaDanhMuc) // Khóa ngoại là MaDanhMuc
-                      .OnDelete(DeleteBehavior.Cascade); // Xóa DanhMuc sẽ xóa HangHoas liên quan
-            });
+            modelBuilder.Entity<HangHoaDanhMuc>()
+                .HasOne(dmhh => dmhh.DanhMuc)
+                .WithMany(dm => dm.HangHoaDanhMucs)
+                .HasForeignKey(dmhh => dmhh.MaDanhMuc)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<HangHoaDanhMuc>()
+                .HasOne(dmhh => dmhh.HangHoa)
+                .WithMany(hh => hh.HangHoaDanhMucs)
+                .HasForeignKey(dmhh => dmhh.MaHangHoa)
+                .OnDelete(DeleteBehavior.Cascade);
+
+           
             modelBuilder.Entity<DanhMuc>(entity =>
             {
                 entity.HasKey(e => e.MaDanhMuc); // Xác định khóa chính

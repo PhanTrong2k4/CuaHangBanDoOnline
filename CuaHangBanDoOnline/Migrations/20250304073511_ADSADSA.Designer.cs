@@ -4,6 +4,7 @@ using CuaHangBanDoOnline.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CuaHangBanDoOnline.Migrations
 {
     [DbContext(typeof(CuaHangDbContext))]
-    partial class CuaHangDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250304073511_ADSADSA")]
+    partial class ADSADSA
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -198,13 +201,7 @@ namespace CuaHangBanDoOnline.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaHoaDon"));
 
-                    b.Property<int>("DonHangMaDonHang")
-                        .HasColumnType("int");
-
                     b.Property<int>("MaDonHang")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaNguoiDung")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("NgayTao")
@@ -215,9 +212,7 @@ namespace CuaHangBanDoOnline.Migrations
 
                     b.HasKey("MaHoaDon");
 
-                    b.HasIndex("DonHangMaDonHang");
-
-                    b.HasIndex("MaNguoiDung");
+                    b.HasIndex("MaDonHang");
 
                     b.ToTable("HoaDons");
                 });
@@ -394,9 +389,9 @@ namespace CuaHangBanDoOnline.Migrations
             modelBuilder.Entity("CuaHangBanDoOnline.Models.DonHang", b =>
                 {
                     b.HasOne("CuaHangBanDoOnline.Models.User", "NguoiDung")
-                        .WithMany("DonHangs")
+                        .WithMany()
                         .HasForeignKey("MaNguoiDung")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("NguoiDung");
@@ -436,19 +431,11 @@ namespace CuaHangBanDoOnline.Migrations
                 {
                     b.HasOne("CuaHangBanDoOnline.Models.DonHang", "DonHang")
                         .WithMany()
-                        .HasForeignKey("DonHangMaDonHang")
+                        .HasForeignKey("MaDonHang")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CuaHangBanDoOnline.Models.User", "NguoiDung")
-                        .WithMany("HoaDons")
-                        .HasForeignKey("MaNguoiDung")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.Navigation("DonHang");
-
-                    b.Navigation("NguoiDung");
                 });
 
             modelBuilder.Entity("CuaHangBanDoOnline.Models.ThanhToan", b =>
@@ -527,13 +514,6 @@ namespace CuaHangBanDoOnline.Migrations
             modelBuilder.Entity("CuaHangBanDoOnline.Models.HangHoa", b =>
                 {
                     b.Navigation("HangHoaDanhMucs");
-                });
-
-            modelBuilder.Entity("CuaHangBanDoOnline.Models.User", b =>
-                {
-                    b.Navigation("DonHangs");
-
-                    b.Navigation("HoaDons");
                 });
 #pragma warning restore 612, 618
         }

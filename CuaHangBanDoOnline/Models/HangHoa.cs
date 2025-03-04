@@ -1,14 +1,21 @@
-﻿namespace CuaHangBanDoOnline.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CuaHangBanDoOnline.Models
 {
     public class HangHoa
     {
-        public int MaDanhMuc { get; set; } // Khóa ngoại
-        public DanhMuc DanhMuc { get; set; } // Điều hướng (Navigation Property)
-        public int MaHangHoa { get; set; } // Khóa chính
-        public string TenHangHoa { get; set; } = string.Empty; // Tên hàng hóa
-        public decimal GiaBan { get; set; } // Giá bán
-        public int SoLuongTon { get; set; } // Số lượng tồn kho
-        public string MoTa { get; set; } = string.Empty; // Mô tả hàng hóa
+        [Key] public int MaHangHoa { get; set; }
+
+        public string TenHangHoa { get; set; } = string.Empty; 
+        public decimal GiaBan { get; set; } 
+        public int SoLuongTon { get; set; } 
+        public string MoTa { get; set; } = string.Empty;
+        public string Hinh { get; set; } = string.Empty;
+        public List<HangHoaDanhMuc> HangHoaDanhMucs { get; set; } = new();
+        [NotMapped]
+        public List<int> DanhMucIds { get; set; } = new List<int>();
+
     }
 
 }

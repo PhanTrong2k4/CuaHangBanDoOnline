@@ -13,6 +13,7 @@ namespace CuaHangBanDoOnline.Repository
         {
             _context = context;
         }
+       
 
         public IEnumerable<DanhMuc> GetDanhMucs()
         {

@@ -45,6 +45,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\images\\OIP (4).jpeg",
+      "PackagePath": "staticwebassets\\images\\OIP (4).jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\images\\outlast2.jpeg",
+      "PackagePath": "staticwebassets\\images\\outlast2.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\images\\outlasts1.jpeg",
+      "PackagePath": "staticwebassets\\images\\outlasts1.jpeg"
+    },
+    {
       "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\js\\main.js",
       "PackagePath": "staticwebassets\\js\\main.js"
     },
