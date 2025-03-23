@@ -10,7 +10,6 @@
         // Khóa ngoại đến Vai trò
         public int MaVaiTro { get; set; } // Khóa ngoại đến bảng Vai trò
         public Role VaiTro { get; set; } = null!; // Thuộc tính điều hướng
-        public List<HoaDon> HoaDons { get; set; } = new List<HoaDon>();
         public ICollection<DonHang> DonHangs { get; set; } = new List<DonHang>();
     }
 }

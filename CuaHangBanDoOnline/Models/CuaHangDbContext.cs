@@ -13,12 +13,13 @@ namespace CuaHangBanDoOnline.Models
         public DbSet<HangHoa> HangHoas { get; set; }
         public DbSet<DanhMuc> DanhMucs { get; set; }
         public DbSet<DonHang> DonHangs { get; set; }
-        public DbSet<HoaDon> HoaDons { get; set; }
+     
         public DbSet<ThanhToan> ThanhToans { get; set; }
         public DbSet<GioHang> GioHangs { get; set; }
         public DbSet<ChiTietGioHang> ChiTietGioHangs { get; set; }
         public DbSet<ChiTietDonHang> ChiTietDonHangs { get; set; }
         public DbSet<HangHoaDanhMuc> HangHoaDanhMucs { get; set; }
+        public DbSet<KhuyenMai> KhuyenMais { get; set; } 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -41,12 +42,7 @@ namespace CuaHangBanDoOnline.Models
     .OnDelete(DeleteBehavior.Restrict);
 
 
-            // Cấu hình HoaDon -> DonHang
-            modelBuilder.Entity<HoaDon>()
-     .HasOne(h => h.NguoiDung)
-     .WithMany(u => u.HoaDons)
-     .HasForeignKey(h => h.MaNguoiDung)
-     .OnDelete(DeleteBehavior.Restrict); // Không xóa cascade
+          
 
 
             // Cấu hình ThanhToan -> DonHang
@@ -138,6 +134,10 @@ namespace CuaHangBanDoOnline.Models
                 entity.HasKey(e => e.MaVaiTro); // Xác định khóa chính cho Role
                 entity.Property(e => e.TenVaiTro).IsRequired(); // Thuộc tính bắt buộc
             });
+            modelBuilder.Entity<KhuyenMai>()
+                .HasOne(km => km.HangHoa)
+                .WithMany()
+                .HasForeignKey(km => km.MaHangHoa);
 
             // Cấu hình các lớp kế thừa
             modelBuilder.Entity<VaiTroChuCuaHang>().ToTable("VaiTroChuCuaHang");

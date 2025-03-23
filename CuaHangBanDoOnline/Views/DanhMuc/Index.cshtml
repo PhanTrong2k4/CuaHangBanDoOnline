@@ -1,28 +1,46 @@
 ﻿@model IEnumerable<CuaHangBanDoOnline.Models.DanhMuc>
 
-<h2>Danh sách danh mục</h2>
-<a asp-action="Create" class="btn btn-primary">Thêm danh mục</a>
+@{
+    ViewData["Title"] = "Danh mục sản phẩm";
+}
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Mã Danh Mục</th>
-            <th>Tên Danh Mục</th>
-            <th>Hành động</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
+<!-- Breadcrumb Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="breadcrumb-item text-dark" href="/">Trang chủ</a>
+                <span class="breadcrumb-item active">Danh mục sản phẩm</span>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+<!-- Categories Start -->
+<div class="container-fluid pt-5">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+        <span class="bg-secondary pr-3">Danh mục sản phẩm</span>
+    </h2>
+    <div class="row px-xl-5 pb-3">
+        @foreach (var danhMuc in Model)
         {
-            <tr>
-                <td>@item.MaDanhMuc</td>
-                <td>@item.TenDanhMuc</td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.MaDanhMuc" class="btn btn-info">Chi tiết</a>
-                    <a asp-action="Edit" asp-route-id="@item.MaDanhMuc" class="btn btn-warning">Sửa</a>
-                    <a asp-action="Delete" asp-route-id="@item.MaDanhMuc" class="btn btn-danger">Xóa</a>
-                </td>
-            </tr>
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <a class="text-decoration-none" href="/DanhMuc/Details/@danhMuc.MaDanhMuc">
+                    <div class="cat-item d-flex align-items-center mb-4">
+                        <div class="overflow-hidden" style="width: 100px; height: 100px;">
+                            <div class="cat-img position-relative overflow-hidden">
+                                <i class="fa fa-3x fa-archive p-4"></i>
+                            </div>
+                        </div>
+                        <div class="flex-fill pl-3">
+                            <h6>@danhMuc.TenDanhMuc</h6>
+                            <small class="text-body">@danhMuc.HangHoaDanhMucs.Count sản phẩm</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
         }
-    </tbody>
-</table>
+    </div>
+</div>
+<!-- Categories End -->

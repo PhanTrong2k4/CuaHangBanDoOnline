@@ -1,7 +1,5 @@
 ﻿using CuaHangBanDoOnline.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace CuaHangBanDoOnline.Repository
 {
@@ -14,39 +12,47 @@ namespace CuaHangBanDoOnline.Repository
             _context = context;
         }
 
-        public IEnumerable<DonHang> GetDonHangs()
-        {
-            return _context.DonHangs.ToList();
-        }
-
-        public DonHang GetDonHang(int maDonHang)
-        {
-            return _context.DonHangs.Find(maDonHang);
-        }
-
-        public DonHang AddDonHang(DonHang donHang)
+        public DonHang CreateDonHang(DonHang donHang)
         {
             _context.DonHangs.Add(donHang);
             _context.SaveChanges();
             return donHang;
         }
 
-        public DonHang UpdateDonHang(DonHang donHang)
+        public IEnumerable<DonHang> GetDonHangsByUserId(int maNguoiDung)
+        {
+            return _context.DonHangs
+                .Include(dh => dh.ChiTietDonHangs)
+                .ThenInclude(ctdh => ctdh.HangHoa)
+                .Where(dh => dh.MaNguoiDung == maNguoiDung)
+                .ToList();
+        }
+
+        public DonHang GetDonHang(int maDonHang)
+        {
+            return _context.DonHangs
+                .Include(dh => dh.ChiTietDonHangs)
+                .ThenInclude(ctdh => ctdh.HangHoa)
+                .FirstOrDefault(dh => dh.MaDonHang == maDonHang);
+        }
+
+        public void UpdateDonHang(DonHang donHang)
         {
             _context.DonHangs.Update(donHang);
             _context.SaveChanges();
-            return donHang;
         }
 
-        public DonHang DeleteDonHang(int maDonHang)
+        public void DeleteDonHang(int maDonHang)
         {
-            var donHang = _context.DonHangs.Find(maDonHang);
+            var donHang = _context.DonHangs
+                .Include(dh => dh.ChiTietDonHangs)
+                .FirstOrDefault(dh => dh.MaDonHang == maDonHang);
             if (donHang != null)
             {
-                donHang.TrangThai = "Đã xóa";
+                _context.ChiTietDonHangs.RemoveRange(donHang.ChiTietDonHangs);
+                _context.DonHangs.Remove(donHang);
                 _context.SaveChanges();
             }
-            return donHang;
         }
     }
 }

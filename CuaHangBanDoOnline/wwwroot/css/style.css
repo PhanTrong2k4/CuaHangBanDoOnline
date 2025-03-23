@@ -150,6 +150,28 @@ sub {
 sup {
   top: -.5em;
 }
+.text-decoration-line-through {
+    text-decoration: line-through;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}
+
+.badge.bg-danger {
+    background-color: #dc3545 !important;
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.5rem;
+}
+
+.me-2 {
+    margin-right: 0.5rem;
+}
+
+.ms-2 {
+    margin-left: 0.5rem;
+}
 
 a {
   color: #FFD333;

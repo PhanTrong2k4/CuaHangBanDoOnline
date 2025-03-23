@@ -1,0 +1,20 @@
+﻿@model CuaHangBanDoOnline.Models.HangHoa
+
+<h2>Thêm Giảm Giá cho @ViewBag.HangHoa.TenHangHoa</h2>
+
+<form asp-action="ThemGiamGia" method="post">
+    <input type="hidden" name="id" value="@ViewBag.HangHoa.MaHangHoa" />
+    <div class="form-group">
+        <label>Phần trăm giảm giá (%)</label>
+        <input type="number" name="phanTramGiamGia" class="form-control" required min="0" max="100" step="0.01" />
+    </div>
+    <div class="form-group">
+        <label>Ngày bắt đầu</label>
+        <input type="date" name="ngayBatDau" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Ngày kết thúc</label>
+        <input type="date" name="ngayKetThuc" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Thêm Giảm Giá</button>
+</form>

@@ -3,10 +3,10 @@ namespace CuaHangBanDoOnline.Repository
 {
     public interface IDonHangRepository
     {
-        IEnumerable<DonHang> GetDonHangs();
+        DonHang CreateDonHang(DonHang donHang);
+        IEnumerable<DonHang> GetDonHangsByUserId(int maNguoiDung);
         DonHang GetDonHang(int maDonHang);
-        DonHang AddDonHang(DonHang donHang);
-        DonHang UpdateDonHang(DonHang donHang);
-        DonHang DeleteDonHang(int maDonHang);
+        void UpdateDonHang(DonHang donHang);
+        void DeleteDonHang(int maDonHang);
     }
 }

@@ -115,6 +115,9 @@ namespace CuaHangBanDoOnline.Migrations
                     b.Property<DateTime>("NgayDatHang")
                         .HasColumnType("datetime2");
 
+                    b.Property<decimal>("TongTien")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("TrangThai")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -137,6 +140,9 @@ namespace CuaHangBanDoOnline.Migrations
                     b.Property<int>("MaNguoiDung")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("TongTien")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("MaGioHang");
 
                     b.HasIndex("MaNguoiDung");
@@ -155,20 +161,25 @@ namespace CuaHangBanDoOnline.Migrations
                     b.Property<decimal>("GiaBan")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<decimal>("GiaGoc")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("Hinh")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MoTa")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int>("SoLuongTon")
                         .HasColumnType("int");
 
                     b.Property<string>("TenHangHoa")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("MaHangHoa");
 
@@ -190,36 +201,36 @@ namespace CuaHangBanDoOnline.Migrations
                     b.ToTable("HangHoaDanhMucs");
                 });
 
-            modelBuilder.Entity("CuaHangBanDoOnline.Models.HoaDon", b =>
+            modelBuilder.Entity("CuaHangBanDoOnline.Models.KhuyenMai", b =>
                 {
-                    b.Property<int>("MaHoaDon")
+                    b.Property<int>("MaKhuyenMai")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaHoaDon"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaKhuyenMai"));
 
-                    b.Property<int>("DonHangMaDonHang")
+                    b.Property<int?>("HangHoaMaHangHoa")
                         .HasColumnType("int");
 
-                    b.Property<int>("MaDonHang")
+                    b.Property<int>("MaHangHoa")
                         .HasColumnType("int");
 
-                    b.Property<int>("MaNguoiDung")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("NgayTao")
+                    b.Property<DateTime>("NgayBatDau")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("TongTien")
+                    b.Property<DateTime>("NgayKetThuc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("PhanTramGiamGia")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("MaHoaDon");
+                    b.HasKey("MaKhuyenMai");
 
-                    b.HasIndex("DonHangMaDonHang");
+                    b.HasIndex("HangHoaMaHangHoa");
 
-                    b.HasIndex("MaNguoiDung");
+                    b.HasIndex("MaHangHoa");
 
-                    b.ToTable("HoaDons");
+                    b.ToTable("KhuyenMais");
                 });
 
             modelBuilder.Entity("CuaHangBanDoOnline.Models.Role", b =>
@@ -432,23 +443,19 @@ namespace CuaHangBanDoOnline.Migrations
                     b.Navigation("HangHoa");
                 });
 
-            modelBuilder.Entity("CuaHangBanDoOnline.Models.HoaDon", b =>
+            modelBuilder.Entity("CuaHangBanDoOnline.Models.KhuyenMai", b =>
                 {
-                    b.HasOne("CuaHangBanDoOnline.Models.DonHang", "DonHang")
+                    b.HasOne("CuaHangBanDoOnline.Models.HangHoa", null)
+                        .WithMany("KhuyenMais")
+                        .HasForeignKey("HangHoaMaHangHoa");
+
+                    b.HasOne("CuaHangBanDoOnline.Models.HangHoa", "HangHoa")
                         .WithMany()
-                        .HasForeignKey("DonHangMaDonHang")
+                        .HasForeignKey("MaHangHoa")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CuaHangBanDoOnline.Models.User", "NguoiDung")
-                        .WithMany("HoaDons")
-                        .HasForeignKey("MaNguoiDung")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("DonHang");
-
-                    b.Navigation("NguoiDung");
+                    b.Navigation("HangHoa");
                 });
 
             modelBuilder.Entity("CuaHangBanDoOnline.Models.ThanhToan", b =>
@@ -527,13 +534,13 @@ namespace CuaHangBanDoOnline.Migrations
             modelBuilder.Entity("CuaHangBanDoOnline.Models.HangHoa", b =>
                 {
                     b.Navigation("HangHoaDanhMucs");
+
+                    b.Navigation("KhuyenMais");
                 });
 
             modelBuilder.Entity("CuaHangBanDoOnline.Models.User", b =>
                 {
                     b.Navigation("DonHangs");
-
-                    b.Navigation("HoaDons");
                 });
 #pragma warning restore 612, 618
         }

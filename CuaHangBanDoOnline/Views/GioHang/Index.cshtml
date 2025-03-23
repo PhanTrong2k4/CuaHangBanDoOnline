@@ -1,0 +1,56 @@
+﻿@model CuaHangBanDoOnline.Models.GioHang
+
+<div class="container my-4">
+    <h1 class="mb-4">Giỏ hàng của bạn</h1>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+
+    @if (Model.ChiTietGioHangs == null || !Model.ChiTietGioHangs.Any())
+    {
+        <p class="text-muted">Giỏ hàng của bạn đang trống.</p>
+    }
+    else
+    {
+        <form asp-action="UpdateCart" method="post">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Tổng</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ChiTietGioHangs)
+                    {
+                        <tr>
+                            <td>@item.HangHoa.TenHangHoa</td>
+                            <td>@item.GiaBan.ToString("#,##0") VNĐ</td>
+                            <td>
+                                <input type="number" name="soLuong" value="@item.SoLuong" min="0" class="form-control" style="width: 100px;" />
+                                <input type="hidden" name="maChiTietGioHang" value="@item.MaChiTietGioHang" />
+                            </td>
+                            <td>@((item.GiaBan * item.SoLuong).ToString("#,##0")) VNĐ</td>
+                            <td>
+                                <a href="@Url.Action("RemoveFromCart", new { maChiTietGioHang = item.MaChiTietGioHang })" class="btn btn-danger btn-sm">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Cập nhật giỏ hàng</button>
+                <a href="@Url.Action("Checkout")" class="btn btn-success">Thanh toán</a>
+            </div>
+        </form>
+    }
+</div>

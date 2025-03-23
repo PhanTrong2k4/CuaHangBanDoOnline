@@ -1,11 +1,108 @@
 ﻿@model CuaHangBanDoOnline.Models.HangHoa
 
-<h2>Chi tiết hàng hóa</h2>
-<table class="table">
-    <tr><th>Mã Hàng Hóa</th><td>@Model.MaHangHoa</td></tr>
-    <tr><th>Tên Hàng Hóa</th><td>@Model.TenHangHoa</td></tr>
-    <tr><th>Giá</th><td>@Model.GiaBan.ToString("N0") VNĐ</td></tr>
-    <tr><th>Mô Tả</th><td>@Model.MoTa</td></tr>
-</table>
-<a asp-action="Index" class="btn btn-secondary">Quay lại</a>
-<a asp-action="Edit" asp-route-id="@Model.MaHangHoa" class="btn btn-warning">Sửa</a>
+<style>
+    .product-container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+
+    .product-image {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+    .product-info {
+        margin-bottom: 20px;
+    }
+
+        .product-info p {
+            margin: 5px 0;
+        }
+
+        .product-info strong {
+            color: #333;
+        }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .button-container button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .button-container button:hover {
+                background-color: #218838;
+            }
+
+    .price-original {
+        color: #888;
+        text-decoration: line-through;
+        margin-right: 10px;
+    }
+
+    .price-discounted {
+        color: #dc3545;
+        font-weight: bold;
+    }
+
+    .discount-badge {
+        background-color: #dc3545;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 0.9em;
+        margin-left: 10px;
+    }
+</style>
+
+<div class="product-container">
+    <h2>@Model.TenHangHoa</h2>
+    <div class="product-image">
+        <img src="@Url.Content(Model.Hinh)" alt="@Model.TenHangHoa" />
+    </div>
+    <div class="product-info">
+        <p><strong>Tình trạng:</strong> @(Model.SoLuongTon > 0 ? "Còn hàng" : "Hết hàng")</p>
+        @if (ViewData[$"PhanTramGiamGia_{Model.MaHangHoa}"] != null && (decimal)ViewData[$"PhanTramGiamGia_{Model.MaHangHoa}"] > 0)
+        {
+            <p>
+                <strong>Giá gốc:</strong> <span class="price-original">@Model.GiaGoc.ToString("N0") đ</span>
+                <strong>Giá bán:</strong> <span class="price-discounted">@Model.GiaBan.ToString("N0") đ</span>
+                <span class="discount-badge"> -@((decimal)ViewData[$"PhanTramGiamGia_{Model.MaHangHoa}"])%</span>
+            </p>
+        }
+        else
+        {
+            <p><strong>Giá bán:</strong> @Model.GiaBan.ToString("N0") đ</p>
+        }
+        <p><strong>Mô tả:</strong> @Model.MoTa</p>
+    </div>
+    <div class="button-container">
+        <form method="post" asp-action="AddToCart" asp-controller="GioHang">
+            <input type="hidden" name="id" value="@Model.MaHangHoa" />
+            <button type="submit">Mua ngay</button>
+        </form>
+        <form method="post" asp-action="AddToCart" asp-controller="GioHang">
+            <input type="hidden" name="id" value="@Model.MaHangHoa" />
+            <button type="submit">Thêm vào giỏ</button>
+        </form>
+    </div>
+</div>

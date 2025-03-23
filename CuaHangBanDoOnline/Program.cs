@@ -13,8 +13,12 @@ builder.Services.AddDbContext<CuaHangDbContext>(options =>
 builder.Services.AddScoped<IHangHoaRepository,HangHoaRepository>();
 builder.Services.AddScoped<IDanhMucRepository, DanhMucRepository>();
 builder.Services.AddScoped<IDonHangRepository, DonHangRepository>();
-builder.Services.AddScoped<IHoadonRepository, HoadonRepository>();
 builder.Services.AddScoped<IThanhToanRepository, ThanhToanRepository>();
+builder.Services.AddScoped<IGioHangRepository, GioHangRepository>();
+builder.Services.AddScoped<IChiTietGioHangRepository, ChiTietGioHangRepository>();
+builder.Services.AddScoped<IHangHoaRepository, HangHoaRepository>();
+builder.Services.AddScoped<IDonHangRepository, DonHangRepository>();
+builder.Services.AddScoped<IChitietdonhangRepository, ChiTietDonHangRepository>();
 
 // Thêm dịch vụ cho MVC (Controllers + Views)
 builder.Services.AddControllersWithViews();

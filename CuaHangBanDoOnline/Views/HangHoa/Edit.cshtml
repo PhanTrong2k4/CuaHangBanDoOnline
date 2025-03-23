@@ -1,35 +1,51 @@
 ﻿@model CuaHangBanDoOnline.Models.HangHoa
 
-<h2>Chỉnh sửa hàng hóa</h2>
+<h2>Chỉnh Sửa Hàng Hóa</h2>
 
-<form asp-action="Edit" enctype="multipart/form-data">
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
     <input type="hidden" asp-for="MaHangHoa" />
 
-    <div class="form-group">
-        <label>Tên Hàng Hóa</label>
+    <div class="form-group mb-3">
+        <label asp-for="TenHangHoa" class="form-label"></label>
         <input asp-for="TenHangHoa" class="form-control" required />
+        <span asp-validation-for="TenHangHoa" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
-        <label>Giá</label>
-        <input asp-for="GiaBan" type="number" class="form-control" required />
+    <div class="form-group mb-3">
+        <label asp-for="GiaGoc" class="form-label"></label>
+        <input asp-for="GiaGoc" type="number" step="0.01" class="form-control" required />
+        <span asp-validation-for="GiaGoc" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
-        <label>Mô Tả</label>
-        <textarea asp-for="MoTa" class="form-control"></textarea>
+    <div class="form-group mb-3">
+        <label asp-for="GiaBan" class="form-label"></label>
+        <input asp-for="GiaBan" type="number" step="0.01" class="form-control" readonly />
+        <small class="form-text text-muted">Giá bán sẽ được cập nhật tự động khi áp dụng giảm giá.</small>
+        <span asp-validation-for="GiaBan" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
-        <label>Số lượng tồn</label>
-        <input asp-for="SoLuongTon" type="number" class="form-control" />
+    <div class="form-group mb-3">
+        <label asp-for="SoLuongTon" class="form-label"></label>
+        <input asp-for="SoLuongTon" type="number" class="form-control" required />
+        <span asp-validation-for="SoLuongTon" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
-        <label>Hình Ảnh Hiện Tại</label><br />
+    <div class="form-group mb-3">
+        <label asp-for="MoTa" class="form-label"></label>
+        <textarea asp-for="MoTa" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="MoTa" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label">Hình Ảnh Hiện Tại</label><br />
         @if (!string.IsNullOrEmpty(Model.Hinh))
         {
-            <img src="@Model.Hinh" alt="Hình ảnh sản phẩm" width="150" height="150" />
+            <img src="@Model.Hinh" alt="Hình ảnh sản phẩm" class="img-thumbnail" style="max-width: 150px; max-height: 150px;" />
         }
         else
         {
@@ -37,65 +53,85 @@
         }
     </div>
 
-    <div class="form-group">
-        <label>Chọn Hình Ảnh Mới</label>
-        <input type="file" name="HinhAnh" class="form-control-file" />
+    <div class="form-group mb-3">
+        <label class="form-label">Chọn Hình Ảnh Mới</label>
+        <input type="file" name="HinhAnh" class="form-control" />
     </div>
 
-    <div class="form-group">
-        <label>Danh Mục Hiện Tại</label>
-        <ul id="danhMucList">
+    <div class="form-group mb-3">
+        <label class="form-label">Danh Mục Hiện Tại</label>
+        <ul id="danhMucList" class="list-group">
             @if (ViewBag.DanhMucHienTai != null && ViewBag.DanhMucHienTai.Count > 0)
             {
                 @foreach (var danhMuc in ViewBag.DanhMucHienTai)
                 {
-                    <li>@danhMuc</li>
+                    <li class="list-group-item">@danhMuc</li>
                 }
             }
             else
             {
-                <li>Chưa có danh mục</li>
+                <li class="list-group-item">Chưa có danh mục</li>
             }
         </ul>
     </div>
 
-    <div class="form-group">
-        <label>Thêm Danh Mục</label>
+    <div class="form-group mb-3">
+        <label class="form-label">Thêm Danh Mục</label>
         <select id="maDanhMuc" class="form-control">
+            <option value="">Chọn danh mục</option>
             @foreach (var danhMuc in ViewBag.DanhMucs)
             {
                 <option value="@danhMuc.Value">@danhMuc.Text</option>
             }
         </select>
-        <button type="button" class="btn btn-primary mt-2" id="btnThemDanhMuc">Thêm</button>
+        <button type="button" class="btn btn-primary mt-2" id="btnThemDanhMuc">Thêm Danh Mục</button>
     </div>
 
-    <button type="submit" class="btn btn-success">Cập nhật</button>
+    <button type="submit" class="btn btn-success">Cập Nhật</button>
     <a asp-action="Index" class="btn btn-secondary">Hủy</a>
 </form>
 
-<script>
-    document.getElementById("btnThemDanhMuc").addEventListener("click", function () {
-        var maDanhMuc = document.getElementById("maDanhMuc").value;
-        var maHangHoa = @Model.MaHangHoa;
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
 
-        fetch('/HangHoa/Themdanhmuc', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: `maHangHoa=${maHangHoa}&maDanhMuc=${maDanhMuc}`
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    var danhMucList = document.getElementById("danhMucList");
-                    var newDanhMuc = document.createElement("li");
-                    newDanhMuc.textContent = data.tenDanhMuc;
-                    danhMucList.appendChild(newDanhMuc);
-                } else {
-                    alert("Lỗi khi thêm danh mục!");
-                }
-            });
-    });
-</script>
+    <script>
+        document.getElementById("btnThemDanhMuc").addEventListener("click", function () {
+            var maDanhMuc = document.getElementById("maDanhMuc").value;
+            var maHangHoa = @Model.MaHangHoa;
+
+            if (!maDanhMuc) {
+                alert("Vui lòng chọn một danh mục!");
+                return;
+            }
+
+            fetch('/HangHoa/Themdanhmuc', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `maHangHoa=${maHangHoa}&maDanhMuc=${maDanhMuc}`
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        var danhMucList = document.getElementById("danhMucList");
+                        // Xóa thông báo "Chưa có danh mục" nếu có
+                        if (danhMucList.querySelector("li").textContent === "Chưa có danh mục") {
+                            danhMucList.innerHTML = "";
+                        }
+                        var newDanhMuc = document.createElement("li");
+                        newDanhMuc.className = "list-group-item";
+                        newDanhMuc.textContent = data.tenDanhMuc;
+                        danhMucList.appendChild(newDanhMuc);
+                        // Reset dropdown về giá trị mặc định
+                        document.getElementById("maDanhMuc").value = "";
+                    } else {
+                        alert(data.message || "Lỗi khi thêm danh mục!");
+                    }
+                })
+                .catch(error => {
+                    alert("Đã xảy ra lỗi: " + error.message);
+                });
+        });
+    </script>
+}

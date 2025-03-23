@@ -1,31 +1,45 @@
 ﻿@model IEnumerable<CuaHangBanDoOnline.Models.DonHang>
 
-<h2>Danh sách đơn hàng</h2>
-<a asp-action="Create" class="btn btn-primary">Thêm đơn hàng</a>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Mã Đơn Hàng</th>
-            <th>Khách Hàng</th>
-            <th>Ngày Đặt</th>
-            <th>Trạng Thái</th>
-            <th>Hành động</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.MaDonHang</td>
-                <td>@item.NguoiDung</td>
-                <td>@item.NgayDatHang.ToString("dd/MM/yyyy")</td>
-                <td>@item.TrangThai</td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.MaDonHang" class="btn btn-info">Chi tiết</a>
-                    <a asp-action="Edit" asp-route-id="@item.MaDonHang" class="btn btn-warning">Sửa</a>
-                    <a asp-action="Delete" asp-route-id="@item.MaDonHang" class="btn btn-danger">Xóa</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="container my-4">
+    <h1 class="mb-4">Danh Sách Đơn Hàng</h1>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+
+    @if (Model.Any())
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Mã Đơn Hàng</th>
+                    <th>Ngày Đặt Hàng</th>
+                    <th>Trạng Thái</th>
+                    <th>Tổng Tiền</th>
+                    <th>Thao Tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var donHang in Model)
+                {
+                    <tr>
+                        <td>@donHang.MaDonHang</td>
+                        <td>@donHang.NgayDatHang.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@donHang.TrangThai</td>
+                        <td>@donHang.ChiTietDonHangs.Sum(ctdh => ctdh.GiaBan * ctdh.SoLuong).ToString("#,##0") VNĐ</td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@donHang.MaDonHang" class="btn btn-sm btn-primary">Chi tiết</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="text-muted">Bạn chưa có đơn hàng nào.</p>
+    }
+
+    <a asp-action="Index" asp-controller="Home" class="btn btn-secondary mt-3">Tiếp tục mua sắm</a>
+</div>

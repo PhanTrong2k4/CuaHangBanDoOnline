@@ -1,31 +1,52 @@
 ﻿@model IEnumerable<CuaHangBanDoOnline.Models.HangHoa>
 
-<h2>Danh sách hàng hóa</h2>
-<a asp-action="Create" class="btn btn-primary">Thêm hàng hóa</a>
+<h2>Danh Sách Sản Phẩm</h2>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
 <table class="table">
     <thead>
         <tr>
-            <th>Mã Hàng Hóa</th>
-            <th>Tên Hàng Hóa</th>
-            <th>Giá</th>
-            <th>Mô Tả</th>
-            <th>Hành động</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Giá Gốc</th>
+            <th>Giá Bán</th>
+            <th>Phần Trăm Giảm Giá</th>
+            <th>Thao Tác</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var hangHoa in Model)
         {
             <tr>
-                <td>@item.MaHangHoa</td>
-                <td>@item.TenHangHoa</td>
-                <td>@item.GiaBan.ToString("N0") VNĐ</td>
-                <td>@item.MoTa</td>
+                <td>@hangHoa.TenHangHoa</td>
+                <td>@hangHoa.GiaGoc.ToString("#,##0") VNĐ</td>
+                <td>@hangHoa.GiaBan.ToString("#,##0") VNĐ</td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.MaHangHoa" class="btn btn-info">Chi tiết</a>
-                    <a asp-action="Edit" asp-route-id="@item.MaHangHoa" class="btn btn-warning">Sửa</a>
-                    <a asp-action="Delete" asp-route-id="@item.MaHangHoa" class="btn btn-danger">Xóa</a>
+                    @if (ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] != null && (decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] > 0)
+                    {
+                        <span class="badge bg-danger"> -@((decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"])%</span>
+                    }
+                    else
+                    {
+                        <span>Không có giảm giá</span>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Detail" asp-route-id="@hangHoa.MaHangHoa" class="btn btn-info btn-sm">Chi Tiết</a>
+                    <a asp-action="Edit" asp-route-id="@hangHoa.MaHangHoa" class="btn btn-warning btn-sm">Sửa</a>
+                    <a asp-action="Delete" asp-route-id="@hangHoa.MaHangHoa" class="btn btn-danger btn-sm">Xóa</a>
+                    <a asp-action="ThemGiamGia" asp-route-id="@hangHoa.MaHangHoa" class="btn btn-primary btn-sm">Thêm Giảm Giá</a>
+                    <form asp-action="XoaGiamGia" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@hangHoa.MaHangHoa" />
+                        <button type="submit" class="btn btn-danger btn-sm">Xóa Giảm Giá</button>
+                    </form>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<a asp-action="Create" class="btn btn-success">Thêm Sản Phẩm</a>

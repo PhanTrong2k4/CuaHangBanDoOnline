@@ -19,6 +19,7 @@
     <None Include="Views\Home\contact.cshtml" />
     <None Include="Views\Home\detail.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\SanPham.cshtml" />
     <None Include="wwwroot\js\site.js" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />

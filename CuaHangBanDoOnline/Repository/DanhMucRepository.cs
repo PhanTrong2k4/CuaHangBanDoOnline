@@ -1,4 +1,5 @@
 ﻿using CuaHangBanDoOnline.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +14,23 @@ namespace CuaHangBanDoOnline.Repository
         {
             _context = context;
         }
-       
 
         public IEnumerable<DanhMuc> GetDanhMucs()
         {
-            return _context.DanhMucs.ToList();
+            return _context.DanhMucs
+                .Include(d => d.HangHoaDanhMucs)
+                .ThenInclude(hhdm => hhdm.HangHoa)
+                .ThenInclude(hh => hh.KhuyenMais)
+                .ToList();
         }
 
         public DanhMuc GetDanhMuc(int maDanhMuc)
         {
-            return _context.DanhMucs.Find(maDanhMuc);
+            return _context.DanhMucs
+                .Include(d => d.HangHoaDanhMucs)
+                .ThenInclude(hhdm => hhdm.HangHoa)
+                .ThenInclude(hh => hh.KhuyenMais)
+                .FirstOrDefault(d => d.MaDanhMuc == maDanhMuc);
         }
 
         public DanhMuc AddDanhMuc(DanhMuc danhMuc)
@@ -48,6 +56,21 @@ namespace CuaHangBanDoOnline.Repository
                 _context.SaveChanges();
             }
             return danhMuc;
+        }
+
+        public void HardDeleteDanhMuc(int maDanhMuc)
+        {
+            var danhMuc = _context.DanhMucs
+                .Include(d => d.HangHoaDanhMucs)
+                .FirstOrDefault(d => d.MaDanhMuc == maDanhMuc);
+            if (danhMuc != null)
+            {
+                // Xóa các bản ghi liên quan trong HangHoaDanhMuc
+                _context.HangHoaDanhMucs.RemoveRange(danhMuc.HangHoaDanhMucs);
+                // Xóa danh mục
+                _context.DanhMucs.Remove(danhMuc);
+                _context.SaveChanges();
+            }
         }
     }
 }

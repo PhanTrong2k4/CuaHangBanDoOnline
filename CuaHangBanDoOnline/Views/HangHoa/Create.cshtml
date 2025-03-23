@@ -1,33 +1,54 @@
 ﻿@model CuaHangBanDoOnline.Models.HangHoa
 
-<h2>Thêm hàng hóa</h2>
+<h2>Thêm Hàng Hóa</h2>
 
-<form asp-action="Create" enctype="multipart/form-data">
-    <div class="form-group">
-        <label>Tên Hàng Hóa</label>
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group mb-3">
+        <label asp-for="TenHangHoa" class="form-label"></label>
         <input asp-for="TenHangHoa" class="form-control" required />
+        <span asp-validation-for="TenHangHoa" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
-        <label>Giá</label>
-        <input asp-for="GiaBan" type="number" class="form-control" required />
+    <div class="form-group mb-3">
+        <label asp-for="GiaGoc" class="form-label"></label>
+        <input asp-for="GiaGoc" type="number" step="0.01" class="form-control" required />
+        <span asp-validation-for="GiaGoc" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
-        <label>Mô Tả</label>
-        <textarea asp-for="MoTa" class="form-control"></textarea>
-    </div>
-
-    <div class="form-group">
-        <label>Số lượng</label>
+    <div class="form-group mb-3">
+        <label asp-for="SoLuongTon" class="form-label"></label>
         <input asp-for="SoLuongTon" type="number" class="form-control" required />
+        <span asp-validation-for="SoLuongTon" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
-        <label>Hình ảnh</label>
-        <input type="file" name="HinhAnh" class="form-control" accept="image/*" required />
+    <div class="form-group mb-3">
+        <label asp-for="MoTa" class="form-label"></label>
+        <textarea asp-for="MoTa" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="MoTa" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label">Hình Ảnh</label>
+        <input type="file" name="HinhAnh" class="form-control" accept="image/*" />
+        <small class="form-text text-muted">Để trống nếu không muốn tải lên hình ảnh.</small>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="DanhMucIds" class="form-label">Danh Mục</label>
+        <select asp-for="DanhMucIds" asp-items="ViewBag.DanhMucs" class="form-control" multiple></select>
+        <small class="form-text text-muted">Giữ phím Ctrl để chọn nhiều danh mục.</small>
+        <span asp-validation-for="DanhMucIds" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Lưu</button>
     <a asp-action="Index" class="btn btn-secondary">Hủy</a>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

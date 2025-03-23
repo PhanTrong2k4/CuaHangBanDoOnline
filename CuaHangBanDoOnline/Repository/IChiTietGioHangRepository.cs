@@ -4,9 +4,11 @@ namespace CuaHangBanDoOnline.Repository
     public interface IChiTietGioHangRepository
     {
         IEnumerable<ChiTietGioHang> GetChiTietGioHangs();
-        ChiTietDonHang GetChiTietGioHang(int maChiTietGioHang);
-        ChiTietDonHang AddChiTietGioHang(ChiTietGioHang chiTietGioHang);
-        ChiTietDonHang UpdateChiTietGioHang(ChiTietGioHang chiTietGioHang);
-        ChiTietDonHang DeleteChiTietGioHang(int maChiTietGioHang);
+        IEnumerable<ChiTietGioHang> GetChiTietGioHangsByGioHangId(int maGioHang);
+        ChiTietGioHang GetChiTietGioHangByHangHoaId(int maGioHang, int maHangHoa);
+        ChiTietGioHang GetChiTietGioHang(int maChiTietGioHang);
+        ChiTietGioHang AddChiTietGioHang(ChiTietGioHang chiTietGioHang);
+        ChiTietGioHang UpdateChiTietGioHang(ChiTietGioHang chiTietGioHang);
+        void DeleteChiTietGioHang(int maChiTietGioHang);
     }
 }
