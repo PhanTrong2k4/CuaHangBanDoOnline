@@ -1,0 +1,210 @@
+﻿@model IEnumerable<CuaHangBanDoOnline.Models.Wishlist>
+
+@{
+    ViewData["Title"] = "Danh Sách Yêu Thích";
+}
+
+<!-- Breadcrumb -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="breadcrumb-item text-dark" asp-controller="Home" asp-action="Index">Trang Chủ</a>
+                <span class="breadcrumb-item active">Danh Sách Yêu Thích</span>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- Wishlist Start -->
+<div class="container-fluid">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+        <span class="bg-secondary pr-3">Danh Sách Yêu Thích</span>
+    </h2>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Success"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["Error"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+    }
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="row px-xl-5">
+            <div class="col-12">
+                <p class="text-center">Danh sách yêu thích của bạn đang trống.</p>
+                <div class="text-center">
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Tiếp Tục Mua Sắm</a>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row px-xl-5">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Hình Ảnh</th>
+                                <th>Tên Sản Phẩm</th>
+                                <th>Giá Bán</th>
+                                <th>Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @if (item.HangHoa != null && !string.IsNullOrEmpty(item.HangHoa.Hinh))
+                                        {
+                                            <img src="@item.HangHoa.Hinh" alt="@item.HangHoa.TenHangHoa" style="width: 100px; height: 100px;" />
+                                        }
+                                        else
+                                        {
+                                            <img src="/images/default-product.jpg" alt="Default Image" style="width: 100px; height: 100px;" />
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.HangHoa != null)
+                                        {
+                                            <a asp-controller="HangHoa" asp-action="Detail" asp-route-id="@item.HangHoa.MaHangHoa">
+                                                @item.HangHoa.TenHangHoa
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <span>Sản phẩm không tồn tại</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.HangHoa != null)
+                                        {
+                                            @item.HangHoa.GiaBan.ToString("N0") <span>VNĐ</span>
+                                        }
+                                        else
+                                        {
+                                            <span>N/A</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.HangHoa != null)
+                                        {
+                                            <a href="javascript:void(0)" data-id="@item.HangHoa.MaHangHoa" class="btn btn-primary btn-sm add-to-cart">
+                                                <i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
+                                            </a>
+                                            <a href="javascript:void(0)" data-id="@item.MaHangHoa" class="btn btn-danger btn-sm remove-from-wishlist">
+                                                <i class="fa fa-trash"></i> Xóa
+                                            </a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<!-- Wishlist End -->
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Xử lý xóa khỏi wishlist
+            $('.remove-from-wishlist').click(function (e) {
+                e.preventDefault();
+                var hangHoaId = $(this).data('id');
+                console.log('Xóa khỏi wishlist: hangHoaId=' + hangHoaId);
+                $.ajax({
+                    url: '/Wishlist/RemoveFromWishlistByHangHoaId',
+                    method: 'POST',
+                    data: { hangHoaId: hangHoaId },
+                    success: function (response) {
+                        console.log('RemoveFromWishlist response:', response);
+                        if (response.success) {
+                            location.reload();
+                            updateWishlistCount();
+                            toastr.success(response.message);
+                        } else {
+                            toastr.error(response.message);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Lỗi khi xóa khỏi wishlist:', error);
+                        toastr.error('Có lỗi xảy ra khi xóa sản phẩm khỏi danh sách yêu thích.');
+                    }
+                });
+            });
+
+            // Xử lý thêm vào giỏ hàng
+            $('.add-to-cart').click(function (e) {
+                e.preventDefault();
+                var hangHoaId = $(this).data('id');
+                console.log('Thêm vào giỏ hàng: hangHoaId=' + hangHoaId);
+                $.ajax({
+                    url: '/GioHang/AddToCart',
+                    method: 'POST',
+                    data: { id: hangHoaId },
+                    success: function (response) {
+                        console.log('AddToCart response:', response);
+                        if (response.success) {
+                            updateCartCount();
+                            toastr.success(response.message);
+                        } else {
+                            toastr.warning(response.message || 'Không thể thêm sản phẩm vào giỏ hàng.');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Lỗi khi thêm vào giỏ hàng:', error);
+                        toastr.error('Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.');
+                    }
+                });
+            });
+        });
+
+        function updateWishlistCount() {
+            $.ajax({
+                url: '/Wishlist/GetWishlistCount',
+                method: 'GET',
+                success: function (data) {
+                    console.log('Wishlist count updated:', data.count);
+                    $('.wishlist-count').text(data.count);
+                },
+                error: function () {
+                    console.error('Không thể cập nhật số lượng wishlist.');
+                }
+            });
+        }
+
+        function updateCartCount() {
+            $.ajax({
+                url: '/GioHang/GetCartCount',
+                method: 'GET',
+                success: function (data) {
+                    console.log('Cart count updated:', data.count);
+                    $('.cart-count').text(data.count);
+                },
+                error: function () {
+                    console.error('Không thể cập nhật số lượng giỏ hàng.');
+                }
+            });
+        }
+    </script>
+}

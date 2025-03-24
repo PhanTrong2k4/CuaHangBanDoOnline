@@ -88,13 +88,11 @@ namespace CuaHangBanDoOnline.Controllers
                     danhMuc.HangHoaDanhMucs = new List<HangHoaDanhMuc>();
                 }
 
-                // Lọc sản phẩm dựa trên các tham số (không cần category vì đã có id, không cần discount)
                 var filteredHangHoas = _hangHoaRepository.GetHangHoasFiltered(search, null, priceRange, null, null, sortBy)
                     .Where(hh => hh.HangHoaDanhMucs.Any(hdm => hdm.MaDanhMuc == id))
                     .Select(hh => new HangHoaDanhMuc { HangHoa = hh })
                     .ToList();
 
-                // Phân trang (giả sử 12 sản phẩm mỗi trang)
                 const int pageSize = 12;
                 var pagedHangHoas = filteredHangHoas.Skip((page - 1) * pageSize).Take(pageSize).ToList();
                 danhMuc.HangHoaDanhMucs = pagedHangHoas;

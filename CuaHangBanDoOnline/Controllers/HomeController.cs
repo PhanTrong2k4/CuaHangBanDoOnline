@@ -1,6 +1,7 @@
 ﻿using CuaHangBanDoOnline.Models;
 using CuaHangBanDoOnline.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -8,13 +9,20 @@ using System.Linq;
 
 namespace CuaHangBanDoOnline.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly IHangHoaRepository _hangHoaRepository;
         private readonly IDanhMucRepository _danhMucRepository;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(IHangHoaRepository hangHoaRepository, IDanhMucRepository danhMucRepository, ILogger<HomeController> logger)
+        public HomeController(
+            IHangHoaRepository hangHoaRepository,
+            IDanhMucRepository danhMucRepository,
+            ILogger<HomeController> logger,
+            IWishlistRepository wishlistRepository,
+            IGioHangRepository gioHangRepository,
+            IMemoryCache memoryCache)
+            : base(wishlistRepository, gioHangRepository, memoryCache)
         {
             _hangHoaRepository = hangHoaRepository;
             _danhMucRepository = danhMucRepository;
@@ -93,6 +101,7 @@ namespace CuaHangBanDoOnline.Controllers
                 return View(new List<DanhMuc>());
             }
         }
+
         public IActionResult SanPhamTheoDanhMuc(int id, string search, string priceRange, string sortBy, int page = 1)
         {
             try
@@ -159,5 +168,4 @@ namespace CuaHangBanDoOnline.Controllers
             }
         }
     }
-    
 }

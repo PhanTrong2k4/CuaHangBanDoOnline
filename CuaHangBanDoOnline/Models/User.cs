@@ -11,5 +11,6 @@
         public int MaVaiTro { get; set; } // Khóa ngoại đến bảng Vai trò
         public Role VaiTro { get; set; } = null!; // Thuộc tính điều hướng
         public ICollection<DonHang> DonHangs { get; set; } = new List<DonHang>();
+        public ICollection<Wishlist> Wishlists { get; set; } = new List<Wishlist>();
     }
 }

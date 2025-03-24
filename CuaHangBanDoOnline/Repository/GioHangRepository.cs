@@ -14,40 +14,99 @@ namespace CuaHangBanDoOnline.Repository
 
         public GioHang GetGioHangByUserId(int maNguoiDung)
         {
-            return _context.GioHangs
-                .Include(gh => gh.ChiTietGioHangs)
-                .ThenInclude(ctgh => ctgh.HangHoa)
-                .FirstOrDefault(gh => gh.MaNguoiDung == maNguoiDung);
+            try
+            {
+                var gioHang = _context.GioHangs
+                    .Include(g => g.ChiTietGioHangs)
+                    .ThenInclude(c => c.HangHoa)
+                    .FirstOrDefault(g => g.MaNguoiDung == maNguoiDung);
+                if (gioHang != null && gioHang.ChiTietGioHangs == null)
+                {
+                    gioHang.ChiTietGioHangs = new List<ChiTietGioHang>();
+                }
+                Console.WriteLine($"GetGioHangByUserId: MaNguoiDung={maNguoiDung}, Found={gioHang != null}, ChiTietCount={(gioHang != null ? gioHang.ChiTietGioHangs.Count : 0)}");
+                return gioHang;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi trong GetGioHangByUserId: {ex.Message}");
+                return null;
+            }
+        }
+
+        public int GetCartCountByUserId(int maNguoiDung)
+        {
+            try
+            {
+                var gioHang = _context.GioHangs
+                    .Include(g => g.ChiTietGioHangs)
+                    .FirstOrDefault(g => g.MaNguoiDung == maNguoiDung);
+                int count = gioHang != null && gioHang.ChiTietGioHangs != null
+                    ? gioHang.ChiTietGioHangs.Sum(item => item.SoLuong)
+                    : 0;
+                Console.WriteLine($"GetCartCountByUserId: MaNguoiDung={maNguoiDung}, Count={count}");
+                return count;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi trong GetCartCountByUserId: {ex.Message}");
+                return 0;
+            }
         }
 
         public GioHang CreateGioHang(int maNguoiDung)
         {
-            var gioHang = new GioHang
+            try
             {
-                MaNguoiDung = maNguoiDung,
-                ChiTietGioHangs = new List<ChiTietGioHang>()
-            };
-            _context.GioHangs.Add(gioHang);
-            _context.SaveChanges();
-            return gioHang;
+                var gioHang = new GioHang
+                {
+                    MaNguoiDung = maNguoiDung,
+                    ChiTietGioHangs = new List<ChiTietGioHang>()
+                };
+                _context.GioHangs.Add(gioHang);
+                _context.SaveChanges();
+                Console.WriteLine($"CreateGioHang: MaNguoiDung={maNguoiDung}, MaGioHang={gioHang.MaGioHang}");
+                return gioHang;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi trong CreateGioHang: {ex.Message}");
+                return null;
+            }
         }
 
         public void UpdateGioHang(GioHang gioHang)
         {
-            _context.GioHangs.Update(gioHang);
-            _context.SaveChanges();
+            try
+            {
+                _context.GioHangs.Update(gioHang);
+                int changes = _context.SaveChanges();
+                Console.WriteLine($"UpdateGioHang: MaGioHang={gioHang.MaGioHang}, Changes={changes}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi trong UpdateGioHang: {ex.Message}");
+            }
         }
 
         public void DeleteGioHang(int maGioHang)
         {
-            var gioHang = _context.GioHangs
-                .Include(gh => gh.ChiTietGioHangs)
-                .FirstOrDefault(gh => gh.MaGioHang == maGioHang);
-            if (gioHang != null)
+            try
             {
-                _context.ChiTietGioHangs.RemoveRange(gioHang.ChiTietGioHangs);
-                _context.GioHangs.Remove(gioHang);
-                _context.SaveChanges();
+                var gioHang = _context.GioHangs
+                    .Include(g => g.ChiTietGioHangs)
+                    .FirstOrDefault(g => g.MaGioHang == maGioHang);
+                if (gioHang != null)
+                {
+                    _context.ChiTietGioHangs.RemoveRange(gioHang.ChiTietGioHangs);
+                    _context.GioHangs.Remove(gioHang);
+                    int changes = _context.SaveChanges();
+                    Console.WriteLine($"DeleteGioHang: MaGioHang={maGioHang}, Changes={changes}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi trong DeleteGioHang: {ex.Message}");
             }
         }
     }

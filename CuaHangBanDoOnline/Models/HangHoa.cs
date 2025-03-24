@@ -37,5 +37,6 @@ namespace CuaHangBanDoOnline.Models
 
         [NotMapped]
         public List<int> DanhMucIds { get; set; } = new List<int>();
+        public ICollection<Wishlist> Wishlists { get; set; } = new List<Wishlist>();
     }
 }

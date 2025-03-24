@@ -1,0 +1,127 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = CuaHangBanDoOnline
+build_property.RootNamespace = CuaHangBanDoOnline
+build_property.ProjectDir = C:\Users\ADMIN\Desktop\WEBASP.NET\CuaHangBanDoOnline\CuaHangBanDoOnline\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\ADMIN\Desktop\WEBASP.NET\CuaHangBanDoOnline\CuaHangBanDoOnline
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/DanhMuc/ChiTietDanhMuc.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFuaE11Y1xDaGlUaWV0RGFuaE11Yy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/DanhMuc/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFuaE11Y1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/DanhMuc/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFuaE11Y1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/DanhMuc/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFuaE11Y1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/DanhMuc/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFuaE11Y1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/DanhMuc/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFuaE11Y1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/DonHang/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uSGFuZ1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/DonHang/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uSGFuZ1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/DonHang/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uSGFuZ1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/DonHang/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uSGFuZ1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/DonHang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uSGFuZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/GioHang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lvSGFuZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/HangHoa/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuZ0hvYVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/HangHoa/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuZ0hvYVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/HangHoa/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuZ0hvYVxEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/HangHoa/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuZ0hvYVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/HangHoa/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuZ0hvYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/HangHoa/ThemGiamGia.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuZ0hvYVxUaGVtR2lhbUdpYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/Home/SanPham.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTYW5QaGFtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/Wishlist/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2lzaGxpc3RcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/WEBASP.NET/CuaHangBanDoOnline/CuaHangBanDoOnline/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-t4lzphcas7

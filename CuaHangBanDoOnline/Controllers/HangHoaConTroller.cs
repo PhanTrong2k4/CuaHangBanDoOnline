@@ -28,16 +28,16 @@ namespace CuaHangBanDoOnline.Controllers
 
                 if (khuyenMai != null)
                 {
-                    // Tính giá đã giảm dựa trên khuyến mãi
+                    
                     hangHoa.GiaBan = hangHoa.GiaGoc * (1 - khuyenMai.PhanTramGiamGia / 100);
                     ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] = khuyenMai.PhanTramGiamGia;
                 }
                 else
                 {
-                    // Giữ nguyên GiaBan từ cơ sở dữ liệu, không đặt lại bằng GiaGoc
+                   
                     if (hangHoa.GiaBan < hangHoa.GiaGoc)
                     {
-                        // Tính phần trăm giảm giá dựa trên GiaBan và GiaGoc
+                        
                         decimal phanTramGiamGia = ((hangHoa.GiaGoc - hangHoa.GiaBan) / hangHoa.GiaGoc) * 100;
                         ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] = phanTramGiamGia;
                     }
@@ -56,29 +56,29 @@ namespace CuaHangBanDoOnline.Controllers
             var hangHoa = _repository.GetHangHoa(id);
             if (hangHoa == null) return NotFound();
 
-            // Tính giá đã giảm và phần trăm giảm giá
+            
             var currentDate = DateTime.Now;
             var khuyenMai = hangHoa.KhuyenMais
                 ?.FirstOrDefault(km => km.NgayBatDau <= currentDate && km.NgayKetThuc >= currentDate);
 
             if (khuyenMai != null)
             {
-                // Có khuyến mãi hợp lệ, tính giá đã giảm dựa trên khuyến mãi
+                
                 hangHoa.GiaBan = hangHoa.GiaGoc * (1 - khuyenMai.PhanTramGiamGia / 100);
                 ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] = khuyenMai.PhanTramGiamGia;
             }
             else
             {
-                // Không có khuyến mãi hợp lệ, kiểm tra xem GiaBan có nhỏ hơn GiaGoc không
+                
                 if (hangHoa.GiaBan < hangHoa.GiaGoc)
                 {
-                    // Nếu GiaBan nhỏ hơn GiaGoc, tính phần trăm giảm giá dựa trên GiaBan và GiaGoc
+                    
                     decimal phanTramGiamGia = ((hangHoa.GiaGoc - hangHoa.GiaBan) / hangHoa.GiaGoc) * 100;
                     ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] = phanTramGiamGia;
                 }
                 else
                 {
-                    // Nếu không có giảm giá, đặt phần trăm giảm giá là 0
+                    
                     ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] = 0m;
                 }
             }
@@ -114,7 +114,6 @@ namespace CuaHangBanDoOnline.Controllers
             var hangHoa = _repository.GetHangHoa(id);
             if (hangHoa == null) return NotFound();
 
-            // Lấy danh sách tên danh mục hiện tại của sản phẩm
             var danhMucHienTai = hangHoa.HangHoaDanhMucs?
                 .Select(hdm => hdm.DanhMuc.TenDanhMuc)
                 .ToList();
@@ -147,21 +146,17 @@ namespace CuaHangBanDoOnline.Controllers
 
             if (ModelState.IsValid)
             {
-                // Lấy thông tin hàng hóa hiện tại từ repository
                 var existingHangHoa = _repository.GetHangHoa(id);
                 if (existingHangHoa == null) return NotFound();
 
-                // Cập nhật các thuộc tính từ form
                 existingHangHoa.TenHangHoa = hangHoa.TenHangHoa;
                 existingHangHoa.GiaGoc = hangHoa.GiaGoc;
-                existingHangHoa.GiaBan = hangHoa.GiaBan; // Giá bán có thể đã được cập nhật từ giảm giá
+                existingHangHoa.GiaBan = hangHoa.GiaBan; 
                 existingHangHoa.MoTa = hangHoa.MoTa;
                 existingHangHoa.SoLuongTon = hangHoa.SoLuongTon;
 
-                // Xử lý hình ảnh mới nếu có
                 if (HinhAnh != null && HinhAnh.Length > 0)
                 {
-                    // Xóa ảnh cũ nếu tồn tại
                     if (!string.IsNullOrEmpty(existingHangHoa.Hinh))
                     {
                         var oldImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", existingHangHoa.Hinh.TrimStart('/'));
@@ -171,7 +166,6 @@ namespace CuaHangBanDoOnline.Controllers
                         }
                     }
 
-                    // Lưu ảnh mới
                     var fileName = Path.GetFileName(HinhAnh.FileName);
                     var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
                     using (var stream = new FileStream(filePath, FileMode.Create))
@@ -185,7 +179,6 @@ namespace CuaHangBanDoOnline.Controllers
                 return RedirectToAction("Index");
             }
 
-            // Nếu ModelState không hợp lệ, trả lại View với dữ liệu cần thiết
             var danhMucHienTai = hangHoa.HangHoaDanhMucs?
                 .Select(hdm => hdm.DanhMuc.TenDanhMuc)
                 .ToList();
@@ -208,7 +201,6 @@ namespace CuaHangBanDoOnline.Controllers
             return RedirectToAction("Index");
         }
 
-        // Action để hiển thị form thêm giảm giá
         [HttpGet]
         public IActionResult ThemGiamGia(int id)
         {
@@ -218,8 +210,6 @@ namespace CuaHangBanDoOnline.Controllers
             ViewBag.HangHoa = hangHoa;
             return View();
         }
-
-        // Action để xử lý thêm giảm giá
         [HttpPost]
         public IActionResult ThemGiamGia(int id, decimal phanTramGiamGia, DateTime ngayBatDau, DateTime ngayKetThuc)
         {
@@ -237,7 +227,6 @@ namespace CuaHangBanDoOnline.Controllers
             }
         }
 
-        // Action để xóa giảm giá
         [HttpPost]
         public IActionResult XoaGiamGia(int id)
         {

@@ -310,6 +310,29 @@ namespace CuaHangBanDoOnline.Migrations
                     b.ToTable("NguoiDungs");
                 });
 
+            modelBuilder.Entity("CuaHangBanDoOnline.Models.Wishlist", b =>
+                {
+                    b.Property<int>("MaWishlist")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaWishlist"));
+
+                    b.Property<int>("MaHangHoa")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MaNguoiDung")
+                        .HasColumnType("int");
+
+                    b.HasKey("MaWishlist");
+
+                    b.HasIndex("MaHangHoa");
+
+                    b.HasIndex("MaNguoiDung");
+
+                    b.ToTable("Wishlists");
+                });
+
             modelBuilder.Entity("CuaHangBanDoOnline.Models.VaiTroChuCuaHang", b =>
                 {
                     b.HasBaseType("CuaHangBanDoOnline.Models.Role");
@@ -480,6 +503,25 @@ namespace CuaHangBanDoOnline.Migrations
                     b.Navigation("VaiTro");
                 });
 
+            modelBuilder.Entity("CuaHangBanDoOnline.Models.Wishlist", b =>
+                {
+                    b.HasOne("CuaHangBanDoOnline.Models.HangHoa", "HangHoa")
+                        .WithMany("Wishlists")
+                        .HasForeignKey("MaHangHoa")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CuaHangBanDoOnline.Models.User", "NguoiDung")
+                        .WithMany("Wishlists")
+                        .HasForeignKey("MaNguoiDung")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("HangHoa");
+
+                    b.Navigation("NguoiDung");
+                });
+
             modelBuilder.Entity("CuaHangBanDoOnline.Models.VaiTroChuCuaHang", b =>
                 {
                     b.HasOne("CuaHangBanDoOnline.Models.Role", null)
@@ -536,11 +578,15 @@ namespace CuaHangBanDoOnline.Migrations
                     b.Navigation("HangHoaDanhMucs");
 
                     b.Navigation("KhuyenMais");
+
+                    b.Navigation("Wishlists");
                 });
 
             modelBuilder.Entity("CuaHangBanDoOnline.Models.User", b =>
                 {
                     b.Navigation("DonHangs");
+
+                    b.Navigation("Wishlists");
                 });
 #pragma warning restore 612, 618
         }

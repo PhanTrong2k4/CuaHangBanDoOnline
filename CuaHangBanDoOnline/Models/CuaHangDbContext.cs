@@ -13,7 +13,7 @@ namespace CuaHangBanDoOnline.Models
         public DbSet<HangHoa> HangHoas { get; set; }
         public DbSet<DanhMuc> DanhMucs { get; set; }
         public DbSet<DonHang> DonHangs { get; set; }
-     
+        public DbSet<Wishlist> Wishlists { get; set; }
         public DbSet<ThanhToan> ThanhToans { get; set; }
         public DbSet<GioHang> GioHangs { get; set; }
         public DbSet<ChiTietGioHang> ChiTietGioHangs { get; set; }
@@ -139,6 +139,18 @@ namespace CuaHangBanDoOnline.Models
                 .WithMany()
                 .HasForeignKey(km => km.MaHangHoa);
 
+            modelBuilder.Entity<Wishlist>()
+                .HasOne(w => w.HangHoa)
+                .WithMany(h => h.Wishlists) // Assuming HangHoa has a collection of Wishlists
+                .HasForeignKey(w => w.MaHangHoa)
+                .OnDelete(DeleteBehavior.Cascade); // Optional: Cascade delete if a HangHoa is deleted
+
+            // Configure Wishlist -> NguoiDung relationship
+            modelBuilder.Entity<Wishlist>()
+                .HasOne(w => w.NguoiDung)
+                .WithMany(n => n.Wishlists) // Assuming NguoiDung has a collection of Wishlists
+                .HasForeignKey(w => w.MaNguoiDung)
+                .OnDelete(DeleteBehavior.Cascade); // Optio
             // Cấu hình các lớp kế thừa
             modelBuilder.Entity<VaiTroChuCuaHang>().ToTable("VaiTroChuCuaHang");
             modelBuilder.Entity<VaiTroQuanLy>().ToTable("VaiTroQuanLy");

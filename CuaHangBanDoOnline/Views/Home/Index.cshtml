@@ -39,31 +39,31 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item position-relative active" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="img/carousel-1.jpg" style="object-fit: cover;">
+                            <img class="position-absolute w-100 h-100" src="images/thantrung.jpg" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Men Fashion</h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">THẦN TRÙNG</h1>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn"></p>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="https://localhost:7140/HangHoa/Detail/5">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item position-relative" style="height: 430px;">
+                            <img class="position-absolute w-100 h-100" src="images/csgo2.jpeg" style="object-fit: cover;">
+                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                <div class="p-3" style="max-width: 700px;">
+                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">CSGO 2</h1>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn"></p>
                                     <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
                                 </div>
                             </div>
                         </div>
                         <div class="carousel-item position-relative" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="img/carousel-2.jpg" style="object-fit: cover;">
+                            <img class="position-absolute w-100 h-100" src="images/stardewvalley.jpeg" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Women Fashion</h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item position-relative" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="img/carousel-3.jpg" style="object-fit: cover;">
-                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                                <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Kids Fashion</h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"> STARDEW VALLEY</h1>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn"></p>
                                     <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
                                 </div>
                             </div>
@@ -211,7 +211,9 @@
                                 <img class="img-fluid w-100" src="@(string.IsNullOrEmpty(hangHoa.Hinh) ? "/images/default-product.jpg" : hangHoa.Hinh)" alt="@hangHoa.TenHangHoa">
                                 <div class="product-action">
                                     <a class="btn btn-outline-dark btn-square" href="@Url.Action("AddToCart", "GioHang", new { id = hangHoa.MaHangHoa })"><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square wishlist-btn" data-id="@hangHoa.MaHangHoa" href="javascript:void(0)" onclick="toggleWishlist(@hangHoa.MaHangHoa, this)">
+                                        <i class="far fa-heart"></i>
+                                    </a>
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
                                     <a class="btn btn-outline-dark btn-square" href="@Url.Action("Detail", "HangHoa", new { id = hangHoa.MaHangHoa })"><i class="fa fa-search"></i></a>
                                 </div>
@@ -219,7 +221,6 @@
                             <div class="text-center py-4">
                                 <a class="h6 text-decoration-none text-truncate" href="@Url.Action("Detail", "HangHoa", new { id = hangHoa.MaHangHoa })">@hangHoa.TenHangHoa</a>
                                 <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <!-- Hiển thị giá gốc và giá đã giảm -->
                                     @if (ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] != null && (decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] > 0)
                                     {
                                         <h5 class="text-muted text-decoration-line-through me-2">@hangHoa.GiaGoc.ToString("#,##0") VNĐ</h5>
@@ -249,7 +250,6 @@
                 <p class="text-muted">Không có sản phẩm nào.</p>
             }
         </div>
-
         <!-- Phân trang -->
         @if (ViewBag.TotalPages > 1)
         {
@@ -423,5 +423,103 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    @section Scripts {
+        <script>
+            // Kiểm tra trạng thái wishlist khi trang được tải
+            function checkWishlistStatus() {
+                $('.wishlist-btn').each(function () {
+                    var hangHoaId = $(this).data('id');
+                    $.ajax({
+                        url: '/Wishlist/CheckWishlistStatus',
+                        method: 'GET',
+                        data: { id: hangHoaId },
+                        success: function (response) {
+                            if (response.isInWishlist) {
+                                $(this).find('i').removeClass('far').addClass('fas');
+                            }
+                        }
+                    });
+                });
+            }
+
+            function toggleWishlist(hangHoaId, element) {
+                var icon = $(element).find('i');
+                var isInWishlist = icon.hasClass('fas');
+
+                if (isInWishlist) {
+                    // Xóa khỏi wishlist
+                    $.ajax({
+                        url: '/Wishlist/RemoveFromWishlistByHangHoaId',
+                        method: 'POST',
+                        data: { hangHoaId: hangHoaId },
+                        success: function (response) {
+                            if (response.success) {
+                                icon.removeClass('fas').addClass('far');
+                                updateWishlistCount();
+                                toastr.success(response.message);
+                            } else {
+                                toastr.error(response.message);
+                            }
+                        },
+                        error: function () {
+                            toastr.error('Có lỗi xảy ra khi xóa sản phẩm khỏi danh sách yêu thích.');
+                        }
+                    });
+                } else {
+                    // Thêm vào wishlist
+                    $.ajax({
+                        url: '/Wishlist/AddToWishlist',
+                        method: 'POST',
+                        data: { id: hangHoaId },
+                        success: function (response) {
+                            if (response.success) {
+                                icon.removeClass('far').addClass('fas');
+                                updateWishlistCount();
+                                toastr.success(response.message);
+                            } else {
+                                toastr.warning(response.message);
+                            }
+                        },
+                        error: function () {
+                            toastr.error('Có lỗi xảy ra khi thêm sản phẩm vào danh sách yêu thích.');
+                        }
+                    });
+                }
+            }
+
+            function updateWishlistCount() {
+                $.ajax({
+                    url: '/Wishlist/GetWishlistCount',
+                    method: 'GET',
+                    success: function (data) {
+                        $('.wishlist-count').text(data.count);
+                    },
+                    error: function () {
+                        console.error('Không thể cập nhật số lượng wishlist.');
+                    }
+                });
+            }
+
+            function updateCartCount() {
+                $.ajax({
+                    url: '/GioHang/GetCartCount',
+                    method: 'GET',
+                    success: function (data) {
+                        $('.cart-count').text(data.count);
+                    },
+                    error: function () {
+                        console.error('Không thể cập nhật số lượng giỏ hàng.');
+                    }
+                });
+            }
+
+            $(document).ready(function () {
+                updateWishlistCount();
+                updateCartCount();
+                checkWishlistStatus(); // Kiểm tra trạng thái wishlist khi tải trang
+            });
+        </script>
+    }
+    }
 </body>
 </html>
