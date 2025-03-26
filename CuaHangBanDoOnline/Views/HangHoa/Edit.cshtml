@@ -8,6 +8,7 @@
 }
 
 <form asp-action="Edit" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
     <input type="hidden" asp-for="MaHangHoa" />
 
     <div class="form-group mb-3">
@@ -63,9 +64,12 @@
         <ul id="danhMucList" class="list-group">
             @if (ViewBag.DanhMucHienTai != null && ViewBag.DanhMucHienTai.Count > 0)
             {
-                @foreach (var danhMuc in ViewBag.DanhMucHienTai)
+                @foreach (var danhMuc in (List<(int MaDanhMuc, string TenDanhMuc)>)ViewBag.DanhMucHienTai)
                 {
-                    <li class="list-group-item">@danhMuc</li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center" data-ma-danh-muc="@danhMuc.MaDanhMuc">
+                        @danhMuc.TenDanhMuc
+                        <button type="button" class="btn btn-danger btn-sm btn-xoa-danh-muc">Xóa</button>
+                    </li>
                 }
             }
             else
@@ -95,12 +99,14 @@
     <partial name="_ValidationScriptsPartial" />
 
     <script>
+        // Add category
         document.getElementById("btnThemDanhMuc").addEventListener("click", function () {
             var maDanhMuc = document.getElementById("maDanhMuc").value;
             var maHangHoa = @Model.MaHangHoa;
+            var token = document.getElementsByName("__RequestVerificationToken")[0].value;
 
             if (!maDanhMuc) {
-                alert("Vui lòng chọn một danh mục!");
+                toastr.error("Vui lòng chọn một danh mục!");
                 return;
             }
 
@@ -109,29 +115,89 @@
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                body: `maHangHoa=${maHangHoa}&maDanhMuc=${maDanhMuc}`
+                body: `maHangHoa=${maHangHoa}&maDanhMuc=${maDanhMuc}&__RequestVerificationToken=${token}`
             })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     if (data.success) {
                         var danhMucList = document.getElementById("danhMucList");
-                        // Xóa thông báo "Chưa có danh mục" nếu có
+                        // Remove "Chưa có danh mục" message if present
                         if (danhMucList.querySelector("li").textContent === "Chưa có danh mục") {
                             danhMucList.innerHTML = "";
                         }
                         var newDanhMuc = document.createElement("li");
-                        newDanhMuc.className = "list-group-item";
-                        newDanhMuc.textContent = data.tenDanhMuc;
+                        newDanhMuc.className = "list-group-item d-flex justify-content-between align-items-center";
+                        newDanhMuc.setAttribute("data-ma-danh-muc", maDanhMuc);
+                        newDanhMuc.innerHTML = `${data.tenDanhMuc} <button type="button" class="btn btn-danger btn-sm btn-xoa-danh-muc">Xóa</button>`;
                         danhMucList.appendChild(newDanhMuc);
-                        // Reset dropdown về giá trị mặc định
+                        // Reset dropdown to default value
                         document.getElementById("maDanhMuc").value = "";
+                        // Add event listener to the new remove button
+                        newDanhMuc.querySelector(".btn-xoa-danh-muc").addEventListener("click", removeDanhMuc);
+                        // Show success message with Toastr
+                        toastr.success(data.message);
                     } else {
-                        alert(data.message || "Lỗi khi thêm danh mục!");
+                        toastr.error(data.message || "Lỗi khi thêm danh mục!");
                     }
                 })
                 .catch(error => {
-                    alert("Đã xảy ra lỗi: " + error.message);
+                    console.error("Error:", error);
+                    toastr.error("Đã xảy ra lỗi: " + error.message);
                 });
+        });
+
+        // Remove category
+        function removeDanhMuc(event) {
+            var liElement = event.target.closest("li");
+            var maDanhMuc = liElement.getAttribute("data-ma-danh-muc");
+            var maHangHoa = @Model.MaHangHoa;
+            var token = document.getElementsByName("__RequestVerificationToken")[0].value;
+
+            if (!maDanhMuc) {
+                toastr.error("Không thể xác định danh mục để xóa!");
+                return;
+            }
+
+            fetch('/HangHoa/XoaDanhMuc', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `maHangHoa=${maHangHoa}&maDanhMuc=${maDanhMuc}&__RequestVerificationToken=${token}`
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        liElement.remove();
+                        // If no categories left, show "Chưa có danh mục"
+                        var danhMucList = document.getElementById("danhMucList");
+                        if (danhMucList.children.length === 0) {
+                            danhMucList.innerHTML = '<li class="list-group-item">Chưa có danh mục</li>';
+                        }
+                        toastr.success(data.message);
+                    } else {
+                        toastr.error(data.message || "Lỗi khi xóa danh mục!");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    toastr.error("Đã xảy ra lỗi: " + error.message);
+                });
+        }
+
+        // Attach event listeners to existing remove buttons
+        document.querySelectorAll(".btn-xoa-danh-muc").forEach(button => {
+            button.addEventListener("click", removeDanhMuc);
         });
     </script>
 }

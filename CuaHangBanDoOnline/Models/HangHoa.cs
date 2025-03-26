@@ -14,7 +14,7 @@ namespace CuaHangBanDoOnline.Models
 
         [Required(ErrorMessage = "Giá gốc là bắt buộc")]
         [Range(0, double.MaxValue, ErrorMessage = "Giá gốc phải lớn hơn hoặc bằng 0")]
-        public decimal GiaGoc { get; set; } // Thêm thuộc tính GiaGoc
+        public decimal GiaGoc { get; set; }
 
         [Required(ErrorMessage = "Giá bán là bắt buộc")]
         [Range(0, double.MaxValue, ErrorMessage = "Giá bán phải lớn hơn hoặc bằng 0")]
@@ -37,6 +37,10 @@ namespace CuaHangBanDoOnline.Models
 
         [NotMapped]
         public List<int> DanhMucIds { get; set; } = new List<int>();
+
         public ICollection<Wishlist> Wishlists { get; set; } = new List<Wishlist>();
+
+        // Thêm thuộc tính mới (không bắt buộc, mặc định là 0)
+        public int SoLuongBan { get; set; } = 0; // Số lượng sản phẩm đã bán
     }
 }

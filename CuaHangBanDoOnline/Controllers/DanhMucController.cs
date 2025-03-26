@@ -58,12 +58,11 @@ namespace CuaHangBanDoOnline.Controllers
             try
             {
                 var danhMuc = _danhMucRepository.GetDanhMuc(id);
-                if (danhMuc == null)
+                if (danhMuc == null || danhMuc.TenDanhMuc == "Đã xóa")
                 {
                     return NotFound();
                 }
 
-                // Sử dụng view ChiTietDanhMuc để hiển thị chi tiết danh mục
                 return View("ChiTietDanhMuc", danhMuc);
             }
             catch (Exception ex)
@@ -78,7 +77,7 @@ namespace CuaHangBanDoOnline.Controllers
             try
             {
                 var danhMuc = _danhMucRepository.GetDanhMuc(id);
-                if (danhMuc == null)
+                if (danhMuc == null || danhMuc.TenDanhMuc == "Đã xóa")
                 {
                     return NotFound();
                 }
@@ -92,6 +91,36 @@ namespace CuaHangBanDoOnline.Controllers
                     .Where(hh => hh.HangHoaDanhMucs.Any(hdm => hdm.MaDanhMuc == id))
                     .Select(hh => new HangHoaDanhMuc { HangHoa = hh })
                     .ToList();
+
+                var currentDate = DateTime.Now;
+                foreach (var hangHoaDanhMuc in filteredHangHoas)
+                {
+                    var hangHoa = hangHoaDanhMuc.HangHoa;
+
+                    decimal khuyenMaiGiamGia = 0m;
+                    var khuyenMai = hangHoa.KhuyenMais
+                        ?.FirstOrDefault(km => km.NgayBatDau <= currentDate && km.NgayKetThuc >= currentDate);
+
+                    if (khuyenMai != null)
+                    {
+                        khuyenMaiGiamGia = khuyenMai.PhanTramGiamGia;
+                    }
+
+                    decimal danhMucGiamGia = danhMuc.PhanTramGiamGia;
+                    decimal phanTramGiamGia = Math.Max(khuyenMaiGiamGia, danhMucGiamGia);
+                    if (phanTramGiamGia > 0)
+                    {
+                        hangHoa.GiaBan = hangHoa.GiaGoc * (1 - phanTramGiamGia / 100);
+                        ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] = phanTramGiamGia;
+                        ViewData[$"NguonGiamGia_{hangHoa.MaHangHoa}"] = khuyenMaiGiamGia > danhMucGiamGia ? "KhuyenMai" : "DanhMuc";
+                    }
+                    else
+                    {
+                        hangHoa.GiaBan = hangHoa.GiaGoc;
+                        ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] = 0m;
+                        ViewData[$"NguonGiamGia_{hangHoa.MaHangHoa}"] = "None";
+                    }
+                }
 
                 const int pageSize = 12;
                 var pagedHangHoas = filteredHangHoas.Skip((page - 1) * pageSize).Take(pageSize).ToList();
@@ -140,7 +169,7 @@ namespace CuaHangBanDoOnline.Controllers
         public IActionResult Edit(int id)
         {
             var danhMuc = _danhMucRepository.GetDanhMuc(id);
-            if (danhMuc == null)
+            if (danhMuc == null || danhMuc.TenDanhMuc == "Đã xóa")
             {
                 TempData["Error"] = "Không tìm thấy danh mục.";
                 return RedirectToAction("Index");
@@ -175,7 +204,7 @@ namespace CuaHangBanDoOnline.Controllers
         public IActionResult Delete(int id)
         {
             var danhMuc = _danhMucRepository.GetDanhMuc(id);
-            if (danhMuc == null)
+            if (danhMuc == null || danhMuc.TenDanhMuc == "Đã xóa")
             {
                 TempData["Error"] = "Không tìm thấy danh mục.";
                 return RedirectToAction("Index");
@@ -183,13 +212,22 @@ namespace CuaHangBanDoOnline.Controllers
             return View(danhMuc);
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
             try
             {
-                _danhMucRepository.DeleteDanhMuc(id);
-                TempData["Success"] = "Xóa danh mục thành công!";
+                var danhMuc = _danhMucRepository.DeleteDanhMuc(id);
+                if (danhMuc != null)
+                {
+                    TempData["Success"] = "Danh mục đã được đánh dấu là 'Đã xóa'.";
+                }
+                else
+                {
+                    TempData["Error"] = "Không tìm thấy danh mục để xóa.";
+                }
             }
             catch (Exception ex)
             {

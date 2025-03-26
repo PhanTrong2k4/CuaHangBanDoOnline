@@ -1,13 +1,54 @@
 ﻿@model CuaHangBanDoOnline.Models.DanhMuc
 
+@{
+    ViewData["Title"] = "Chỉnh sửa danh mục";
+}
+
 <h2>Chỉnh sửa danh mục</h2>
 
-<form asp-action="Edit">
-    <input type="hidden" asp-for="MaDanhMuc" />
-    <div class="form-group">
-        <label>Tên Danh Mục</label>
-        <input asp-for="TenDanhMuc" class="form-control" required />
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-lg-7 mb-5">
+            <div class="bg-light p-30">
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger">@TempData["Error"]</div>
+                }
+                @if (Model == null || Model.TenDanhMuc == "Đã xóa")
+                {
+                    <div class="alert alert-warning">
+                        Danh mục này đã bị xóa và không thể chỉnh sửa.
+                        <a asp-action="Index" class="btn btn-secondary mt-2">Quay lại danh sách</a>
+                    </div>
+                }
+                else
+                {
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="MaDanhMuc" />
+                        <div class="form-group">
+                            <label asp-for="TenDanhMuc" class="control-label"></label>
+                            <input asp-for="TenDanhMuc" class="form-control" />
+                            <span asp-validation-for="TenDanhMuc" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PhanTramGiamGia" class="control-label">Phần trăm giảm giá (%)</label>
+                            <input asp-for="PhanTramGiamGia" class="form-control" type="number" step="0.01" min="0" max="100" />
+                            <span asp-validation-for="PhanTramGiamGia" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Cập nhật" class="btn btn-primary" />
+                            <a asp-action="Index" class="btn btn-secondary ml-2">Quay lại</a>
+                        </div>
+                    </form>
+                }
+            </div>
+        </div>
     </div>
-    <button type="submit" class="btn btn-success">Cập nhật</button>
-    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
-</form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

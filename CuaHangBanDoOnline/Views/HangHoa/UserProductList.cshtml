@@ -1,0 +1,83 @@
+﻿@model IEnumerable<CuaHangBanDoOnline.Models.HangHoa>
+
+<div class="container">
+    <h2 class="my-4">TÌM KIẾM SẢN PHẨM</h2>
+    <form method="get" action="/HangHoa/UserProductList">
+        <div class="row mb-4">
+            <!-- Ô tìm kiếm -->
+            <div class="col-md-3">
+                <input type="text" name="search" class="form-control" placeholder="Tìm kiếm..." value="@ViewData["SearchQuery"]">
+            </div>
+            <!-- Bộ lọc danh mục -->
+            <div class="col-md-3">
+                <select name="category" class="form-control">
+                    <option value="">Tất cả danh mục</option>
+                    @foreach (var danhMuc in ViewBag.DanhMucs)
+                    {
+                        <option value="@danhMuc.MaDanhMuc" selected="@(ViewData["SelectedCategory"]?.ToString() == danhMuc.MaDanhMuc.ToString() ? "selected" : null)">@danhMuc.TenDanhMuc</option>
+                    }
+                </select>
+            </div>
+            <!-- Bộ lọc mức giá -->
+            <div class="col-md-3">
+                <select name="price_range" class="form-control">
+                    <option value="">Mức giá</option>
+                    <option value="0-100000" selected="@(ViewData["SelectedPriceRange"]?.ToString() == "0-100000" ? "selected" : null)">0 - 100,000 VNĐ</option>
+                    <option value="100000-200000" selected="@(ViewData["SelectedPriceRange"]?.ToString() == "100000-200000" ? "selected" : null)">100,000 - 200,000 VNĐ</option>
+                    <option value="200000-500000" selected="@(ViewData["SelectedPriceRange"]?.ToString() == "200000-500000" ? "selected" : null)">200,000 - 500,000 VNĐ</option>
+                    <option value="500000-1000000" selected="@(ViewData["SelectedPriceRange"]?.ToString() == "500000-1000000" ? "selected" : null)">500,000 - 1,000,000 VNĐ</option>
+                </select>
+            </div>
+            <!-- Bộ lọc sắp xếp -->
+            <div class="col-md-2">
+                <select name="sort_by" class="form-control">
+                    <option value="">Sắp xếp</option>
+                    <option value="price_asc" selected="@(ViewData["SelectedSortBy"]?.ToString() == "price_asc" ? "selected" : null)">Giá: Thấp đến cao</option>
+                    <option value="price_desc" selected="@(ViewData["SelectedSortBy"]?.ToString() == "price_desc" ? "selected" : null)">Giá: Cao đến thấp</option>
+                    <option value="name_asc" selected="@(ViewData["SelectedSortBy"]?.ToString() == "name_asc" ? "selected" : null)">Tên: A-Z</option>
+                    <option value="name_desc" selected="@(ViewData["SelectedSortBy"]?.ToString() == "name_desc" ? "selected" : null)">Tên: Z-A</option>
+                </select>
+            </div>
+            <!-- Nút lọc -->
+            <div class="col-md-1">
+                <button type="submit" class="btn btn-warning">Lọc</button>
+            </div>
+        </div>
+    </form>
+
+    <h3 class="my-4">SẢN PHẨM</h3>
+    @if (!Model.Any())
+    {
+        <p>Không tìm thấy sản phẩm nào.</p>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var product in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="@product.Hinh" class="card-img-top" alt="@product.TenHangHoa" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">@product.TenHangHoa</h5>
+                            <p class="card-text">
+                                @if (ViewData[$"PhanTramGiamGia_{product.MaHangHoa}"] != null && Convert.ToDecimal(ViewData[$"PhanTramGiamGia_{product.MaHangHoa}"]) > 0)
+                                {
+                                    <span class="text-muted text-decoration-line-through">@product.GiaGoc.ToString("N0") VNĐ</span>
+                                    <br />
+                                    <span class="text-danger">@product.GiaBan.ToString("N0") VNĐ</span>
+                                    <span class="badge bg-danger text-white ms-2">Giảm @ViewData[$"PhanTramGiamGia_{product.MaHangHoa}"]%</span>
+                                }
+                                else
+                                {
+                                    <span>@product.GiaBan.ToString("N0") VNĐ</span>
+                                }
+                            </p>
+                            <a href="/HangHoa/Detail/@product.MaHangHoa" class="btn btn-primary">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

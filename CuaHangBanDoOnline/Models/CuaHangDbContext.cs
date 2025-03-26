@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using CuaHangBanDoOnline.Models;
 
 namespace CuaHangBanDoOnline.Models
 {
@@ -19,7 +20,9 @@ namespace CuaHangBanDoOnline.Models
         public DbSet<ChiTietGioHang> ChiTietGioHangs { get; set; }
         public DbSet<ChiTietDonHang> ChiTietDonHangs { get; set; }
         public DbSet<HangHoaDanhMuc> HangHoaDanhMucs { get; set; }
-        public DbSet<KhuyenMai> KhuyenMais { get; set; } 
+        public DbSet<KhuyenMai> KhuyenMais { get; set; }
+        public DbSet<Slide> Slides { get; set; }
+        public DbSet<PageContent> PageContents { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

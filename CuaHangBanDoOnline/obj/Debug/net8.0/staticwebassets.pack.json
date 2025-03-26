@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets\\images\\Deadbydaylight.jpeg"
     },
     {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\images\\Gameoftheyear.jpeg",
+      "PackagePath": "staticwebassets\\images\\Gameoftheyear.jpeg"
+    },
+    {
       "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\images\\Projectzomboid.webp",
       "PackagePath": "staticwebassets\\images\\Projectzomboid.webp"
     },
@@ -59,6 +63,22 @@
     {
       "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\images\\csgo2.jpeg",
       "PackagePath": "staticwebassets\\images\\csgo2.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\images\\gamehanhdong.jpeg",
+      "PackagePath": "staticwebassets\\images\\gamehanhdong.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\images\\gamehot.avif",
+      "PackagePath": "staticwebassets\\images\\gamehot.avif"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\images\\gamephieuluu.jpeg",
+      "PackagePath": "staticwebassets\\images\\gamephieuluu.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\images\\logosteam.jpeg",
+      "PackagePath": "staticwebassets\\images\\logosteam.jpeg"
     },
     {
       "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\images\\outlast1.jpeg",
@@ -285,6 +305,14 @@
       "PackagePath": "staticwebassets\\lib\\easing\\easing.min.js"
     },
     {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-ui\\jquery-ui.css",
+      "PackagePath": "staticwebassets\\lib\\jquery-ui\\jquery-ui.css"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-ui\\jquery-ui.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-ui\\jquery-ui.min.js"
+    },
+    {
       "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
@@ -333,6 +361,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery\\jquery-3.4.1.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\jquery-3.4.1.min.js"
+    },
+    {
       "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\owlcarousel"
     },
@@ -375,6 +407,10 @@
     {
       "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\owl.carousel.min.js",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\owl.carousel.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\mail\\jqBootstrapValidation-1.3.7.min.js",
+      "PackagePath": "staticwebassets\\mail\\jqBootstrapValidation-1.3.7.min.js"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CuaHangBanDoOnline.Microsoft.AspNetCore.StaticWebAssets.props",

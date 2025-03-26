@@ -1,0 +1,73 @@
+﻿@model CuaHangBanDoOnline.Models.Slide
+@using CuaHangBanDoOnline.Models
+
+@{
+    ViewData["Title"] = "Thêm Slide Mới";
+    var hangHoas = ViewBag.HangHoas as IEnumerable<HangHoa>;
+}
+
+<div class="container-fluid pt-5">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+        <span class="bg-secondary pr-3">Thêm Slide Mới</span>
+    </h2>
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <!-- Dropdown chọn sản phẩm -->
+        <div class="form-group">
+            <label class="control-label">Chọn sản phẩm</label>
+            <select name="hangHoaId" class="form-control" required>
+                <option value="">-- Chọn sản phẩm --</option>
+                @if (hangHoas != null)
+                {
+                    foreach (var hangHoa in hangHoas)
+                    {
+                        <option value="@hangHoa.MaHangHoa">@hangHoa.TenHangHoa</option>
+                    }
+                }
+            </select>
+            <span class="text-danger" data-valmsg-for="hangHoaId" data-valmsg-replace="true"></span>
+        </div>
+
+        <!-- Các trường khác (ẩn đi vì sẽ tự động điền) -->
+        <input type="hidden" asp-for="Title" />
+        <input type="hidden" asp-for="Link" />
+        <input type="hidden" asp-for="Image" />
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Thêm</button>
+            <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            $("form").validate({
+                rules: {
+                    hangHoaId: {
+                        required: true
+                    }
+                },
+                messages: {
+                    hangHoaId: {
+                        required: "Vui lòng chọn một sản phẩm."
+                    }
+                },
+                errorElement: "span",
+                errorPlacement: function (error, element) {
+                    error.addClass("text-danger");
+                    error.insertAfter(element);
+                }
+            });
+        });
+    </script>
+}

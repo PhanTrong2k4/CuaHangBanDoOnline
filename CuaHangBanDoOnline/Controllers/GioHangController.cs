@@ -1,6 +1,5 @@
 ﻿using CuaHangBanDoOnline.Models;
 using CuaHangBanDoOnline.Repository;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CuaHangBanDoOnline.Controllers
@@ -57,9 +56,9 @@ namespace CuaHangBanDoOnline.Controllers
             }
         }
 
-        // Thêm sản phẩm vào giỏ hàng
+        // Thêm sản phẩm vào giỏ hàng (cập nhật để hỗ trợ redirectToCheckout)
         [HttpPost]
-        public IActionResult AddToCart(int id, int soLuong = 1)
+        public IActionResult AddToCart(int id, int soLuong = 1, bool redirectToCheckout = false)
         {
             try
             {
@@ -82,12 +81,22 @@ namespace CuaHangBanDoOnline.Controllers
                     var hangHoa = _hangHoaRepository.GetHangHoa(id);
                     if (hangHoa == null)
                     {
-                        return Json(new { success = false, message = "Sản phẩm không tồn tại." });
+                        if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                        {
+                            return Json(new { success = false, message = "Sản phẩm không tồn tại." });
+                        }
+                        TempData["Error"] = "Sản phẩm không tồn tại.";
+                        return RedirectToAction("Index");
                     }
 
                     if (hangHoa.SoLuongTon < soLuong)
                     {
-                        return Json(new { success = false, message = "Số lượng tồn kho không đủ." });
+                        if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                        {
+                            return Json(new { success = false, message = "Số lượng tồn kho không đủ." });
+                        }
+                        TempData["Error"] = "Số lượng tồn kho không đủ.";
+                        return RedirectToAction("Index");
                     }
 
                     chiTietGioHang = new ChiTietGioHang
@@ -100,12 +109,32 @@ namespace CuaHangBanDoOnline.Controllers
                     _chiTietGioHangRepository.AddChiTietGioHang(chiTietGioHang);
                 }
 
-                return Json(new { success = true, message = "Đã thêm sản phẩm vào giỏ hàng." });
+                // Kiểm tra nếu yêu cầu là AJAX (từ JavaScript)
+                if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                {
+                    return Json(new { success = true, message = "Đã thêm sản phẩm vào giỏ hàng." });
+                }
+
+                // Nếu không phải AJAX (từ form), chuyển hướng dựa trên redirectToCheckout
+                if (redirectToCheckout)
+                {
+                    return RedirectToAction("Checkout");
+                }
+                else
+                {
+                    TempData["Success"] = "Đã thêm sản phẩm vào giỏ hàng.";
+                    return RedirectToAction("Index");
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Lỗi trong AddToCart: {ex.Message}");
-                return Json(new { success = false, message = "Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng: " + ex.Message });
+                if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                {
+                    return Json(new { success = false, message = "Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng: " + ex.Message });
+                }
+                TempData["Error"] = "Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.";
+                return RedirectToAction("Index");
             }
         }
 

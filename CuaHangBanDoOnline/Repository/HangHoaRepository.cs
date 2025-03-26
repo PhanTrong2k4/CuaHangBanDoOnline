@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CuaHangBanDoOnline.Repository;
 
 public class HangHoaRepository : IHangHoaRepository
 {
@@ -15,10 +16,26 @@ public class HangHoaRepository : IHangHoaRepository
 
     public IEnumerable<HangHoa> GetHangHoas()
     {
-        return _context.HangHoas
+        var hangHoas = _context.HangHoas
             .Include(h => h.HangHoaDanhMucs)
             .ThenInclude(hdm => hdm.DanhMuc)
+            .Include(h => h.KhuyenMais)
+            .Where(h => h.TenHangHoa != "Đã xóa") // Lọc bỏ các sản phẩm đã soft delete
             .ToList();
+
+        // Recalculate GiaBan based on active promotions
+        var currentDate = DateTime.Now;
+        foreach (var hangHoa in hangHoas)
+        {
+            var activeKhuyenMai = hangHoa.KhuyenMais?
+                .FirstOrDefault(km => km.NgayBatDau <= currentDate && km.NgayKetThuc >= currentDate);
+            if (activeKhuyenMai != null)
+            {
+                hangHoa.GiaBan = hangHoa.GiaGoc - (hangHoa.GiaGoc * (activeKhuyenMai.PhanTramGiamGia / 100m));
+            }
+        }
+
+        return hangHoas;
     }
 
     public IEnumerable<DanhMuc> GetDanhMucs()
@@ -28,21 +45,50 @@ public class HangHoaRepository : IHangHoaRepository
 
     public HangHoa GetHangHoa(int maHangHoa)
     {
-        return _context.HangHoas
+        var hangHoa = _context.HangHoas
             .Include(h => h.HangHoaDanhMucs)
             .ThenInclude(hdm => hdm.DanhMuc)
+            .Include(h => h.KhuyenMais)
             .FirstOrDefault(h => h.MaHangHoa == maHangHoa);
+
+        if (hangHoa != null)
+        {
+            // Recalculate GiaBan based on active promotions
+            var currentDate = DateTime.Now;
+            var activeKhuyenMai = hangHoa.KhuyenMais?
+                .FirstOrDefault(km => km.NgayBatDau <= currentDate && km.NgayKetThuc >= currentDate);
+            if (activeKhuyenMai != null)
+            {
+                hangHoa.GiaBan = hangHoa.GiaGoc - (hangHoa.GiaGoc * (activeKhuyenMai.PhanTramGiamGia / 100m));
+            }
+        }
+
+        return hangHoa;
     }
 
     public HangHoa AddHangHoa(HangHoa hangHoa, List<int> danhMucIds, IFormFile HinhAnh)
     {
-        // Xử lý ảnh nếu có tải lên
+        // Validate: Check for duplicate product name
+        if (_context.HangHoas.Any(h => h.TenHangHoa == hangHoa.TenHangHoa))
+        {
+            throw new Exception("Sản phẩm với tên này đã tồn tại.");
+        }
+
+        // Handle image upload
         if (HinhAnh != null && HinhAnh.Length > 0)
         {
-            var fileName = Path.GetFileName(HinhAnh.FileName);
+            // Validate file type (e.g., allow only images)
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+            var extension = Path.GetExtension(HinhAnh.FileName).ToLower();
+            if (!allowedExtensions.Contains(extension))
+            {
+                throw new Exception("Chỉ chấp nhận các định dạng ảnh: .jpg, .jpeg, .png, .gif.");
+            }
+
+            // Use a unique file name to avoid overwriting
+            var fileName = Guid.NewGuid().ToString() + extension;
             var imagesFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
 
-            // Tạo thư mục images nếu chưa tồn tại
             if (!Directory.Exists(imagesFolder))
             {
                 Directory.CreateDirectory(imagesFolder);
@@ -58,14 +104,14 @@ public class HangHoaRepository : IHangHoaRepository
             hangHoa.Hinh = $"/images/{fileName}";
         }
 
-        // Đảm bảo giá bán ban đầu bằng giá gốc
+        // Set initial GiaBan to GiaGoc
         hangHoa.GiaBan = hangHoa.GiaGoc;
 
-        // Thêm hàng hóa vào cơ sở dữ liệu
+        // Add the product to the database
         _context.HangHoas.Add(hangHoa);
         _context.SaveChanges();
 
-        // Tạo danh sách HangHoaDanhMuc
+        // Associate with categories
         if (danhMucIds != null && danhMucIds.Any())
         {
             foreach (var danhMucId in danhMucIds)
@@ -85,10 +131,10 @@ public class HangHoaRepository : IHangHoaRepository
 
     public HangHoa UpdateHangHoa(HangHoa hangHoa)
     {
-        // Lấy hàng hóa hiện tại từ CSDL để kiểm tra
         var existingHangHoa = _context.HangHoas
             .Include(h => h.HangHoaDanhMucs)
             .ThenInclude(hdm => hdm.DanhMuc)
+            .Include(h => h.KhuyenMais)
             .FirstOrDefault(h => h.MaHangHoa == hangHoa.MaHangHoa);
 
         if (existingHangHoa == null)
@@ -96,10 +142,16 @@ public class HangHoaRepository : IHangHoaRepository
             throw new Exception("Sản phẩm không tồn tại.");
         }
 
-        // Cập nhật các thuộc tính
+        // Validate: Check for duplicate product name (excluding the current product)
+        if (_context.HangHoas.Any(h => h.TenHangHoa == hangHoa.TenHangHoa && h.MaHangHoa != hangHoa.MaHangHoa))
+        {
+            throw new Exception("Sản phẩm với tên này đã tồn tại.");
+        }
+
+        // Update properties
         existingHangHoa.TenHangHoa = hangHoa.TenHangHoa;
         existingHangHoa.GiaGoc = hangHoa.GiaGoc;
-        existingHangHoa.GiaBan = hangHoa.GiaBan; // Giá bán có thể đã được cập nhật từ giảm giá
+        existingHangHoa.GiaBan = hangHoa.GiaBan; // GiaBan may have been updated by a discount
         existingHangHoa.MoTa = hangHoa.MoTa;
         existingHangHoa.SoLuongTon = hangHoa.SoLuongTon;
         existingHangHoa.Hinh = hangHoa.Hinh;
@@ -127,24 +179,50 @@ public class HangHoaRepository : IHangHoaRepository
             throw new Exception($"Không tìm thấy danh mục với ID: {maDanhMuc}");
         }
 
-        // Kiểm tra nếu chưa có danh mục này trong danh sách thì mới thêm
-        if (!hangHoa.HangHoaDanhMucs.Any(dm => dm.MaDanhMuc == maDanhMuc))
-        {
-            var newDanhMuc = new HangHoaDanhMuc
-            {
-                MaHangHoa = maHangHoa,
-                MaDanhMuc = maDanhMuc
-            };
-
-            _context.HangHoaDanhMucs.Add(newDanhMuc);
-            _context.SaveChanges();
-        }
-        else
+        // Check if the category is already associated
+        if (hangHoa.HangHoaDanhMucs.Any(dm => dm.MaDanhMuc == maDanhMuc))
         {
             throw new Exception("Danh mục này đã tồn tại trong hàng hóa.");
         }
 
-        // Load lại danh sách danh mục để đảm bảo dữ liệu mới nhất
+        var newDanhMuc = new HangHoaDanhMuc
+        {
+            MaHangHoa = maHangHoa,
+            MaDanhMuc = maDanhMuc
+        };
+
+        _context.HangHoaDanhMucs.Add(newDanhMuc);
+        _context.SaveChanges();
+
+        // Reload the categories to ensure the latest data
+        _context.Entry(hangHoa).Collection(h => h.HangHoaDanhMucs).Load();
+
+        return hangHoa;
+    }
+
+    public HangHoa XoaDanhMuc(int maHangHoa, int maDanhMuc)
+    {
+        var hangHoa = _context.HangHoas
+            .Include(h => h.HangHoaDanhMucs)
+            .ThenInclude(hdm => hdm.DanhMuc)
+            .FirstOrDefault(h => h.MaHangHoa == maHangHoa);
+
+        if (hangHoa == null)
+        {
+            throw new Exception($"Không tìm thấy hàng hóa với ID: {maHangHoa}");
+        }
+
+        var danhMucAssociation = hangHoa.HangHoaDanhMucs
+            .FirstOrDefault(dm => dm.MaDanhMuc == maDanhMuc);
+        if (danhMucAssociation == null)
+        {
+            throw new Exception("Danh mục này không tồn tại trong hàng hóa.");
+        }
+
+        _context.HangHoaDanhMucs.Remove(danhMucAssociation);
+        _context.SaveChanges();
+
+        // Reload the categories to ensure the latest data
         _context.Entry(hangHoa).Collection(h => h.HangHoaDanhMucs).Load();
 
         return hangHoa;
@@ -154,42 +232,38 @@ public class HangHoaRepository : IHangHoaRepository
     {
         var hangHoa = _context.HangHoas
             .Include(h => h.HangHoaDanhMucs)
+            .Include(h => h.KhuyenMais)
             .FirstOrDefault(h => h.MaHangHoa == maHangHoa);
 
         if (hangHoa != null)
         {
-            // Xóa các bản ghi liên quan trong HangHoaDanhMuc
-            _context.HangHoaDanhMucs.RemoveRange(hangHoa.HangHoaDanhMucs);
-
-            // Xóa các bản ghi khuyến mãi liên quan
-            var khuyenMais = _context.KhuyenMais.Where(km => km.MaHangHoa == maHangHoa);
-            _context.KhuyenMais.RemoveRange(khuyenMais);
-
-            // Xóa hàng hóa
-            _context.HangHoas.Remove(hangHoa);
+            // Soft delete: Change the product name to "Đã xóa"
+            hangHoa.TenHangHoa = "Đã xóa";
+            _context.HangHoas.Update(hangHoa);
             _context.SaveChanges();
         }
         return hangHoa;
     }
 
-    // Thêm giảm giá
     public void ThemGiamGia(int maHangHoa, decimal phanTramGiamGia, DateTime ngayBatDau, DateTime ngayKetThuc)
     {
-        var hangHoa = _context.HangHoas.Find(maHangHoa);
+        var hangHoa = _context.HangHoas
+            .Include(h => h.KhuyenMais)
+            .FirstOrDefault(h => h.MaHangHoa == maHangHoa);
         if (hangHoa == null)
         {
             throw new Exception("Sản phẩm không tồn tại.");
         }
 
-        // Kiểm tra nếu đã có khuyến mãi thì không cho thêm mới
-        var existingKhuyenMai = _context.KhuyenMais
-            .FirstOrDefault(km => km.MaHangHoa == maHangHoa && km.NgayKetThuc >= DateTime.Now);
+        // Check for overlapping promotions
+        var existingKhuyenMai = hangHoa.KhuyenMais
+            .FirstOrDefault(km => (ngayBatDau <= km.NgayKetThuc && ngayKetThuc >= km.NgayBatDau));
         if (existingKhuyenMai != null)
         {
-            throw new Exception("Sản phẩm đã có khuyến mãi đang áp dụng.");
+            throw new Exception("Sản phẩm đã có khuyến mãi trong khoảng thời gian này.");
         }
 
-        // Tạo bản ghi khuyến mãi
+        // Create the promotion record
         var khuyenMai = new KhuyenMai
         {
             MaHangHoa = maHangHoa,
@@ -199,55 +273,77 @@ public class HangHoaRepository : IHangHoaRepository
         };
         _context.KhuyenMais.Add(khuyenMai);
 
-        // Cập nhật giá bán dựa trên phần trăm giảm giá
-        hangHoa.GiaBan = hangHoa.GiaGoc - (hangHoa.GiaGoc * (phanTramGiamGia / 100m));
-        _context.HangHoas.Update(hangHoa);
+        // Update GiaBan only if the promotion is currently active
+        var currentDate = DateTime.Now;
+        if (ngayBatDau <= currentDate && ngayKetThuc >= currentDate)
+        {
+            hangHoa.GiaBan = hangHoa.GiaGoc - (hangHoa.GiaGoc * (phanTramGiamGia / 100m));
+            _context.HangHoas.Update(hangHoa);
+        }
 
         _context.SaveChanges();
     }
 
-    // Xóa giảm giá
     public void XoaGiamGia(int maHangHoa)
     {
-        var hangHoa = _context.HangHoas.Find(maHangHoa);
+        var hangHoa = _context.HangHoas
+            .Include(h => h.KhuyenMais)
+            .FirstOrDefault(h => h.MaHangHoa == maHangHoa);
         if (hangHoa == null)
         {
             throw new Exception("Sản phẩm không tồn tại.");
         }
 
-        // Xóa bản ghi khuyến mãi liên quan
-        var khuyenMai = _context.KhuyenMais
-            .FirstOrDefault(km => km.MaHangHoa == maHangHoa);
-        if (khuyenMai != null)
+        // Remove only the active promotion (if any)
+        var currentDate = DateTime.Now;
+        var activeKhuyenMai = hangHoa.KhuyenMais
+            .FirstOrDefault(km => km.NgayBatDau <= currentDate && km.NgayKetThuc >= currentDate);
+        if (activeKhuyenMai != null)
         {
-            _context.KhuyenMais.Remove(khuyenMai);
-        }
+            _context.KhuyenMais.Remove(activeKhuyenMai);
 
-        // Khôi phục giá bán về giá gốc
-        hangHoa.GiaBan = hangHoa.GiaGoc;
-        _context.HangHoas.Update(hangHoa);
+            // Reset GiaBan to GiaGoc since the active promotion is removed
+            hangHoa.GiaBan = hangHoa.GiaGoc;
+            _context.HangHoas.Update(hangHoa);
+        }
 
         _context.SaveChanges();
     }
+
     public IEnumerable<HangHoa> GetHangHoasFiltered(string search, string category, string priceRange, string discount, string stock, string sortBy)
     {
         var query = _context.HangHoas
             .Include(hh => hh.HangHoaDanhMucs)
+            .ThenInclude(hdm => hdm.DanhMuc)
             .Include(hh => hh.KhuyenMais)
+            .Where(hh => hh.TenHangHoa != "Đã xóa") // Lọc bỏ các sản phẩm đã soft delete
             .AsQueryable();
 
+        // Apply GiaBan calculation based on active promotions
+        var currentDate = DateTime.Now;
+        foreach (var hh in query)
+        {
+            var activeKhuyenMai = hh.KhuyenMais?
+                .FirstOrDefault(km => km.NgayBatDau <= currentDate && km.NgayKetThuc >= currentDate);
+            if (activeKhuyenMai != null)
+            {
+                hh.GiaBan = hh.GiaGoc - (hh.GiaGoc * (activeKhuyenMai.PhanTramGiamGia / 100m));
+            }
+        }
+
+        // Filter by search term
         if (!string.IsNullOrEmpty(search))
         {
             query = query.Where(hh => EF.Functions.Like(hh.TenHangHoa, $"%{search}%"));
         }
 
-        // Lọc theo danh mục (chỉ áp dụng trong Index)
+        // Filter by category
         if (!string.IsNullOrEmpty(category) && int.TryParse(category, out int categoryId))
         {
             query = query.Where(hh => hh.HangHoaDanhMucs.Any(hdm => hdm.MaDanhMuc == categoryId));
         }
 
-        // Lọc theo mức giá
+        // Filter by price range
         if (!string.IsNullOrEmpty(priceRange))
         {
             switch (priceRange)
@@ -267,7 +363,21 @@ public class HangHoaRepository : IHangHoaRepository
             }
         }
 
-        // Lọc theo tình trạng hàng
+        // Filter by discount
+        if (!string.IsNullOrEmpty(discount))
+        {
+            switch (discount)
+            {
+                case "has-discount":
+                    query = query.Where(hh => hh.KhuyenMais.Any(km => km.NgayBatDau <= currentDate && km.NgayKetThuc >= currentDate));
+                    break;
+                case "no-discount":
+                    query = query.Where(hh => !hh.KhuyenMais.Any(km => km.NgayBatDau <= currentDate && km.NgayKetThuc >= currentDate));
+                    break;
+            }
+        }
+
+        // Filter by stock status
         if (!string.IsNullOrEmpty(stock))
         {
             switch (stock)
@@ -284,7 +394,7 @@ public class HangHoaRepository : IHangHoaRepository
             }
         }
 
-        // Sắp xếp
+        // Apply sorting
         if (!string.IsNullOrEmpty(sortBy))
         {
             switch (sortBy)
@@ -305,5 +415,10 @@ public class HangHoaRepository : IHangHoaRepository
         }
 
         return query.ToList();
+    }
+
+    public DanhMuc GetDanhMuc(int maDanhMuc)
+    {
+        return _context.DanhMucs.FirstOrDefault(dm => dm.MaDanhMuc == maDanhMuc);
     }
 }

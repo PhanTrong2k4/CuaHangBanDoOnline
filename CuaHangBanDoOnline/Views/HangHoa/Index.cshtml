@@ -1,52 +1,161 @@
 ﻿@model IEnumerable<CuaHangBanDoOnline.Models.HangHoa>
 
-<h2>Danh Sách Sản Phẩm</h2>
-
-@if (TempData["Error"] != null)
-{
-    <div class="alert alert-danger">@TempData["Error"]</div>
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
 }
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Tên Sản Phẩm</th>
-            <th>Giá Gốc</th>
-            <th>Giá Bán</th>
-            <th>Phần Trăm Giảm Giá</th>
-            <th>Thao Tác</th>
-        </tr>
-    </thead>
-    <tbody>
+<!-- Breadcrumb Start -->
+<div class="container-fluid bg-light py-3">
+    <div class="container">
+        <nav class="breadcrumb bg-transparent mb-0">
+            <a class="breadcrumb-item text-primary" href="/">Trang chủ</a>
+            <span class="breadcrumb-item active text-dark">Danh sách sản phẩm</span>
+        </nav>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+<!-- Products Start -->
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="position-relative d-inline-block">
+            <span class="text-uppercase text-primary">Danh sách sản phẩm</span>
+            <span class="position-absolute bottom-0 start-50 translate-middle-x w-50 border-bottom border-3 border-primary"></span>
+        </h2>
+    </div>
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row g-4">
         @foreach (var hangHoa in Model)
         {
-            <tr>
-                <td>@hangHoa.TenHangHoa</td>
-                <td>@hangHoa.GiaGoc.ToString("#,##0") VNĐ</td>
-                <td>@hangHoa.GiaBan.ToString("#,##0") VNĐ</td>
-                <td>
-                    @if (ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] != null && (decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] > 0)
-                    {
-                        <span class="badge bg-danger"> -@((decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"])%</span>
-                    }
-                    else
-                    {
-                        <span>Không có giảm giá</span>
-                    }
-                </td>
-                <td>
-                    <a asp-action="Detail" asp-route-id="@hangHoa.MaHangHoa" class="btn btn-info btn-sm">Chi Tiết</a>
-                    <a asp-action="Edit" asp-route-id="@hangHoa.MaHangHoa" class="btn btn-warning btn-sm">Sửa</a>
-                    <a asp-action="Delete" asp-route-id="@hangHoa.MaHangHoa" class="btn btn-danger btn-sm">Xóa</a>
-                    <a asp-action="ThemGiamGia" asp-route-id="@hangHoa.MaHangHoa" class="btn btn-primary btn-sm">Thêm Giảm Giá</a>
-                    <form asp-action="XoaGiamGia" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="@hangHoa.MaHangHoa" />
-                        <button type="submit" class="btn btn-danger btn-sm">Xóa Giảm Giá</button>
-                    </form>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card product-card h-100 border-0 shadow-sm transition-all">
+                    <div class="position-relative overflow-hidden">
+                        <img class="card-img-top transition-scale"
+                             src="@(string.IsNullOrEmpty(hangHoa.Hinh) ? "/images/default-product.jpg" : hangHoa.Hinh)"
+                             alt="@hangHoa.TenHangHoa">
+                        <div class="product-actions position-absolute">
+                            <div class="d-flex flex-column gap-2">
+                                <button class="btn btn-dark btn-sm rounded-circle"
+                                        onclick="addToCart(@hangHoa.MaHangHoa)">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                                <a class="btn btn-dark btn-sm rounded-circle"
+                                   href="@Url.Action("Detail", "HangHoa", new { id = hangHoa.MaHangHoa })">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                                <a class="btn btn-dark btn-sm rounded-circle"
+                                   href="@Url.Action("Edit", "HangHoa", new { id = hangHoa.MaHangHoa })">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a class="btn btn-danger btn-sm rounded-circle"
+                                   href="@Url.Action("Delete", "HangHoa", new { id = hangHoa.MaHangHoa })">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+                        <a class="card-title h6 text-decoration-none text-dark fw-bold text-truncate d-block"
+                           href="@Url.Action("Detail", "HangHoa", new { id = hangHoa.MaHangHoa })">
+                            @hangHoa.TenHangHoa
+                        </a>
 
-<a asp-action="Create" class="btn btn-success">Thêm Sản Phẩm</a>
+                        <div class="pricing mt-2">
+                            @if (ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] != null && (decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] > 0)
+                            {
+                                <div class="d-flex justify-content-center align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through">
+                                        @hangHoa.GiaGoc.ToString("#,##0") VNĐ
+                                    </span>
+                                    <span class="text-danger fw-bold">
+                                        @hangHoa.GiaBan.ToString("#,##0") VNĐ
+                                    </span>
+                                    <span class="badge bg-danger">
+                                        -@((decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"])%
+                                    </span>
+                                </div>
+                                <small class="text-muted d-block mt-1">
+                                    Giảm giá từ @(ViewData[$"NguonGiamGia_{hangHoa.MaHangHoa}"] == "KhuyenMai" ? "Khuyến mãi" :
+                            ViewData[$"NguonGiamGia_{hangHoa.MaHangHoa}"] == "DanhMuc" ? "Danh mục" : "Thủ công")
+                                </small>
+                            }
+                            else
+                            {
+                                <span class="text-dark fw-bold">
+                                    @hangHoa.GiaBan.ToString("#,##0") VNĐ
+                                </span>
+                            }
+                        </div>
+
+                        <div class="mt-3 d-flex justify-content-center gap-2">
+                            <a class="btn btn-outline-primary btn-sm"
+                               href="@Url.Action("ThemGiamGia", "HangHoa", new { id = hangHoa.MaHangHoa })">
+                                <i class="fa fa-tag"></i> Thêm
+                            </a>
+                            <form asp-action="XoaGiamGia" method="post" class="d-inline">
+                                <input type="hidden" name="id" value="@hangHoa.MaHangHoa" />
+                                <button type="submit" class="btn btn-outline-danger btn-sm">
+                                    <i class="fa fa-times"></i> Xóa
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="text-center mt-5">
+        <a asp-action="Create" class="btn btn-primary btn-lg px-4">
+            <i class="fa fa-plus me-2"></i>Thêm Sản Phẩm
+        </a>
+    </div>
+</div>
+<!-- Products End -->
+
+<style>
+    .product-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+
+    .transition-scale {
+        transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .transition-scale {
+        transform: scale(1.05);
+    }
+
+    .product-actions {
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .product-card:hover .product-actions {
+        opacity: 1;
+    }
+
+    .btn-sm.rounded-circle {
+        width: 35px;
+        height: 35px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>

@@ -20,6 +20,9 @@ builder.Services.AddScoped<IHangHoaRepository, HangHoaRepository>();
 builder.Services.AddScoped<IDonHangRepository, DonHangRepository>();
 builder.Services.AddScoped<IChitietdonhangRepository, ChiTietDonHangRepository>();
 builder.Services.AddScoped<IWishlistRepository,  WishlistRepository >();
+builder.Services.AddScoped<ISlideRepository, SlideRepository>();
+
+
 
 // Thêm dịch vụ cho MVC (Controllers + Views)
 builder.Services.AddControllersWithViews();

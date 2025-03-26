@@ -9733,3 +9733,23 @@ a.text-dark:hover, a.text-dark:focus {
     transform: translateY(-15px);
   }
 }
+/* In wwwroot/css/style.css */
+.toast {
+    color: black !important;
+}
+
+.toast-success {
+    background-color: #e0ffe0 !important;
+}
+
+.toast-error {
+    background-color: #ffe0e0 !important;
+}
+
+.toast-info {
+    background-color: #e0f0ff !important;
+}
+
+.toast-warning {
+    background-color: #fff0e0 !important;
+}

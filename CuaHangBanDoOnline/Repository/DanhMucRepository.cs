@@ -21,6 +21,7 @@ namespace CuaHangBanDoOnline.Repository
                 .Include(d => d.HangHoaDanhMucs)
                 .ThenInclude(hhdm => hhdm.HangHoa)
                 .ThenInclude(hh => hh.KhuyenMais)
+                .Where(d => d.TenDanhMuc != "Đã xóa") // Lọc bỏ các danh mục đã soft delete
                 .ToList();
         }
 

@@ -13,11 +13,15 @@ namespace CuaHangBanDoOnline.Controllers
     {
         private readonly IHangHoaRepository _hangHoaRepository;
         private readonly IDanhMucRepository _danhMucRepository;
+        private readonly IChitietdonhangRepository _chiTietDonHangRepository;
+        private readonly ISlideRepository _slideRepository; // Thêm repository cho Slide
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(
             IHangHoaRepository hangHoaRepository,
             IDanhMucRepository danhMucRepository,
+            IChitietdonhangRepository chiTietDonHangRepository,
+            ISlideRepository slideRepository, // Thêm dependency injection
             ILogger<HomeController> logger,
             IWishlistRepository wishlistRepository,
             IGioHangRepository gioHangRepository,
@@ -26,6 +30,8 @@ namespace CuaHangBanDoOnline.Controllers
         {
             _hangHoaRepository = hangHoaRepository;
             _danhMucRepository = danhMucRepository;
+            _chiTietDonHangRepository = chiTietDonHangRepository;
+            _slideRepository = slideRepository; // Khởi tạo
             _logger = logger;
         }
 
@@ -33,6 +39,11 @@ namespace CuaHangBanDoOnline.Controllers
         {
             try
             {
+                // Lấy danh sách slides từ repository
+                var slides = _slideRepository.GetSlides();
+                ViewBag.Slides = slides; // Truyền danh sách slides vào ViewBag
+
+                // Logic hiện tại của bạn (giữ nguyên)
                 var danhMucs = _danhMucRepository.GetDanhMucs();
                 if (danhMucs == null)
                 {
@@ -54,29 +65,64 @@ namespace CuaHangBanDoOnline.Controllers
                     }
                 }
 
+                // Lấy danh sách sản phẩm được mua nhiều dựa trên ChiTietDonHang
+                var topSellingProducts = _chiTietDonHangRepository.GetAllChiTietDonHangs()
+                    .GroupBy(ct => ct.HangHoa)
+                    .Select(g => new
+                    {
+                        HangHoa = g.Key,
+                        TotalSold = g.Sum(ct => ct.SoLuong)
+                    })
+                    .OrderByDescending(x => x.TotalSold)
+                    .Take(4)
+                    .Select(x => x.HangHoa)
+                    .ToList();
+
+                ViewBag.TopSellingProducts = topSellingProducts;
+
+                // Logic lọc sản phẩm hiện tại
                 var filteredHangHoas = _hangHoaRepository.GetHangHoasFiltered(search, category, priceRange, null, null, sortBy).ToList();
 
                 var currentDate = DateTime.Now;
                 foreach (var hangHoa in filteredHangHoas)
                 {
+                    decimal khuyenMaiGiamGia = 0m;
                     var khuyenMai = hangHoa.KhuyenMais
-                        .FirstOrDefault(km => km.NgayBatDau <= currentDate && km.NgayKetThuc >= currentDate);
+                        ?.FirstOrDefault(km => km.NgayBatDau <= currentDate && km.NgayKetThuc >= currentDate);
 
                     if (khuyenMai != null)
                     {
-                        hangHoa.GiaBan = hangHoa.GiaGoc * (1 - khuyenMai.PhanTramGiamGia / 100);
-                        ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] = khuyenMai.PhanTramGiamGia;
+                        khuyenMaiGiamGia = khuyenMai.PhanTramGiamGia;
+                    }
+
+                    decimal danhMucGiamGia = 0m;
+                    if (hangHoa.HangHoaDanhMucs != null && hangHoa.HangHoaDanhMucs.Any())
+                    {
+                        danhMucGiamGia = hangHoa.HangHoaDanhMucs
+                            .Select(hdm => hdm.DanhMuc.PhanTramGiamGia)
+                            .DefaultIfEmpty(0m)
+                            .Max();
+                    }
+
+                    decimal phanTramGiamGia = Math.Max(khuyenMaiGiamGia, danhMucGiamGia);
+                    if (phanTramGiamGia > 0)
+                    {
+                        hangHoa.GiaBan = hangHoa.GiaGoc * (1 - phanTramGiamGia / 100);
+                        ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] = phanTramGiamGia;
+                        ViewData[$"NguonGiamGia_{hangHoa.MaHangHoa}"] = khuyenMaiGiamGia > danhMucGiamGia ? "KhuyenMai" : "DanhMuc";
                     }
                     else
                     {
                         if (hangHoa.GiaBan < hangHoa.GiaGoc)
                         {
-                            decimal phanTramGiamGia = ((hangHoa.GiaGoc - hangHoa.GiaBan) / hangHoa.GiaGoc) * 100;
+                            phanTramGiamGia = ((hangHoa.GiaGoc - hangHoa.GiaBan) / hangHoa.GiaGoc) * 100;
                             ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] = phanTramGiamGia;
+                            ViewData[$"NguonGiamGia_{hangHoa.MaHangHoa}"] = "Manual";
                         }
                         else
                         {
                             ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] = 0m;
+                            ViewData[$"NguonGiamGia_{hangHoa.MaHangHoa}"] = "None";
                         }
                     }
                 }
@@ -102,6 +148,7 @@ namespace CuaHangBanDoOnline.Controllers
             }
         }
 
+        // Action SanPhamTheoDanhMuc (giữ nguyên, không thay đổi)
         public IActionResult SanPhamTheoDanhMuc(int id, string search, string priceRange, string sortBy, int page = 1)
         {
             try
@@ -126,24 +173,44 @@ namespace CuaHangBanDoOnline.Controllers
                 foreach (var hangHoaDanhMuc in filteredHangHoas)
                 {
                     var hangHoa = hangHoaDanhMuc.HangHoa;
+
+                    decimal khuyenMaiGiamGia = 0m;
                     var khuyenMai = hangHoa.KhuyenMais
-                        .FirstOrDefault(km => km.NgayBatDau <= currentDate && km.NgayKetThuc >= currentDate);
+                        ?.FirstOrDefault(km => km.NgayBatDau <= currentDate && km.NgayKetThuc >= currentDate);
 
                     if (khuyenMai != null)
                     {
-                        hangHoa.GiaBan = hangHoa.GiaGoc * (1 - khuyenMai.PhanTramGiamGia / 100);
-                        ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] = khuyenMai.PhanTramGiamGia;
+                        khuyenMaiGiamGia = khuyenMai.PhanTramGiamGia;
+                    }
+
+                    decimal danhMucGiamGia = 0m;
+                    if (hangHoa.HangHoaDanhMucs != null && hangHoa.HangHoaDanhMucs.Any())
+                    {
+                        danhMucGiamGia = hangHoa.HangHoaDanhMucs
+                            .Select(hdm => hdm.DanhMuc.PhanTramGiamGia)
+                            .DefaultIfEmpty(0m)
+                            .Max();
+                    }
+
+                    decimal phanTramGiamGia = Math.Max(khuyenMaiGiamGia, danhMucGiamGia);
+                    if (phanTramGiamGia > 0)
+                    {
+                        hangHoa.GiaBan = hangHoa.GiaGoc * (1 - phanTramGiamGia / 100);
+                        ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] = phanTramGiamGia;
+                        ViewData[$"NguonGiamGia_{hangHoa.MaHangHoa}"] = khuyenMaiGiamGia > danhMucGiamGia ? "KhuyenMai" : "DanhMuc";
                     }
                     else
                     {
                         if (hangHoa.GiaBan < hangHoa.GiaGoc)
                         {
-                            decimal phanTramGiamGia = ((hangHoa.GiaGoc - hangHoa.GiaBan) / hangHoa.GiaGoc) * 100;
+                            phanTramGiamGia = ((hangHoa.GiaGoc - hangHoa.GiaBan) / hangHoa.GiaGoc) * 100;
                             ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] = phanTramGiamGia;
+                            ViewData[$"NguonGiamGia_{hangHoa.MaHangHoa}"] = "Manual";
                         }
                         else
                         {
                             ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] = 0m;
+                            ViewData[$"NguonGiamGia_{hangHoa.MaHangHoa}"] = "None";
                         }
                     }
                 }
@@ -166,6 +233,22 @@ namespace CuaHangBanDoOnline.Controllers
                 TempData["Error"] = $"Lỗi: {ex.Message}";
                 return View("Details", new DanhMuc { MaDanhMuc = id, TenDanhMuc = "Danh mục không xác định", HangHoaDanhMucs = new List<HangHoaDanhMuc>() });
             }
+        }
+
+        // Các action khác (giữ nguyên)
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult AboutUs()
+        {
+            return View();
         }
     }
 }

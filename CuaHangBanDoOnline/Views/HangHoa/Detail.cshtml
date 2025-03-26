@@ -1,135 +1,67 @@
 ﻿@model CuaHangBanDoOnline.Models.HangHoa
 
-<style>
-    .product-container {
-        max-width: 600px;
-        margin: 20px auto;
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        background-color: #fff;
-    }
-
-    .product-image {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-        .product-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-    .product-info {
-        margin-bottom: 20px;
-    }
-
-        .product-info p {
-            margin: 5px 0;
-        }
-
-        .product-info strong {
-            color: #333;
-        }
-
-    .button-container {
-        display: flex;
-        justify-content: space-between;
-    }
-
-        .button-container button {
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            background-color: #28a745;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-            .button-container button:hover {
-                background-color: #218838;
-            }
-
-    .price-original {
-        color: #888;
-        text-decoration: line-through;
-        margin-right: 10px;
-    }
-
-    .price-discounted {
-        color: #dc3545;
-        font-weight: bold;
-    }
-
-    .discount-badge {
-        background-color: #dc3545;
-        color: white;
-        padding: 2px 8px;
-        border-radius: 10px;
-        font-size: 0.9em;
-        margin-left: 10px;
-    }
-
-    /* New styles for product details section */
-    .product-details {
-        margin-top: 20px;
-        padding: 15px;
-        border-top: 1px solid #ddd;
-    }
-
-        .product-details h3 {
-            color: #333;
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        .product-details ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-
-            .product-details ul li {
-                margin-bottom: 8px;
-                color: #555;
-            }
-
-        .product-details p {
-            margin: 10px 0;
-            color: #555;
-        }
-
-    .highlight {
-        color: #dc3545;
-        font-weight: bold;
-    }
-</style>
-
 <div class="product-container">
-    <h2>@Model.TenHangHoa</h2>
-    <div class="product-image">
-        <img src="@Url.Content(Model.Hinh)" alt="@Model.TenHangHoa" />
-    </div>
-    <div class="product-info">
-        <p><strong>Tình trạng:</strong> @(Model.SoLuongTon > 0 ? "Còn hàng" : "Hết hàng")</p>
-        @if (ViewData[$"PhanTramGiamGia_{Model.MaHangHoa}"] != null && (decimal)ViewData[$"PhanTramGiamGia_{Model.MaHangHoa}"] > 0)
-        {
-            <p>
-                <strong>Giá gốc:</strong> <span class="price-original">@Model.GiaGoc.ToString("N0") đ</span>
-                <strong>Giá bán:</strong> <span class="price-discounted">@Model.GiaBan.ToString("N0") đ</span>
-                <span class="discount-badge"> -@((decimal)ViewData[$"PhanTramGiamGia_{Model.MaHangHoa}"])%</span>
-            </p>
-        }
-        else
-        {
-            <p><strong>Giá bán:</strong> @Model.GiaBan.ToString("N0") đ</p>
-        }
-        <p><strong>Mô tả:</strong> @Model.MoTa</p>
+    <h2 class="product-title">@Model.TenHangHoa</h2>
+    <div class="product-content">
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="@Url.Content(Model.Hinh ?? "/images/default-product.jpg")" alt="@Model.TenHangHoa" />
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-info">
+            <div class="stock-status">
+                <strong>Tình trạng:</strong>
+                <span class="@(Model.SoLuongTon > 0 ? "in-stock" : "out-of-stock")">
+                    @(Model.SoLuongTon > 0 ? "Còn hàng" : "Hết hàng")
+                </span>
+            </div>
+
+            <div class="price-container">
+                @if (ViewData[$"PhanTramGiamGia_{Model.MaHangHoa}"] != null && (decimal)ViewData[$"PhanTramGiamGia_{Model.MaHangHoa}"] > 0)
+                {
+                    <span class="price-original">@Model.GiaGoc.ToString("N0") đ</span>
+                    <span class="price-discounted">@Model.GiaBan.ToString("N0") đ</span>
+                    <span class="discount-badge"> -@((decimal)ViewData[$"PhanTramGiamGia_{Model.MaHangHoa}"])%</span>
+                }
+                else
+                {
+                    <span class="price-discounted">@Model.GiaBan.ToString("N0") đ</span>
+                }
+            </div>
+
+            <p class="description"><strong>Mô tả:</strong> @Model.MoTa</p>
+
+            <!-- Quantity and Buttons -->
+            <div class="action-container">
+                <div class="quantity-input">
+                    <label for="soLuong">Số lượng:</label>
+                    <input type="number" id="soLuong" name="soLuong" value="1" min="1" max="@Model.SoLuongTon" />
+                </div>
+                <div class="button-container">
+                    <!-- Nút Mua ngay -->
+                    <form asp-controller="GioHang" asp-action="AddToCart" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@Model.MaHangHoa" />
+                        <input type="hidden" name="soLuong" id="soLuongMuaNgay" value="1" />
+                        <input type="hidden" name="redirectToCheckout" value="true" />
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-buy-now" onclick="document.getElementById('soLuongMuaNgay').value = document.getElementById('soLuong').value;">Mua ngay</button>
+                    </form>
+
+                    <!-- Nút Thêm vào giỏ -->
+                    <form asp-controller="GioHang" asp-action="AddToCart" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@Model.MaHangHoa" />
+                        <input type="hidden" name="soLuong" id="soLuongThemGio" value="1" />
+                        <input type="hidden" name="redirectToCheckout" value="false" />
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-add-to-cart" onclick="document.getElementById('soLuongThemGio').value = document.getElementById('soLuong').value;">Thêm vào giỏ</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- New Product Details Section -->
+    <!-- Product Details -->
     <div class="product-details">
         <h3>Chi tiết sản phẩm</h3>
         <p><strong>Lưu ý:</strong></p>
@@ -139,80 +71,265 @@
         <p><strong>Quy trình nhận hàng:</strong></p>
         <ol>
             <li>Đặt hàng trực tiếp trên website hoặc liên hệ qua hotline.</li>
-            <li>Thanh toán khi xác nhận đơn hàng</li>
-            <li>Nhận tkey sản phẩm thông qua email</li>
-
+            <li>Thanh toán khi xác nhận đơn hàng.</li>
+            <li>Nhận key sản phẩm thông qua email.</li>
         </ol>
-        <p><strong>Tận hưởng giá trị vượt trội với sản phẩm này!</strong></p>
-        <p>
+        <p class="highlight-text">
             Sản phẩm mang đến trải nghiệm tuyệt vời với thiết kế hiện đại, chất lượng vượt trội.
-            Được sản xuất bởi thương hiệu uy tín, đảm bảo độ bền và hiệu suất tối ưu cho mọi nhu cầu sử dụng.
+            Được sản xuất bởi thương hiệu uy tín, đảm bảo độ bền và hiệu suất tối ưu.
         </p>
     </div>
+</div>
 
-    <div class="button-container">
-        <!-- Quantity Input -->
-        <div style="display: flex; align-items: center; margin-right: 10px;">
-            <label for="soLuong" style="margin-right: 5px;">Số lượng:</label>
-            <input type="number" id="soLuong" name="soLuong" value="1" min="1" max="@Model.SoLuongTon" style="width: 60px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;" />
-        </div>
+<!-- Additional Buttons -->
+<div class="extra-buttons">
+    <button onclick="addToCart(@Model.MaHangHoa)" class="btn btn-primary">Thêm vào giỏ hàng</button>
+    <button onclick="addToWishlist(@Model.MaHangHoa)" class="btn btn-secondary">Thêm vào wishlist</button>
+</div>
 
-        <!-- Buy Now Button -->
-        <a href="@Url.Action("AddToCart", "GioHang", new { id = Model.MaHangHoa, soLuong = 1, redirectToCheckout = true })"
-           onclick="this.href = this.href.replace('soLuong=1', 'soLuong=' + document.getElementById('soLuong').value)"
-           class="btn-buy-now">
-            Mua ngay
-        </a>
+<style>
+    /* General Container */
+    .product-container {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 25px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
 
-        <!-- Add to Cart Button -->
-        <a href="@Url.Action("AddToCart", "GioHang", new { id = Model.MaHangHoa, soLuong = 1, redirectToCheckout = false })"
-           onclick="this.href = this.href.replace('soLuong=1', 'soLuong=' + document.getElementById('soLuong').value)"
-           class="btn-add-to-cart">
-            Thêm vào giỏ
-        </a>
-    </div>
+        .product-container:hover {
+            transform: translateY(-5px);
+        }
 
-    <style>
-        /* Style for the buttons */
-        .btn-buy-now, .btn-add-to-cart {
-            padding: 10px 15px;
-            border: none;
+    .product-title {
+        font-size: 2rem;
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+
+    /* Product Content Layout */
+    .product-content {
+        display: flex;
+        gap: 30px;
+        align-items: flex-start;
+    }
+
+    /* Product Image */
+    .product-image {
+        flex: 1;
+        text-align: center;
+    }
+
+        .product-image img {
+            max-width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-image:hover img {
+            transform: scale(1.05);
+        }
+
+    /* Product Info */
+    .product-info {
+        flex: 1;
+        padding: 10px 0;
+    }
+
+    .stock-status {
+        margin-bottom: 15px;
+    }
+
+        .stock-status strong {
+            color: #333;
+        }
+
+    .in-stock {
+        color: #28a745;
+        font-weight: bold;
+    }
+
+    .out-of-stock {
+        color: #dc3545;
+        font-weight: bold;
+    }
+
+    .price-container {
+        margin-bottom: 20px;
+    }
+
+    .price-original {
+        font-size: 1.1rem;
+        color: #999;
+        text-decoration: line-through;
+        margin-right: 10px;
+    }
+
+    .price-discounted {
+        font-size: 1.5rem;
+        color: #dc3545;
+        font-weight: 700;
+    }
+
+    .discount-badge {
+        background: #dc3545;
+        color: #fff;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 0.9rem;
+        margin-left: 10px;
+    }
+
+    .description {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+        .description strong {
+            color: #333;
+        }
+
+    /* Action Container */
+    .action-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .quantity-input {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+        .quantity-input label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .quantity-input input {
+            width: 70px;
+            padding: 8px;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            color: white;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s;
+            font-size: 1rem;
             text-align: center;
         }
 
-        .btn-buy-now {
-            background-color: #dc3545; /* Red for Buy Now */
+    .button-container {
+        display: flex;
+        gap: 15px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        text-decoration: none;
+    }
+
+    .btn-buy-now {
+        background: #dc3545;
+    }
+
+        .btn-buy-now:hover {
+            background: #c82333;
+            transform: translateY(-2px);
         }
 
-            .btn-buy-now:hover {
-                background-color: #c82333;
-            }
+    .btn-add-to-cart {
+        background: #28a745;
+    }
 
-        .btn-add-to-cart {
-            background-color: #28a745; /* Green for Add to Cart */
+        .btn-add-to-cart:hover {
+            background: #218838;
+            transform: translateY(-2px);
         }
 
-            .btn-add-to-cart:hover {
-                background-color: #218838;
-            }
-    </style>
-</div>
-<button onclick="addToCart(@Model.MaHangHoa)" class="btn btn-primary">Thêm vào giỏ hàng</button>
-<button onclick="addToWishlist(@Model.MaHangHoa)" class="btn btn-secondary">Thêm vào wishlist</button>
+    /* Product Details */
+    .product-details {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+
+        .product-details h3 {
+            font-size: 1.6rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .product-details p {
+            color: #555;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .product-details strong {
+            color: #333;
+        }
+
+        .product-details ul, .product-details ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .product-details li {
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+    .highlight-text {
+        color: #dc3545;
+        font-weight: 600;
+    }
+
+    /* Extra Buttons */
+    .extra-buttons {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .btn-primary {
+        background: #007bff;
+    }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+    .btn-secondary {
+        background: #6c757d;
+        margin-left: 10px;
+    }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+</style>
 
 <script>
     function addToCart(hangHoaId) {
+        const soLuong = document.getElementById('soLuong').value;
         $.ajax({
             url: '/GioHang/AddToCart',
             method: 'POST',
-            data: { id: hangHoaId, soLuong: 1 },
+            data: { id: hangHoaId, soLuong: parseInt(soLuong) },
             success: function (response) {
-                updateCartCount(); // Cập nhật số lượng giỏ hàng
+                updateCartCount();
                 alert('Đã thêm sản phẩm vào giỏ hàng.');
             },
             error: function () {
@@ -227,7 +344,7 @@
             method: 'POST',
             data: { id: hangHoaId },
             success: function (response) {
-                updateWishlistCount(); // Cập nhật số lượng wishlist
+                updateWishlistCount();
                 alert('Đã thêm sản phẩm vào danh sách yêu thích.');
             },
             error: function () {
@@ -235,4 +352,4 @@
             }
         });
     }
-</script>```
+</script>

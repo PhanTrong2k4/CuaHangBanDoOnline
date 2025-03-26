@@ -1,15 +1,35 @@
 ﻿@model CuaHangBanDoOnline.Models.DanhMuc
 
+@{
+    ViewData["Title"] = "Xóa danh mục";
+}
+
 <h2>Xóa danh mục</h2>
-<p>Bạn có chắc chắn muốn xóa danh mục này?</p>
 
-<table class="table">
-    <tr><th>Mã Danh Mục</th><td>@Model.MaDanhMuc</td></tr>
-    <tr><th>Tên Danh Mục</th><td>@Model.TenDanhMuc</td></tr>
-</table>
-
-<form asp-action="Delete">
-    <input type="hidden" asp-for="MaDanhMuc" />
-    <button type="submit" class="btn btn-danger">Xóa</button>
-    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
-</form>
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-lg-7 mb-5">
+            <div class="bg-light p-30">
+                <h3>Bạn có chắc chắn muốn xóa danh mục này không?</h3>
+                <p>Lưu ý: Danh mục sẽ được đánh dấu là "Đã xóa" và không hiển thị trong danh sách.</p>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-3">Tên danh mục:</dt>
+                    <dd class="col-sm-9">@Model.TenDanhMuc</dd>
+                    <dt class="col-sm-3">Số lượng sản phẩm:</dt>
+                    <dd class="col-sm-9">@Model.HangHoaDanhMucs.Count</dd>
+                    <dt class="col-sm-3">Phần trăm giảm giá:</dt>
+                    <dd class="col-sm-9">@Model.PhanTramGiamGia%</dd>
+                </dl>
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="MaDanhMuc" />
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <input type="submit" value="Xóa" class="btn btn-danger" />
+                        <a asp-action="Index" class="btn btn-secondary ml-2">Quay lại</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

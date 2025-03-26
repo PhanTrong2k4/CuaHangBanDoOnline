@@ -1,0 +1,57 @@
+﻿@model CuaHangBanDoOnline.Models.Slide
+
+@{
+    ViewData["Title"] = "Chỉnh sửa Slide";
+}
+
+<div class="container-fluid pt-5">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+        <span class="bg-secondary pr-3">Chỉnh sửa Slide</span>
+    </h2>
+
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label asp-for="Title" class="control-label"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Link" class="control-label"></label>
+            <input asp-for="Link" class="form-control" />
+            <span asp-validation-for="Link" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Image" class="control-label">Hình ảnh hiện tại</label>
+            @if (!string.IsNullOrEmpty(Model.Image))
+            {
+                <div>
+                    <img src="@Model.Image" alt="@Model.Title" style="width: 200px; height: auto;" />
+                </div>
+            }
+            else
+            {
+                <p>Không có hình ảnh</p>
+            }
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Thay đổi hình ảnh</label>
+            <input type="file" name="imageFile" class="form-control" accept="image/*" />
+            <span class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Lưu</button>
+            <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

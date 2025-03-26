@@ -7,17 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\HangHoa\UserProductList.cshtml" />
     <Content Remove="Views\Home\cart.cshtml" />
     <Content Remove="Views\Home\checkout.cshtml" />
-    <Content Remove="Views\Home\contact.cshtml" />
-    <Content Remove="Views\Home\detail.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\HangHoa\UserProductList.cshtml" />
+    <None Include="Views\HangHoa\ViewSanPham.cshtml" />
     <None Include="Views\Home\cart.cshtml" />
     <None Include="Views\Home\checkout.cshtml" />
-    <None Include="Views\Home\contact.cshtml" />
-    <None Include="Views\Home\detail.cshtml" />
+    <None Include="Views\Home\Contact.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
     <None Include="Views\Home\SanPham.cshtml" />
     <None Include="wwwroot\js\site.js" />
@@ -69,6 +69,19 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\HangHoa\UserProductList.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\HangHoa\UserProductList.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\HangHoa\ViewSanPham.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\HangHoa\ViewSanPham.cshtml" />
   </ItemGroup>
 
 </Project>

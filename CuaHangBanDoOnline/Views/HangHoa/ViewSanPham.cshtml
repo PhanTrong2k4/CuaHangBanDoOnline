@@ -1,0 +1,322 @@
+﻿@model IEnumerable<CuaHangBanDoOnline.Models.HangHoa>
+
+<div class="container-fluid pt-5 pb-3">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Tìm kiếm sản phẩm</span></h2>
+
+    <!-- Bộ lọc -->
+    <div class="row px-xl-5 mb-4">
+        <div class="col-12">
+            <form method="get" action="/HangHoa/ViewSanPham">
+                <div class="row">
+                    <!-- Ô tìm kiếm -->
+                    <div class="col-md-3 mb-3">
+                        <input type="text" name="search" class="form-control" placeholder="Tìm kiếm..." value="@ViewData["SearchQuery"]">
+                    </div>
+                    <!-- Bộ lọc danh mục -->
+                    <div class="col-md-3 mb-3">
+                        <select name="category" class="form-control">
+                            <option value="">Tất cả danh mục</option>
+                            @foreach (var danhMuc in ViewBag.DanhMucs)
+                            {
+                                <option value="@danhMuc.MaDanhMuc" selected="@(ViewData["SelectedCategory"]?.ToString() == danhMuc.MaDanhMuc.ToString() ? "selected" : null)">@danhMuc.TenDanhMuc</option>
+                            }
+                        </select>
+                    </div>
+                    <!-- Bộ lọc mức giá -->
+                    <div class="col-md-3 mb-3">
+                        <select name="price_range" class="form-control">
+                            <option value="">Mức giá</option>
+                            <option value="0-100000" selected="@(ViewData["SelectedPriceRange"]?.ToString() == "0-100000" ? "selected" : null)">0 - 100,000 VNĐ</option>
+                            <option value="100000-200000" selected="@(ViewData["SelectedPriceRange"]?.ToString() == "100000-200000" ? "selected" : null)">100,000 - 200,000 VNĐ</option>
+                            <option value="200000-500000" selected="@(ViewData["SelectedPriceRange"]?.ToString() == "200000-500000" ? "selected" : null)">200,000 - 500,000 VNĐ</option>
+                            <option value="500000-1000000" selected="@(ViewData["SelectedPriceRange"]?.ToString() == "500000-1000000" ? "selected" : null)">500,000 - 1,000,000 VNĐ</option>
+                        </select>
+                    </div>
+                    <!-- Bộ lọc sắp xếp -->
+                    <div class="col-md-2 mb-3">
+                        <select name="sort_by" class="form-control">
+                            <option value="">Sắp xếp</option>
+                            <option value="price_asc" selected="@(ViewData["SelectedSortBy"]?.ToString() == "price_asc" ? "selected" : null)">Giá: Thấp đến cao</option>
+                            <option value="price_desc" selected="@(ViewData["SelectedSortBy"]?.ToString() == "price_desc" ? "selected" : null)">Giá: Cao đến thấp</option>
+                            <option value="name_asc" selected="@(ViewData["SelectedSortBy"]?.ToString() == "name_asc" ? "selected" : null)">Tên: A-Z</option>
+                            <option value="name_desc" selected="@(ViewData["SelectedSortBy"]?.ToString() == "name_desc" ? "selected" : null)">Tên: Z-A</option>
+                        </select>
+                    </div>
+                    <!-- Nút lọc -->
+                    <div class="col-md-1 mb-3">
+                        <button type="submit" class="btn btn-warning">Lọc</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Danh sách sản phẩm -->
+    <div class="row px-xl-5">
+        @if (Model.Any())
+        {
+            @foreach (var hangHoa in Model)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-4">
+                    <div class="product-item">
+                        <div class="product-img">
+                            <img src="@(string.IsNullOrEmpty(hangHoa.Hinh) ? "/images/default-product.jpg" : hangHoa.Hinh)" alt="@hangHoa.TenHangHoa">
+                            <div class="product-action">
+                                <button class="btn-square wishlist-btn" data-id="@hangHoa.MaHangHoa" onclick="toggleWishlist(@hangHoa.MaHangHoa, this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="btn-square" onclick="addToCart(@hangHoa.MaHangHoa)">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                                <a class="btn-square" href="@Url.Action("Detail", "HangHoa", new { id = hangHoa.MaHangHoa })">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a class="text-truncate text-decoration-none" href="@Url.Action("Detail", "HangHoa", new { id = hangHoa.MaHangHoa })">
+                                @hangHoa.TenHangHoa
+                            </a>
+                            <div class="price-wrapper mt-2">
+                                @if (ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] != null && Convert.ToDecimal(ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"]) > 0)
+                                {
+                                    <span class="price-original">@hangHoa.GiaGoc.ToString("#,##0") VNĐ</span>
+                                    <span class="price-discounted">@hangHoa.GiaBan.ToString("#,##0") VNĐ</span>
+                                    <span class="discount-badge"> -@((decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"])%</span>
+                                }
+                                else
+                                {
+                                    <span class="price-discounted">@hangHoa.GiaBan.ToString("#,##0") VNĐ</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p class="text-muted mx-xl-5">Không tìm thấy sản phẩm nào.</p>
+        }
+    </div>
+
+    <!-- Phân trang -->
+    @if (ViewBag.TotalPages > 1)
+    {
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                @if (ViewBag.CurrentPage > 1)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("ViewSanPham", new { search = ViewData["SearchQuery"], category = ViewData["SelectedCategory"], price_range = ViewData["SelectedPriceRange"], sort_by = ViewData["SelectedSortBy"], page = ViewBag.CurrentPage - 1 })">Previous</a>
+                    </li>
+                }
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                        <a class="page-link" href="@Url.Action("ViewSanPham", new { search = ViewData["SearchQuery"], category = ViewData["SelectedCategory"], price_range = ViewData["SelectedPriceRange"], sort_by = ViewData["SelectedSortBy"], page = i })">@i</a>
+                    </li>
+                }
+                @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("ViewSanPham", new { search = ViewData["SearchQuery"], category = ViewData["SelectedCategory"], price_range = ViewData["SelectedPriceRange"], sort_by = ViewData["SelectedSortBy"], page = ViewBag.CurrentPage + 1 })">Next</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    }
+</div>
+
+<style>
+    /* Section Title */
+    .section-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #333;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+    }
+
+        .section-title span {
+            background: #f8f9fa;
+            padding-right: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #ddd;
+            z-index: -1;
+        }
+
+    /* Product Item */
+    .product-item {
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+        }
+
+    /* Product Image */
+    .product-img {
+        position: relative;
+        overflow: hidden;
+    }
+
+        .product-img img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-img:hover img {
+            transform: scale(1.05);
+        }
+
+    /* Product Action Buttons */
+    .product-action {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        gap: 10px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .product-img:hover .product-action {
+        opacity: 1;
+    }
+
+    .btn-square {
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: background 0.3s ease;
+    }
+
+        .btn-square:hover {
+            background: #007bff;
+            color: #fff;
+        }
+
+    .wishlist-btn.active i {
+        color: #dc3545;
+    }
+
+    /* Product Info */
+    .text-center {
+        padding: 1rem;
+    }
+
+        .text-center a {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+            .text-center a:hover {
+                color: #007bff;
+            }
+
+    .price-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .price-original {
+        font-size: 1rem;
+        color: #999;
+        text-decoration: line-through;
+    }
+
+    .price-discounted {
+        font-size: 1.2rem;
+        color: #dc3545;
+        font-weight: 700;
+    }
+
+    .discount-badge {
+        background: #dc3545;
+        color: #fff;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 0.8rem;
+    }
+
+    /* Pagination */
+    .pagination .page-link {
+        color: #007bff;
+        border: 1px solid #ddd;
+        margin: 0 2px;
+        border-radius: 5px;
+    }
+
+    .pagination .page-item.active .page-link {
+        background: #007bff;
+        border-color: #007bff;
+        color: #fff;
+    }
+
+    .pagination .page-link:hover {
+        background: #f8f9fa;
+        border-color: #ddd;
+    }
+</style>
+
+<script>
+    function addToCart(hangHoaId) {
+        $.ajax({
+            url: '/GioHang/AddToCart',
+            method: 'POST',
+            data: { id: hangHoaId, soLuong: 1 },
+            success: function (response) {
+                updateCartCount();
+                alert('Đã thêm sản phẩm vào giỏ hàng.');
+            },
+            error: function () {
+                alert('Có lỗi xảy ra khi thêm vào giỏ hàng.');
+            }
+        });
+    }
+
+    function toggleWishlist(hangHoaId, button) {
+        $.ajax({
+            url: '/Wishlist/AddToWishlist',
+            method: 'POST',
+            data: { id: hangHoaId },
+            success: function (response) {
+                $(button).toggleClass('active');
+                updateWishlistCount();
+                alert('Đã thêm sản phẩm vào danh sách yêu thích.');
+            },
+            error: function () {
+                alert('Có lỗi xảy ra khi thêm vào danh sách yêu thích.');
+            }
+        });
+    }
+</script>

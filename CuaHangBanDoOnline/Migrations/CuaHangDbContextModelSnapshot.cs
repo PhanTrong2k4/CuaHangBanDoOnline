@@ -92,6 +92,9 @@ namespace CuaHangBanDoOnline.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("PhanTramGiamGia")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("TenDanhMuc")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -173,6 +176,9 @@ namespace CuaHangBanDoOnline.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<int>("SoLuongBan")
+                        .HasColumnType("int");
+
                     b.Property<int>("SoLuongTon")
                         .HasColumnType("int");
 
@@ -233,6 +239,30 @@ namespace CuaHangBanDoOnline.Migrations
                     b.ToTable("KhuyenMais");
                 });
 
+            modelBuilder.Entity("CuaHangBanDoOnline.Models.PageContent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PageName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PageContents");
+                });
+
             modelBuilder.Entity("CuaHangBanDoOnline.Models.Role", b =>
                 {
                     b.Property<int>("MaVaiTro")
@@ -250,6 +280,31 @@ namespace CuaHangBanDoOnline.Migrations
                     b.ToTable("Roles");
 
                     b.UseTptMappingStrategy();
+                });
+
+            modelBuilder.Entity("CuaHangBanDoOnline.Models.Slide", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Slides");
                 });
 
             modelBuilder.Entity("CuaHangBanDoOnline.Models.ThanhToan", b =>

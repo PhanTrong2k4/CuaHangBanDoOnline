@@ -1,27 +1,33 @@
 ﻿@model CuaHangBanDoOnline.Models.DanhMuc
 
-<div class="container my-4">
-    <!-- Hiển thị tiêu đề danh mục -->
-    <h1 class="mb-4">@(Model.TenDanhMuc ?? "Tất cả sản phẩm")</h1>
+@{
+    ViewData["Title"] = "Sản phẩm theo danh mục - " + Model.TenDanhMuc;
+}
 
-    <!-- Hiển thị thông báo lỗi nếu có -->
+<!-- Breadcrumb Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="breadcrumb-item text-dark" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                <a class="breadcrumb-item text-dark" asp-controller="DanhMuc" asp-action="Index">Danh mục</a>
+                <span class="breadcrumb-item active">@Model.TenDanhMuc</span>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+<!-- Search and Filter Section -->
+<div class="container-fluid pt-5">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+        <span class="bg-secondary pr-3">Sản phẩm trong danh mục: @Model.TenDanhMuc</span>
+    </h2>
     @if (TempData["Error"] != null)
     {
         <div class="alert alert-danger">@TempData["Error"]</div>
     }
-
-    <!-- Search and Filter Section -->
-    <form asp-action="@(ViewContext.RouteData.Values["action"].ToString() == "SanPhamTheoDanhMuc" ? "SanPhamTheoDanhMuc" : (ViewContext.RouteData.Values["controller"].ToString() == "Home" ? "Index" : "Details"))"
-          asp-controller="@(ViewContext.RouteData.Values["controller"].ToString() == "Home" ? "Home" : "DanhMuc")"
-          method="get" class="mb-4">
-        @if (ViewContext.RouteData.Values["action"].ToString() == "SanPhamTheoDanhMuc")
-        {
-            <input type="hidden" name="maDanhMuc" value="@Model.MaDanhMuc" />
-        }
-        else if (ViewContext.RouteData.Values["controller"].ToString() != "Home")
-        {
-            <input type="hidden" name="id" value="@Model.MaDanhMuc" />
-        }
+    <form asp-action="SanPhamTheoDanhMuc" asp-controller="DanhMuc" method="get" class="mb-4 px-xl-5">
+        <input type="hidden" name="id" value="@Model.MaDanhMuc" />
         <h2 class="text-uppercase mb-3">Tìm kiếm sản phẩm</h2>
         <div class="row g-3 align-items-center">
             <!-- Search Bar -->
@@ -62,34 +68,54 @@
             </div>
         </div>
     </form>
+</div>
 
-    <!-- Product Listing Section -->
-    <div class="row">
-        @if (Model.HangHoaDanhMucs.Any())
+<!-- Products Start -->
+<div class="container-fluid pt-5 pb-3">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+        <span class="bg-secondary pr-3">Sản phẩm</span>
+    </h2>
+    <div class="row px-xl-5">
+        @if (Model.HangHoaDanhMucs != null && Model.HangHoaDanhMucs.Any())
         {
-            @foreach (var hhdm in Model.HangHoaDanhMucs)
+            @foreach (var hangHoaDanhMuc in Model.HangHoaDanhMucs)
             {
-                var hangHoa = hhdm.HangHoa;
-                var khuyenMai = hangHoa.KhuyenMais.FirstOrDefault(km => km.NgayBatDau <= DateTime.Now && km.NgayKetThuc >= DateTime.Now);
-                int discountPercentage = khuyenMai != null ? (int)khuyenMai.PhanTramGiamGia : 0;
-
-                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                    <div class="card border-0 shadow-sm position-relative">
-                        <img src="@(string.IsNullOrEmpty(hangHoa.Hinh) ? "/images/default-product.jpg" : hangHoa.Hinh)" class="card-img-top" alt="@hangHoa.TenHangHoa" style="height: 200px; object-fit: cover;">
-                        @if (discountPercentage > 0)
-                        {
-                            <span class="badge bg-danger position-absolute top-0 end-0 m-2">Giảm @discountPercentage%</span>
-                        }
-                        <div class="card-body">
-                            <h5 class="card-title" style="font-size: 1.1rem; font-weight: bold; min-height: 48px;">@hangHoa.TenHangHoa</h5>
-                            <div class="d-flex align-items-center mb-2">
-                                <span class="text-danger fw-bold me-2">@hangHoa.GiaBan.ToString("#,##0") VNĐ</span>
-                                @if (discountPercentage > 0)
+                var hangHoa = hangHoaDanhMuc.HangHoa;
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                    <div class="product-item bg-light mb-4">
+                        <div class="product-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="@(string.IsNullOrEmpty(hangHoa.Hinh) ? "/images/default-product.jpg" : hangHoa.Hinh)" alt="@hangHoa.TenHangHoa">
+                            <div class="product-action">
+                                <a class="btn btn-outline-dark btn-square" href="javascript:void(0)" onclick="addToCart(@hangHoa.MaHangHoa)"><i class="fa fa-shopping-cart"></i></a>
+                                <a class="btn btn-outline-dark btn-square wishlist-btn" data-id="@hangHoa.MaHangHoa" href="javascript:void(0)" onclick="toggleWishlist(@hangHoa.MaHangHoa, this)">
+                                    <i class="far fa-heart"></i>
+                                </a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href="@Url.Action("Detail", "HangHoa", new { id = hangHoa.MaHangHoa })"><i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center py-4">
+                            <a class="h6 text-decoration-none text-truncate" href="@Url.Action("Detail", "HangHoa", new { id = hangHoa.MaHangHoa })">@hangHoa.TenHangHoa</a>
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                @if (ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] != null && (decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] > 0)
                                 {
-                                    <span class="text-muted text-decoration-line-through">@hangHoa.GiaGoc.ToString("#,##0") VNĐ</span>
+                                    <h5 class="text-muted text-decoration-line-through me-2">@hangHoa.GiaGoc.ToString("#,##0") VNĐ</h5>
+                                    <h5 class="text-danger">@hangHoa.GiaBan.ToString("#,##0") VNĐ</h5>
+                                    <span class="badge bg-danger ms-2"> -@((decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"])%</span>
+                                }
+                                else
+                                {
+                                    <h5>@hangHoa.GiaBan.ToString("#,##0") VNĐ</h5>
                                 }
                             </div>
-                            <a asp-action="Detail" asp-controller="HangHoa" asp-route-id="@hangHoa.MaHangHoa" class="btn btn-primary btn-sm w-100">Chi tiết</a>
+                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small>(99)</small>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,42 +126,31 @@
             <p class="text-muted">Không có sản phẩm nào trong danh mục này.</p>
         }
     </div>
+    <!-- Phân trang -->
+    @if (ViewBag.TotalPages > 1)
+    {
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                @if (ViewBag.CurrentPage > 1)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("SanPhamTheoDanhMuc", new { id = Model.MaDanhMuc, search = ViewBag.Search, priceRange = ViewBag.PriceRange, sortBy = ViewBag.SortBy, page = ViewBag.CurrentPage - 1 })">Previous</a>
+                    </li>
+                }
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                        <a class="page-link" href="@Url.Action("SanPhamTheoDanhMuc", new { id = Model.MaDanhMuc, search = ViewBag.Search, priceRange = ViewBag.PriceRange, sortBy = ViewBag.SortBy, page = i })">@i</a>
+                    </li>
+                }
+                @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("SanPhamTheoDanhMuc", new { id = Model.MaDanhMuc, search = ViewBag.Search, priceRange = ViewBag.PriceRange, sortBy = ViewBag.SortBy, page = ViewBag.CurrentPage + 1 })">Next</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    }
 </div>
-
-<!-- Custom CSS for Styling -->
-<style>
-    .card {
-        transition: transform 0.2s;
-    }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-    .card-img-top {
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-    }
-
-    .badge {
-        font-size: 0.9rem;
-        padding: 5px 10px;
-    }
-
-    .text-danger {
-        color: #dc3545 !important;
-    }
-
-    .form-control, .form-select, .btn-primary {
-        border-radius: 5px;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        border: none;
-    }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-        }
-</style>
+<!-- Products End -->

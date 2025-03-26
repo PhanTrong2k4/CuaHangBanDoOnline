@@ -25,4 +25,11 @@ public class ChiTietDonHangRepository : IChitietdonhangRepository
         _context.SaveChanges();
         return chiTietDonHang;
     }
+
+    public IEnumerable<ChiTietDonHang> GetAllChiTietDonHangs()
+    {
+        return _context.ChiTietDonHangs
+            .Include(ctdh => ctdh.HangHoa) // Bao gồm thông tin HangHoa để sử dụng trong HomeController
+            .ToList();
+    }
 }
