@@ -1,340 +1,384 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CuaHangBanDoOnline.bundle.scp.css",
-      "PackagePath": "staticwebassets\\CuaHangBanDoOnline.bundle.scp.css"
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CuaHangBanDoOnline.bundle.scp.css",
+      "PackagePath": "staticwebassets\\CuaHangBanDoOnline.62xs0xqiu3.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\css\\bootstrap-grid.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\css\\bootstrap-grid.min.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\css\\bootstrap-reboot.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\css\\bootstrap-reboot.min.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\css\\bootstrap.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\css\\bootstrap.min.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\css\\site.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\css\\style.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\css\\style.min.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\css\\style.min.css",
       "PackagePath": "staticwebassets\\css\\style.min.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\favicon.ico",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\js\\main.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\images\\users\\1_0d7a107b-0562-42ea-9c5b-3453d787bc18.jpg",
+      "PackagePath": "staticwebassets\\images\\users\\1_0d7a107b-0562-42ea-9c5b-3453d787bc18.jpg"
+    },
+    {
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\images\\users\\1_50491f1a-3357-4abc-b880-bed364e93be2.png",
+      "PackagePath": "staticwebassets\\images\\users\\1_50491f1a-3357-4abc-b880-bed364e93be2.png"
+    },
+    {
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\images\\users\\1_53b6b1b0-4387-4948-8837-4e47f436e196.jpg",
+      "PackagePath": "staticwebassets\\images\\users\\1_53b6b1b0-4387-4948-8837-4e47f436e196.jpg"
+    },
+    {
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\images\\users\\1_5781647e-8a6e-45d4-85b5-1d7c3d61acb1.jpg",
+      "PackagePath": "staticwebassets\\images\\users\\1_5781647e-8a6e-45d4-85b5-1d7c3d61acb1.jpg"
+    },
+    {
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\images\\users\\1_6c731987-a21e-4a65-aca8-e0c4b745e0a2.jpg",
+      "PackagePath": "staticwebassets\\images\\users\\1_6c731987-a21e-4a65-aca8-e0c4b745e0a2.jpg"
+    },
+    {
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\images\\users\\1_a5beb8ed-bc30-44da-96f1-e5f50e9cec44.jpg",
+      "PackagePath": "staticwebassets\\images\\users\\1_a5beb8ed-bc30-44da-96f1-e5f50e9cec44.jpg"
+    },
+    {
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\images\\users\\1_c0f03462-7cf5-4beb-a66b-3eca9b5721b3.jpg",
+      "PackagePath": "staticwebassets\\images\\users\\1_c0f03462-7cf5-4beb-a66b-3eca9b5721b3.jpg"
+    },
+    {
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\images\\users\\1_f0bfd9d6-cb4b-43e5-ab3c-426bd628ea01.jpg",
+      "PackagePath": "staticwebassets\\images\\users\\1_f0bfd9d6-cb4b-43e5-ab3c-426bd628ea01.jpg"
+    },
+    {
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\images\\users\\1_fc4700ca-3512-4eab-8b60-87993d46cc8c.jpg",
+      "PackagePath": "staticwebassets\\images\\users\\1_fc4700ca-3512-4eab-8b60-87993d46cc8c.jpg"
+    },
+    {
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\images\\users\\2_f022d2e7-604d-4d0e-b305-6eb237acfc7e.png",
+      "PackagePath": "staticwebassets\\images\\users\\2_f022d2e7-604d-4d0e-b305-6eb237acfc7e.png"
+    },
+    {
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\js\\main.js",
       "PackagePath": "staticwebassets\\js\\main.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\js\\site.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\animate\\animate.min.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\animate\\animate.min.css",
       "PackagePath": "staticwebassets\\lib\\animate\\animate.min.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\easing\\easing.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\easing\\easing.js",
       "PackagePath": "staticwebassets\\lib\\easing\\easing.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\easing\\easing.min.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\easing\\easing.min.js",
       "PackagePath": "staticwebassets\\lib\\easing\\easing.min.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\LICENSE",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\owlcarousel"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\assets\\ajax-loader.gif",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\assets\\ajax-loader.gif",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\ajax-loader.gif"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.css",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.carousel.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.min.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.min.css",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.carousel.min.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.css",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.default.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.min.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.min.css",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.default.min.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.css",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.green.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.min.css",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.min.css",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.green.min.css"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\assets\\owl.video.play.png",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\assets\\owl.video.play.png",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.video.play.png"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\owl.carousel.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\owl.carousel.js",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\owl.carousel.js"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Desktop\\WEBASP.NET\\CuaHangBanDoOnline\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\owl.carousel.min.js",
+      "Id": "E:\\ASP.Net bao cao\\CuaHang\\CuaHangBanDoOnline\\wwwroot\\lib\\owlcarousel\\owl.carousel.min.js",
       "PackagePath": "staticwebassets\\lib\\owlcarousel\\owl.carousel.min.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CuaHangBanDoOnline.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CuaHangBanDoOnline.Microsoft.AspNetCore.StaticWebAssets.props",

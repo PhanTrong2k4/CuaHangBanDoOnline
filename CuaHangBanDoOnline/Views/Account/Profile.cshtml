@@ -1,0 +1,231 @@
+﻿@model CuaHangBanDoOnline.Models.UserProfileViewModel
+
+@{
+    ViewData["Title"] = "Thông tin cá nhân";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg p-4" style="min-height: 600px;">
+                <h3 class="text-center mb-4">Thông tin cá nhân</h3>
+                @if (!string.IsNullOrEmpty(ViewBag.Message as string))
+                {
+                    <div class="alert alert-success">@ViewBag.Message</div>
+                }
+                @if (!string.IsNullOrEmpty(ViewBag.Error as string))
+                {
+                    <div class="alert alert-danger">@ViewBag.Error</div>
+                }
+                <div class="text-center mb-4">
+                    <div style="width: 150px; height: 150px; margin: 0 auto; background-color: #f0f0f0; position: relative;">
+                        <img id="avatarImage"
+                             src="@(Model.AvatarPath ?? "/images/default-avatar.png")?t=@DateTime.Now.Ticks"
+                             alt="Avatar"
+                             class="rounded-circle"
+                             style="width: 100%; height: 100%; object-fit: cover;"
+                             onerror="this.src='/images/default-avatar.png'" />
+                        @if (Model.IsEditing)
+                        {
+                            <label for="avatarInput" class="btn btn-sm btn-primary" style="position: absolute; bottom: 0; right: 0;">
+                                <i class="fas fa-camera"></i>
+                            </label>
+                            <input type="file" id="avatarInput" name="AvatarFile" accept="image/*" style="display: none;" />
+                        }
+                    </div>
+                </div>
+
+                @if (!Model.IsEditing)
+                {
+                    <!-- Chế độ xem -->
+                    <div class="list-group mb-3">
+                        <div class="list-group-item"><strong>Mã người dùng:</strong> @Model.MaNguoiDung</div>
+                        <div class="list-group-item"><strong>Tên đăng nhập:</strong> @Model.TenDangNhap</div>
+                        <div class="list-group-item"><strong>Họ và tên:</strong> @(string.IsNullOrEmpty(Model.FullName) ? "Chưa cập nhật" : Model.FullName)</div>
+                        <div class="list-group-item"><strong>Email:</strong> @Model.Email</div>
+                        <div class="list-group-item"><strong>Số điện thoại:</strong> @(string.IsNullOrEmpty(Model.SoDienThoai) ? "Chưa cập nhật" : Model.SoDienThoai)</div>
+                        <div class="list-group-item"><strong>Vai trò:</strong> @Model.VaiTro</div>
+                    </div>
+                    <form method="post" asp-action="EnableEdit" class="text-center">
+                        <button type="submit" class="btn btn-primary w-100 mb-3">Chỉnh sửa</button>
+                    </form>
+                }
+                else
+                {
+                    <!-- Chế độ chỉnh sửa -->
+                    <form method="post" asp-action="UpdateProfile" class="needs-validation" novalidate>
+                        <input type="hidden" asp-for="MaNguoiDung" />
+                        <input type="hidden" asp-for="TenDangNhap" />
+                        <input type="hidden" asp-for="Email" />
+                        <input type="hidden" asp-for="VaiTro" />
+                        <input type="hidden" asp-for="AvatarPath" />
+
+                        <div class="form-group">
+                            <label for="MaNguoiDung">Mã người dùng</label>
+                            <input type="text" class="form-control" id="MaNguoiDung" name="MaNguoiDung" value="@Model.MaNguoiDung" readonly />
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="FullName">Họ và tên</label>
+                            <input type="text" class="form-control" id="FullName" name="FullName" value="@Model.FullName" />
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="SoDienThoai">Số điện thoại</label>
+                            <input type="text" class="form-control" id="SoDienThoai" name="SoDienThoai" value="@Model.SoDienThoai" />
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="MatKhau">Mật khẩu</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="MatKhau" value="********" readonly />
+                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#changePasswordModal">Sửa</button>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mt-4">Lưu thay đổi</button>
+                    </form>
+                }
+
+                <div class="text-center mt-4">
+                    <a href="/Account/Logout" class="btn btn-danger">Đăng xuất</a>
+                    <a href="/Home/Index" class="btn btn-secondary">Quay lại</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal đổi mật khẩu -->
+<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="changePasswordModalLabel">Đổi mật khẩu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="changePasswordForm" method="post" asp-action="ChangePassword">
+                <div class="modal-body">
+                    <div class="form-group mb-3">
+                        <label for="OldMatKhau">Mật khẩu hiện tại</label>
+                        <input type="password" class="form-control" id="OldMatKhau" name="OldMatKhau" required />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="NewMatKhau">Mật khẩu mới</label>
+                        <input type="password" class="form-control" id="NewMatKhau" name="NewMatKhau" required />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="ConfirmMatKhau">Xác nhận mật khẩu mới</label>
+                        <input type="password" class="form-control" id="ConfirmMatKhau" name="ConfirmMatKhau" required />
+                    </div>
+                    <div id="changePasswordMessage" class="alert d-none"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Thêm Font Awesome và Bootstrap -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<style>
+    .form-control[readonly] {
+        background-color: #e9ecef;
+        opacity: 1;
+    }
+
+    .card {
+        transition: all 0.3s ease;
+    }
+
+    .list-group-item {
+        min-height: 40px;
+    }
+
+    .form-group {
+        min-height: 70px;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('avatarInput').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        if (file.size > 5 * 1024 * 1024) {
+            alert('Ảnh không được lớn hơn 5MB.');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('AvatarFile', file);
+
+        fetch('/Account/UploadAvatar', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const avatarImage = document.getElementById('avatarImage');
+                avatarImage.src = data.avatarPath + '?t=' + new Date().getTime();
+                alert('Cập nhật ảnh đại diện thành công!');
+            } else {
+                alert('Lỗi: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Đã có lỗi xảy ra khi upload ảnh.');
+        });
+    });
+
+    document.getElementById('changePasswordForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const oldMatKhau = document.getElementById('OldMatKhau');
+        const newMatKhau = document.getElementById('NewMatKhau');
+        const confirmMatKhau = document.getElementById('ConfirmMatKhau');
+        const messageDiv = document.getElementById('changePasswordMessage');
+
+        if (newMatKhau.value !== confirmMatKhau.value) {
+            messageDiv.classList.remove('d-none', 'alert-success');
+            messageDiv.classList.add('alert-danger');
+            messageDiv.textContent = 'Mật khẩu mới và xác nhận mật khẩu không khớp!';
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('OldMatKhau', oldMatKhau.value);
+        formData.append('NewMatKhau', newMatKhau.value);
+
+        fetch('/Account/ChangePassword', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            messageDiv.classList.remove('d-none');
+            if (data.success) {
+                messageDiv.classList.remove('alert-danger');
+                messageDiv.classList.add('alert-success');
+                messageDiv.textContent = 'Đổi mật khẩu thành công! Nhấn "Đóng" để thoát.';
+                // Xóa nội dung các ô textbox
+                oldMatKhau.value = '';
+                newMatKhau.value = '';
+                confirmMatKhau.value = '';
+            } else {
+                messageDiv.classList.remove('alert-success');
+                messageDiv.classList.add('alert-danger');
+                messageDiv.textContent = 'Lỗi: ' + data.message;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            messageDiv.classList.remove('d-none', 'alert-success');
+            messageDiv.classList.add('alert-danger');
+            messageDiv.textContent = 'Đã có lỗi xảy ra khi đổi mật khẩu.';
+        });
+    });
+</script>

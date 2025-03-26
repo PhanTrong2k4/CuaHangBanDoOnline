@@ -1,4 +1,4 @@
-using CuaHangBanDoOnline.Models;
+﻿using CuaHangBanDoOnline.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -15,6 +15,9 @@ namespace CuaHangBanDoOnline.Controllers
 
         public IActionResult Index()
         {
+            // Kiểm tra xem có JWToken trong Session không
+            var token = HttpContext.Session.GetString("JWToken");
+            ViewBag.IsLoggedIn = !string.IsNullOrEmpty(token); // Truyền trạng thái qua ViewBag
             return View();
         }
 

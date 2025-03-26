@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Đăng ký";
+}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card shadow-lg p-4">
+                <h3 class="text-center mb-4">Đăng ký</h3>
+                @if (ViewBag.Error != null)
+                {
+                    <div class="alert alert-danger">@ViewBag.Error</div>
+                }
+                @if (ViewBag.Message != null)
+                {
+                    <div class="alert alert-success">@ViewBag.Message</div>
+                }
+                <form method="post" asp-action="Register">
+                    <div class="form-group">
+                        <label for="TenDangNhap">Tên đăng nhập</label>
+                        <input type="text" class="form-control" id="TenDangNhap" name="TenDangNhap" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="Email">Email</label>
+                        <input type="email" class="form-control" id="Email" name="Email" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="Password">Mật khẩu</label>
+                        <input type="password" class="form-control" id="Password" name="Password" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="ConfirmPassword">Xác nhận mật khẩu</label>
+                        <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100 mt-4">Đăng ký</button>
+                </form>
+                <p class="text-center mt-3">
+                    Đã có tài khoản? <a href="/Account/Login">Đăng nhập ngay</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
