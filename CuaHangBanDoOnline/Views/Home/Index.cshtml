@@ -1,35 +1,361 @@
 ﻿@model IEnumerable<CuaHangBanDoOnline.Models.DanhMuc>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>@ViewData["Title"] - TGAME</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="TGAME - Mua sắm trực tuyến" name="keywords">
-    <meta content="TGAME - Nền tảng thương mại điện tử hàng đầu tại Việt Nam" name="description">
+@{
+    ViewData["Title"] = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Sử dụng _Layout.cshtml
+}
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+@Html.AntiForgeryToken()
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- Carousel Start -->
+<div class="container-fluid mb-3">
+    <div class="row px-xl-5">
+        <div class="col-lg-8">
+            @if (ViewBag.Slides != null && ViewBag.Slides.Count > 0)
+            {
+                <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel" data-interval="5000">
+                    <ol class="carousel-indicators">
+                        @for (int i = 0; i < ViewBag.Slides.Count; i++)
+                        {
+                            <li data-target="#header-carousel" data-slide-to="@i" class="@(i == 0 ? "active" : "")"></li>
+                        }
+                    </ol>
+                    <div class="carousel-inner">
+                        @for (int i = 0; i < ViewBag.Slides.Count; i++)
+                        {
+                            var slide = ViewBag.Slides[i];
+                            <div class="carousel-item position-relative @(i == 0 ? "active" : "")" style="height: 430px;">
+                                <img class="position-absolute w-100 h-100" src="@slide.Image" style="object-fit: cover;">
+                                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                    <div class="p-3" style="max-width: 700px;">
+                                        <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">@slide.Title</h1>
+                                        <p class="mx-md-5 px-5 animate__animated animate__bounceIn"></p>
+                                        <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="@slide.Link">Mua Ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+            else
+            {
+                <p>Chưa có slide nào để hiển thị.</p>
+            }
+        </div>
+        <div class="col-lg-4">
+            <div class="product-offer mb-30" style="height: 200px;">
+                <img class="img-fluid" src="images/Gameoftheyear.jpeg" alt="">
+                <div class="offer-text">
+                    <h6 class="text-white text-uppercase"></h6>
+                    <h3 class="text-white mb-3">Game of the year</h3>
+                    <a href="@Url.Action("SanPhamTheoDanhMuc", "DanhMuc", new { id = 13 })" class="btn btn-primary">Mua Ngay</a>
+                </div>
+            </div>
+            <div class="product-offer mb-30" style="height: 200px;">
+                <img class="img-fluid" src="images/worldwarz.jpeg" alt="">
+                <div class="offer-text">
+                    <h6 class="text-white text-uppercase"></h6>
+                    <h3 class="text-white mb-3">Game HOT</h3>
+                    <a href="@Url.Action("SanPhamTheoDanhMuc", "DanhMuc", new { id = 14 })" class="btn btn-primary">Mua Ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+<!-- Featured Start -->
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5 pb-3">
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">Key Game Chính Hãng</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                <h1 class="fa fa-bolt text-primary m-0 mr-2"></h1>
+                <h5 class="font-weight-semi-bold m-0">Giao Key Nhanh Chóng</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">Bảo Hành Key Game</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">Hỗ Trợ Kích Hoạt 24/7</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featured End -->
+<!-- Categories Start -->
+<div class="container-fluid pt-5">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Danh mục sản phẩm</span></h2>
+    <div class="row px-xl-5 pb-3">
+        @foreach (var danhMuc in Model)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <a class="text-decoration-none" href="@Url.Action("SanPhamTheoDanhMuc", "DanhMuc", new { id = danhMuc.MaDanhMuc })">
+                    <div class="cat-item d-flex align-items-center mb-4">
+                        <div class="overflow-hidden" style="width: 100px; height: 100px;">
+                            <div class="cat-img position-relative overflow-hidden">
+                                <i class="fa fa-user text-success fa-3x p-4"></i>
+                            </div>
+                        </div>
+                        <div class="flex-fill pl-3">
+                            <h6>@danhMuc.TenDanhMuc</h6>
+                            <small class="text-body">@(danhMuc.HangHoaDanhMucs?.Count ?? 0) sản phẩm</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+<!-- Categories End -->
+<!-- Top Selling Products Start -->
+<div class="container-fluid py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5 position-relative">
+            <span class="border-bottom border-primary pb-2 px-4">Sản phẩm được mua nhiều nhất</span>
+        </h2>
+        <div class="row">
+            @if (ViewBag.TopSellingProducts != null && ((IEnumerable<CuaHangBanDoOnline.Models.HangHoa>)ViewBag.TopSellingProducts).Any())
+            {
+                @foreach (var hangHoa in (IEnumerable<CuaHangBanDoOnline.Models.HangHoa>)ViewBag.TopSellingProducts)
+                {
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="card h-100 shadow-sm border-0 hover-lift">
+                            <div class="card-img-top position-relative overflow-hidden">
+                                <img src="@(string.IsNullOrEmpty(hangHoa.Hinh) ? "/images/default-product.jpg" : hangHoa.Hinh)"
+                                     alt="@hangHoa.TenHangHoa"
+                                     class="img-fluid w-100 transition-scale">
+                                @if (ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] != null && (decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] > 0)
+                                {
+                                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">
+                                        -@((decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"])%
+                                    </span>
+                                }
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title mb-3">
+                                    <a href="@Url.Action("Detail", "HangHoa", new { id = hangHoa.MaHangHoa })" class="text-dark text-decoration-none">
+                                        @hangHoa.TenHangHoa
+                                    </a>
+                                </h5>
+                                <div class="product-price mb-3">
+                                    @if (ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] != null && (decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] > 0)
+                                    {
+                                        <span class="text-muted text-decoration-line-through me-2">
+                                            @hangHoa.GiaGoc.ToString("#,##0") VNĐ
+                                        </span>
+                                    }
+                                    <span class="text-primary fw-bold">
+                                        @hangHoa.GiaBan.ToString("#,##0") VNĐ
+                                    </span>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn btn-primary me-2"
+                                            onclick="addToCart(@hangHoa.MaHangHoa)">
+                                        <i class="bi bi-cart-plus me-1"></i>Thêm vào giỏ
+                                    </button>
+                                    <a href="@Url.Action("Detail", "HangHoa", new { id = hangHoa.MaHangHoa })"
+                                       class="btn btn-outline-secondary">
+                                        <i class="bi bi-eye me-1"></i>Chi tiết
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-12 text-center">
+                    <p class="text-muted">Chưa có sản phẩm nào được mua.</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<style>
+    .hover-lift {
+        transition: transform 0.3s ease;
+    }
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        .hover-lift:hover {
+            transform: translateY(-10px);
+        }
 
-    <!-- Toastr CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    .transition-scale {
+        transition: transform 0.3s ease;
+    }
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    .hover-lift:hover .transition-scale {
+        transform: scale(1.05);
+    }
+</style>
+<!-- Top Selling Products End -->
+<!-- Search and Filter Section -->
+<div class="container-fluid pt-5">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Tất cả sản phẩm</span></h2>
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+    <form asp-action="Index" asp-controller="Home" method="get" class="mb-4 px-xl-5">
+        <h2 class="text-uppercase mb-3">Tìm kiếm sản phẩm</h2>
+        <div class="row g-3 align-items-center">
+            <div class="col-md-3">
+                <input type="text" name="search" class="form-control" placeholder="Tìm kiếm sản phẩm..." value="@ViewBag.Search" />
+            </div>
+            <div class="col-md-2">
+                <select name="category" class="form-select">
+                    <option value="">Tất cả danh mục</option>
+                    @foreach (var danhMuc in Model)
+                    {
+                        <option value="@danhMuc.MaDanhMuc" selected="@(ViewBag.SelectedCategory == danhMuc.MaDanhMuc.ToString() ? "selected" : null)">@danhMuc.TenDanhMuc</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select name="priceRange" class="form-select">
+                    <option value="">Mức giá</option>
+                    <option value="0-500000" selected="@(ViewBag.PriceRange == "0-500000" ? "selected" : null)">Dưới 500,000 VNĐ</option>
+                    <option value="500000-1000000" selected="@(ViewBag.PriceRange == "500000-1000000" ? "selected" : null)">500,000 - 1,000,000 VNĐ</option>
+                    <option value="1000000-5000000" selected="@(ViewBag.PriceRange == "1000000-5000000" ? "selected" : null)">1,000,000 - 5,000,000 VNĐ</option>
+                    <option value="5000000-" selected="@(ViewBag.PriceRange == "5000000-" ? "selected" : null)">Trên 5,000,000 VNĐ</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select name="sortBy" class="form-select">
+                    <option value="">Sắp xếp</option>
+                    <option value="price-asc" selected="@(ViewBag.SortBy == "price-asc" ? "selected" : null)">Giá: Thấp đến Cao</option>
+                    <option value="price-desc" selected="@(ViewBag.SortBy == "price-desc" ? "selected" : null)">Giá: Cao đến Thấp</option>
+                    <option value="name-asc" selected="@(ViewBag.SortBy == "name-asc" ? "selected" : null)">Tên: A-Z</option>
+                    <option value="name-desc" selected="@(ViewBag.SortBy == "name-desc" ? "selected" : null)">Tên: Z-A</option>
+                </select>
+            </div>
+            <div class="col-md-1">
+                <button type="submit" class="btn btn-primary w-100" aria-label="Lọc sản phẩm">Lọc</button>
+            </div>
+        </div>
+    </form>
+</div>
 
-    <!-- Custom CSS -->
+<!-- Products Start -->
+<div class="container-fluid pt-5 pb-3">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Sản phẩm</span></h2>
+    <div class="row px-xl-5">
+        @if (ViewBag.FilteredHangHoas != null && ((IEnumerable<CuaHangBanDoOnline.Models.HangHoa>)ViewBag.FilteredHangHoas).Any())
+        {
+            @foreach (var hangHoa in (IEnumerable<CuaHangBanDoOnline.Models.HangHoa>)ViewBag.FilteredHangHoas)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-4">
+                    <div class="product-item">
+                        <div class="product-img">
+                            <img src="@(string.IsNullOrEmpty(hangHoa.Hinh) ? "/images/default-product.jpg" : hangHoa.Hinh)" alt="@hangHoa.TenHangHoa">
+                            <div class="product-action">
+                                <button class="btn-square wishlist-btn" data-id="@hangHoa.MaHangHoa" onclick="toggleWishlist(@hangHoa.MaHangHoa, this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="btn-square" onclick="addToCart(@hangHoa.MaHangHoa)">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                                <a class="btn-square" href="@Url.Action("Detail", "HangHoa", new { id = hangHoa.MaHangHoa })">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a class="text-truncate text-decoration-none" href="@Url.Action("Detail", "HangHoa", new { id = hangHoa.MaHangHoa })">
+                                @hangHoa.TenHangHoa
+                            </a>
+                            <div class="price-wrapper mt-2">
+                                @if (ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] != null && (decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] > 0)
+                                {
+                                    <span class="price-original">@hangHoa.GiaGoc.ToString("#,##0") VNĐ</span>
+                                    <span class="price-discounted">@hangHoa.GiaBan.ToString("#,##0") VNĐ</span>
+                                    <span class="discount-badge"> -@((decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"])%</span>
+                                }
+                                else
+                                {
+                                    <span class="price-discounted">@hangHoa.GiaBan.ToString("#,##0") VNĐ</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p class="text-muted mx-xl-5">Không có sản phẩm nào để hiển thị.</p>
+        }
+    </div>
+    <!-- Pagination -->
+    @if (ViewBag.TotalPages > 1)
+    {
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                @if (ViewBag.CurrentPage > 1)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("Index", new { search = ViewBag.Search, category = ViewBag.SelectedCategory, priceRange = ViewBag.PriceRange, sortBy = ViewBag.SortBy, page = ViewBag.CurrentPage - 1 })">Previous</a>
+                    </li>
+                }
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                        <a class="page-link" href="@Url.Action("Index", new { search = ViewBag.Search, category = ViewBag.SelectedCategory, priceRange = ViewBag.PriceRange, sortBy = ViewBag.SortBy, page = i })">@i</a>
+                    </li>
+                }
+                @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("Index", new { search = ViewBag.Search, category = ViewBag.SelectedCategory, priceRange = ViewBag.PriceRange, sortBy = ViewBag.SortBy, page = ViewBag.CurrentPage + 1 })">Next</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    }
+</div>
+<!-- Products End -->
+<!-- Offer Start -->
+<div class="container-fluid pt-5 pb-3">
+    <div class="row px-xl-5">
+        <div class="col-md-6">
+            <div class="product-offer mb-30" style="height: 300px;">
+                <img class="img-fluid" src="images/gamehanhdong.jpeg" alt="Khuyến mãi game hành động">
+                <div class="offer-text">
+                    <h6 class="text-white text-uppercase">Giảm 30%</h6>
+                    <h3 class="text-white mb-3">Game Hành Động</h3>
+                    <a href="@Url.Action("SanPhamTheoDanhMuc", "DanhMuc", new { id = 11 })" class="btn btn-primary">Mua Ngay</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="product-offer mb-30" style="height: 300px;">
+                <img class="img-fluid" src="images/gamephieuluu.jpeg" alt="Khuyến mãi game phiêu lưu">
+                <div class="offer-text">
+                    <h6 class="text-white text-uppercase">Giảm 25%</h6>
+                    <h3 class="text-white mb-3">Game Phiêu Lưu</h3>
+                    <a href="@Url.Action("SanPhamTheoDanhMuc", "DanhMuc", new { id = 12 })" class="btn btn-primary">Mua Ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Offer End -->
+@section Scripts {
+    <!-- CSS cho trang chủ -->
     <style>
         /* Product Section Styles */
         .product-item {
@@ -177,564 +503,121 @@
             background-color: #f4e4d4 !important;
         }
     </style>
-</head>
-<body>
-    @Html.AntiForgeryToken()
 
-    <!-- Carousel Start -->
-    <div class="container-fluid mb-3">
-        <div class="row px-xl-5">
-            <div class="col-lg-8">
-                @if (ViewBag.Slides != null && ViewBag.Slides.Count > 0)
-                {
-                    <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel" data-interval="5000">
-                        <ol class="carousel-indicators">
-                            @for (int i = 0; i < ViewBag.Slides.Count; i++)
-                            {
-                                <li data-target="#header-carousel" data-slide-to="@i" class="@(i == 0 ? "active" : "")"></li>
-                            }
-                        </ol>
-                        <div class="carousel-inner">
-                            @for (int i = 0; i < ViewBag.Slides.Count; i++)
-                            {
-                                var slide = ViewBag.Slides[i];
-                                <div class="carousel-item position-relative @(i == 0 ? "active" : "")" style="height: 430px;">
-                                    <img class="position-absolute w-100 h-100" src="@slide.Image" style="object-fit: cover;">
-                                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                                        <div class="p-3" style="max-width: 700px;">
-                                            <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">@slide.Title</h1>
-                                            <p class="mx-md-5 px-5 animate__animated animate__bounceIn"></p>
-                                            <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="@slide.Link">Mua Ngay</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    </div>
-                }
-                else
-                {
-                    <p>Chưa có slide nào để hiển thị.</p>
-                }
-            </div>
-            <div class="col-lg-4">
-                <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="images/Gameoftheyear.jpeg" alt="">
-                    <div class="offer-text">
-                        <h6 class="text-white text-uppercase"></h6>
-                        <h3 class="text-white mb-3">Game of the year</h3>
-                        <a href="@Url.Action("SanPhamTheoDanhMuc", "DanhMuc", new { id = 13 })" class="btn btn-primary">Mua Ngay</a>
-                    </div>
-                </div>
-                <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="images/worldwarz.jpeg" alt="">
-                    <div class="offer-text">
-                        <h6 class="text-white text-uppercase"></h6>
-                        <h3 class="text-white mb-3">Game HOT</h3>
-                        <a href="@Url.Action("SanPhamTheoDanhMuc", "DanhMuc", new { id = 14 })" class="btn btn-primary">Mua Ngay</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Carousel End -->
-    <!-- Featured Start (Giữ nguyên) -->
-    <div class="container-fluid pt-5">
-        <div class="row px-xl-5 pb-3">
-            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
-                    <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
-                    <h5 class="font-weight-semi-bold m-0">Key Game Chính Hãng</h5>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
-                    <h1 class="fa fa-bolt text-primary m-0 mr-2"></h1>
-                    <h5 class="font-weight-semi-bold m-0">Giao Key Nhanh Chóng</h5>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
-                    <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
-                    <h5 class="font-weight-semi-bold m-0">Bảo Hành Key Game</h5>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
-                    <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
-                    <h5 class="font-weight-semi-bold m-0">Hỗ Trợ Kích Hoạt 24/7</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Featured End -->
-    <!-- Categories Start (Giữ nguyên) -->
-    <div class="container-fluid pt-5">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Danh mục sản phẩm</span></h2>
-        <div class="row px-xl-5 pb-3">
-            @foreach (var danhMuc in Model)
-            {
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <a class="text-decoration-none" href="@Url.Action("SanPhamTheoDanhMuc", "DanhMuc", new { id = danhMuc.MaDanhMuc })">
-                        <div class="cat-item d-flex align-items-center mb-4">
-                            <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <div class="cat-img position-relative overflow-hidden">
-                                    <i class="fa fa-user text-success fa-3x p-4"></i>
-                                </div>
-                            </div>
-                            <div class="flex-fill pl-3">
-                                <h6>@danhMuc.TenDanhMuc</h6>
-                                <small class="text-body">@(danhMuc.HangHoaDanhMucs?.Count ?? 0) sản phẩm</small>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            }
-        </div>
-    </div>
-    <!-- Categories End -->
-    <!-- Top Selling Products Start (Giữ nguyên) -->
-    <div class="container-fluid py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5 position-relative">
-                <span class="border-bottom border-primary pb-2 px-4">Sản phẩm được mua nhiều nhất</span>
-            </h2>
-            <div class="row">
-                @if (ViewBag.TopSellingProducts != null && ((IEnumerable<CuaHangBanDoOnline.Models.HangHoa>)ViewBag.TopSellingProducts).Any())
-                {
-                    @foreach (var hangHoa in (IEnumerable<CuaHangBanDoOnline.Models.HangHoa>)ViewBag.TopSellingProducts)
-                    {
-                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                            <div class="card h-100 shadow-sm border-0 hover-lift">
-                                <div class="card-img-top position-relative overflow-hidden">
-                                    <img src="@(string.IsNullOrEmpty(hangHoa.Hinh) ? "/images/default-product.jpg" : hangHoa.Hinh)"
-                                         alt="@hangHoa.TenHangHoa"
-                                         class="img-fluid w-100 transition-scale">
-                                    @if (ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] != null && (decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] > 0)
-                                    {
-                                        <span class="badge bg-danger position-absolute top-0 end-0 m-2">
-                                            -@((decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"])%
-                                        </span>
-                                    }
-                                </div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title mb-3">
-                                        <a href="@Url.Action("Detail", "HangHoa", new { id = hangHoa.MaHangHoa })" class="text-dark text-decoration-none">
-                                            @hangHoa.TenHangHoa
-                                        </a>
-                                    </h5>
-                                    <div class="product-price mb-3">
-                                        @if (ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] != null && (decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] > 0)
-                                        {
-                                            <span class="text-muted text-decoration-line-through me-2">
-                                                @hangHoa.GiaGoc.ToString("#,##0") VNĐ
-                                            </span>
-                                        }
-                                        <span class="text-primary fw-bold">
-                                            @hangHoa.GiaBan.ToString("#,##0") VNĐ
-                                        </span>
-                                    </div>
-                                    <div class="d-flex justify-content-center">
-                                        <button class="btn btn-primary me-2"
-                                                onclick="addToCart(@hangHoa.MaHangHoa)">
-                                            <i class="bi bi-cart-plus me-1"></i>Thêm vào giỏ
-                                        </button>
-                                        <a href="@Url.Action("Detail", "HangHoa", new { id = hangHoa.MaHangHoa })"
-                                           class="btn btn-outline-secondary">
-                                            <i class="bi bi-eye me-1"></i>Chi tiết
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                }
-                else
-                {
-                    <div class="col-12 text-center">
-                        <p class="text-muted">Chưa có sản phẩm nào được mua.</p>
-                    </div>
-                }
-            </div>
-        </div>
-    </div>
-
-    <style>
-        .hover-lift {
-            transition: transform 0.3s ease;
-        }
-
-            .hover-lift:hover {
-                transform: translateY(-10px);
-            }
-
-        .transition-scale {
-            transition: transform 0.3s ease;
-        }
-
-        .hover-lift:hover .transition-scale {
-            transform: scale(1.05);
-        }
-    </style>
-    <!-- Top Selling Products End -->
-    <!-- Search and Filter Section (Giữ nguyên) -->
-    <div class="container-fluid pt-5">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Tất cả sản phẩm</span></h2>
-        @if (TempData["Error"] != null)
-        {
-            <div class="alert alert-danger">@TempData["Error"]</div>
-        }
-        <form asp-action="Index" asp-controller="Home" method="get" class="mb-4 px-xl-5">
-            <h2 class="text-uppercase mb-3">Tìm kiếm sản phẩm</h2>
-            <div class="row g-3 align-items-center">
-                <div class="col-md-3">
-                    <input type="text" name="search" class="form-control" placeholder="Tìm kiếm sản phẩm..." value="@ViewBag.Search" />
-                </div>
-                <div class="col-md-2">
-                    <select name="category" class="form-select">
-                        <option value="">Tất cả danh mục</option>
-                        @foreach (var danhMuc in Model)
-                        {
-                            <option value="@danhMuc.MaDanhMuc" selected="@(ViewBag.SelectedCategory == danhMuc.MaDanhMuc.ToString() ? "selected" : null)">@danhMuc.TenDanhMuc</option>
-                        }
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select name="priceRange" class="form-select">
-                        <option value="">Mức giá</option>
-                        <option value="0-500000" selected="@(ViewBag.PriceRange == "0-500000" ? "selected" : null)">Dưới 500,000 VNĐ</option>
-                        <option value="500000-1000000" selected="@(ViewBag.PriceRange == "500000-1000000" ? "selected" : null)">500,000 - 1,000,000 VNĐ</option>
-                        <option value="1000000-5000000" selected="@(ViewBag.PriceRange == "1000000-5000000" ? "selected" : null)">1,000,000 - 5,000,000 VNĐ</option>
-                        <option value="5000000-" selected="@(ViewBag.PriceRange == "5000000-" ? "selected" : null)">Trên 5,000,000 VNĐ</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select name="sortBy" class="form-select">
-                        <option value="">Sắp xếp</option>
-                        <option value="price-asc" selected="@(ViewBag.SortBy == "price-asc" ? "selected" : null)">Giá: Thấp đến Cao</option>
-                        <option value="price-desc" selected="@(ViewBag.SortBy == "price-desc" ? "selected" : null)">Giá: Cao đến Thấp</option>
-                        <option value="name-asc" selected="@(ViewBag.SortBy == "name-asc" ? "selected" : null)">Tên: A-Z</option>
-                        <option value="name-desc" selected="@(ViewBag.SortBy == "name-desc" ? "selected" : null)">Tên: Z-A</option>
-                    </select>
-                </div>
-                <div class="col-md-1">
-                    <button type="submit" class="btn btn-primary w-100" aria-label="Lọc sản phẩm">Lọc</button>
-                </div>
-            </div>
-        </form>
-    </div>
-
-    <!-- Products Start -->
-    <div class="container-fluid pt-5 pb-3">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Sản phẩm</span></h2>
-        <div class="row px-xl-5">
-            @if (ViewBag.FilteredHangHoas != null && ((IEnumerable<CuaHangBanDoOnline.Models.HangHoa>)ViewBag.FilteredHangHoas).Any())
-            {
-                @foreach (var hangHoa in (IEnumerable<CuaHangBanDoOnline.Models.HangHoa>)ViewBag.FilteredHangHoas)
-                {
-                    <div class="col-lg-3 col-md-4 col-sm-6 pb-4">
-                        <div class="product-item">
-                            <div class="product-img">
-                                <img src="@(string.IsNullOrEmpty(hangHoa.Hinh) ? "/images/default-product.jpg" : hangHoa.Hinh)" alt="@hangHoa.TenHangHoa">
-                                <div class="product-action">
-                                    <button class="btn-square wishlist-btn" data-id="@hangHoa.MaHangHoa" onclick="toggleWishlist(@hangHoa.MaHangHoa, this)">
-                                        <i class="far fa-heart"></i>
-                                    </button>
-                                    <button class="btn-square" onclick="addToCart(@hangHoa.MaHangHoa)">
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </button>
-                                    <a class="btn-square" href="@Url.Action("Detail", "HangHoa", new { id = hangHoa.MaHangHoa })">
-                                        <i class="fa fa-search"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <a class="text-truncate text-decoration-none" href="@Url.Action("Detail", "HangHoa", new { id = hangHoa.MaHangHoa })">
-                                    @hangHoa.TenHangHoa
-                                </a>
-                                <div class="price-wrapper mt-2">
-                                    @if (ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] != null && (decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"] > 0)
-                                    {
-                                        <span class="price-original">@hangHoa.GiaGoc.ToString("#,##0") VNĐ</span>
-                                        <span class="price-discounted">@hangHoa.GiaBan.ToString("#,##0") VNĐ</span>
-                                        <span class="discount-badge"> -@((decimal)ViewData[$"PhanTramGiamGia_{hangHoa.MaHangHoa}"])%</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="price-discounted">@hangHoa.GiaBan.ToString("#,##0") VNĐ</span>
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                }
-            }
-            else
-            {
-                <p class="text-muted mx-xl-5">Không có sản phẩm nào để hiển thị.</p>
-            }
-        </div>
-        <!-- Pagination -->
-        @if (ViewBag.TotalPages > 1)
-        {
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center">
-                    @if (ViewBag.CurrentPage > 1)
-                    {
-                        <li class="page-item">
-                            <a class="page-link" href="@Url.Action("Index", new { search = ViewBag.Search, category = ViewBag.SelectedCategory, priceRange = ViewBag.PriceRange, sortBy = ViewBag.SortBy, page = ViewBag.CurrentPage - 1 })">Previous</a>
-                        </li>
-                    }
-                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
-                    {
-                        <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
-                            <a class="page-link" href="@Url.Action("Index", new { search = ViewBag.Search, category = ViewBag.SelectedCategory, priceRange = ViewBag.PriceRange, sortBy = ViewBag.SortBy, page = i })">@i</a>
-                        </li>
-                    }
-                    @if (ViewBag.CurrentPage < ViewBag.TotalPages)
-                    {
-                        <li class="page-item">
-                            <a class="page-link" href="@Url.Action("Index", new { search = ViewBag.Search, category = ViewBag.SelectedCategory, priceRange = ViewBag.PriceRange, sortBy = ViewBag.SortBy, page = ViewBag.CurrentPage + 1 })">Next</a>
-                        </li>
-                    }
-                </ul>
-            </nav>
-        }
-    </div>
-    <!-- Products End -->
-    <!-- Offer Start (Giữ nguyên) -->
-    <div class="container-fluid pt-5 pb-3">
-        <div class="row px-xl-5">
-            <div class="col-md-6">
-                <div class="product-offer mb-30" style="height: 300px;">
-                    <img class="img-fluid" src="images/gamehanhdong.jpeg" alt="Khuyến mãi game hành động">
-                    <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Giảm 30%</h6>
-                        <h3 class="text-white mb-3">Game Hành Động</h3>
-                        <a href="@Url.Action("SanPhamTheoDanhMuc", "DanhMuc", new { id = 11 })" class="btn btn-primary">Mua Ngay</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="product-offer mb-30" style="height: 300px;">
-                    <img class="img-fluid" src="images/gamephieuluu.jpeg" alt="Khuyến mãi game phiêu lưu">
-                    <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Giảm 25%</h6>
-                        <h3 class="text-white mb-3">Game Phiêu Lưu</h3>
-                        <a href="@Url.Action("SanPhamTheoDanhMuc", "DanhMuc", new { id = 12 })" class="btn btn-primary">Mua Ngay</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Offer End -->
-    <!-- Footer Start (Giữ nguyên) -->
-    <div class="container-fluid bg-dark text-secondary mt-5 pt-5">
-        <div class="row px-xl-5 pt-5">
-            <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
-                <a href="@Url.Action("Index", "Home")" class="text-decoration-none mb-4 d-inline-block">
-                    <span class="h1 text-uppercase text-primary bg-light px-2">T</span>
-                    <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">GAME</span>
-                </a>
-                <p class="mb-4">TGAME - Nền tảng thương mại điện tử chuyên cung cấp các sản phẩm game chất lượng, giá cả hợp lý, và dịch vụ khách hàng tận tâm.</p>
-                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Bà Rịa – Vũng Tàu University, Campus 3, 80 Trương Công Định, Phường 3, TP. Vũng Tàu, Việt Nam</p>
-                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i><a href="mailto:contact@tgame.vn" class="text-secondary">contact@tgame.vn</a></p>
-                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i><a href="tel:+842543853125" class="text-secondary">+84 254 385 3125</a></p>
-            </div>
-            <div class="col-lg-8 col-md-12">
-                <div class="row">
-                    <div class="col-md-4 mb-5">
-                        <h5 class="text-secondary text-uppercase mb-4">Liên kết nhanh</h5>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2" href="@Url.Action("Index", "Home")"><i class="fa fa-angle-right mr-2"></i>Trang chủ</a>
-                            <a class="text-secondary mb-2" href="@Url.Action("Index", "HangHoa")"><i class="fa fa-angle-right mr-2"></i>Cửa hàng</a>
-                            <a class="text-secondary mb-2" href="@Url.Action("Details", "HangHoa", new { id = 1 })"><i class="fa fa-angle-right mr-2"></i>Chi tiết sản phẩm</a>
-                            <a class="text-secondary mb-2" href="@Url.Action("Index", "GioHang")"><i class="fa fa-angle-right mr-2"></i>Giỏ hàng</a>
-                            <a class="text-secondary mb-2" href="@Url.Action("Checkout", "GioHang")"><i class="fa fa-angle-right mr-2"></i>Thanh toán</a>
-                            <a class="text-secondary" href="@Url.Action("Contact", "Home")"><i class="fa fa-angle-right mr-2"></i>Liên hệ</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-5">
-                        <h5 class="text-secondary text-uppercase mb-4">Tài khoản</h5>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2" href="@Url.Action("Index", "Home")"><i class="fa fa-angle-right mr-2"></i>Trang chủ</a>
-                            <a class="text-secondary mb-2" href="@Url.Action("Index", "Wishlist")"><i class="fa fa-angle-right mr-2"></i>Danh sách yêu thích</a>
-                            <a class="text-secondary mb-2" href="@Url.Action("Index", "GioHang")"><i class="fa fa-angle-right mr-2"></i>Giỏ hàng</a>
-                            <a class="text-secondary mb-2" href="@Url.Action("Checkout", "GioHang")"><i class="fa fa-angle-right mr-2"></i>Thanh toán</a>
-                            <a class="text-secondary mb-2" href="@Url.Action("AboutUs", "Home")"><i class="fa fa-angle-right mr-2"></i>Giới thiệu</a>
-                            <a class="text-secondary" href="@Url.Action("Privacy", "Home")"><i class="fa fa-angle-right mr-2"></i>Chính sách bảo mật</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-5">
-                        <h5 class="text-secondary text-uppercase mb-4">Đăng ký nhận tin</h5>
-                        <p>Nhận thông tin khuyến mãi và cập nhật sản phẩm mới nhất từ TGAME.</p>
-                        <form action="">
-                            <div class="input-group">
-                                <input type="email" class="form-control" placeholder="Email của bạn">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary">Đăng ký</button>
-                                </div>
-                            </div>
-                        </form>
-                        <h6 class="text-secondary text-uppercase mt-4 mb-3">Theo dõi chúng tôi</h6>
-                        <div class="d-flex">
-                            <a class="btn btn-primary btn-square mr-2" href="https://twitter.com"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-primary btn-square mr-2" href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-primary btn-square mr-2" href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-primary btn-square" href="https://instagram.com"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row border-top mx-xl-5 py-4" style="border-color: rgba(256, 256, 256, .1) !important;">
-            <div class="col-md-6 px-xl-0">
-                <p class="mb-md-0 text-center text-md-left text-secondary">
-                    © 2025 - <a class="text-primary" href="@Url.Action("Index", "Home")">TGAME</a>. All Rights Reserved. Designed by
-                    <a class="text-primary" href="https://htmlcodex.com">HTML Codex</a>
-                </p>
-            </div>
-            <div class="col-md-6 px-xl-0 text-center text-md-right">
-                <img class="img-fluid" src="img/payments.png" alt="Phương thức thanh toán">
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Toastr JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-
-    @section Scripts {
-        <script>
-            function checkWishlistStatus() {
-                $('.wishlist-btn').each(function () {
-                    var hangHoaId = $(this).data('id');
-                    $.ajax({
-                        url: '/Wishlist/CheckWishlistStatus',
-                        method: 'GET',
-                        data: { id: hangHoaId },
-                        success: function (response) {
-                            if (response.isInWishlist) {
-                                $(this).find('i').removeClass('far').addClass('fas');
-                            }
-                        }
-                    });
-                });
-            }
-
-            function toggleWishlist(hangHoaId, element) {
-                var icon = $(element).find('i');
-                var isInWishlist = icon.hasClass('fas');
-
-                if (isInWishlist) {
-                    $.ajax({
-                        url: '/Wishlist/RemoveFromWishlistByHangHoaId',
-                        method: 'POST',
-                        data: { hangHoaId: hangHoaId, __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val() },
-                        success: function (response) {
-                            if (response.success) {
-                                icon.removeClass('fas').addClass('far');
-                                updateWishlistCount();
-                                toastr.success(response.message);
-                            } else {
-                                toastr.error(response.message);
-                            }
-                        },
-                        error: function () {
-                            toastr.error('Có lỗi xảy ra khi xóa sản phẩm khỏi danh sách yêu thích.');
-                        }
-                    });
-                } else {
-                    $.ajax({
-                        url: '/Wishlist/AddToWishlist',
-                        method: 'POST',
-                        data: { id: hangHoaId, __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val() },
-                        success: function (response) {
-                            if (response.success) {
-                                icon.removeClass('far').addClass('fas');
-                                updateWishlistCount();
-                                toastr.success(response.message);
-                            } else {
-                                toastr.warning(response.message);
-                            }
-                        },
-                        error: function () {
-                            toastr.error('Có lỗi xảy ra khi thêm sản phẩm vào danh sách yêu thích.');
-                        }
-                    });
-                }
-            }
-
-            function updateWishlistCount() {
+    <!-- Script cho trang chủ -->
+    <script>
+        function checkWishlistStatus() {
+            $('.wishlist-btn').each(function () {
+                var hangHoaId = $(this).data('id');
                 $.ajax({
-                    url: '/Wishlist/GetWishlistCount',
+                    url: '/Wishlist/CheckWishlistStatus',
                     method: 'GET',
-                    success: function (data) {
-                        $('.wishlist-count').text(data.count);
-                    },
-                    error: function () {
-                        console.error('Không thể cập nhật số lượng wishlist.');
+                    data: { id: hangHoaId },
+                    success: function (response) {
+                        if (response.isInWishlist) {
+                            $(this).find('i').removeClass('far').addClass('fas');
+                        }
                     }
                 });
-            }
+            });
+        }
 
-            function updateCartCount() {
-                $.ajax({
-                    url: '/GioHang/GetCartCount',
-                    method: 'GET',
-                    success: function (data) {
-                        $('.cart-count').text(data.count);
-                    },
-                    error: function () {
-                        console.error('Không thể cập nhật số lượng giỏ hàng.');
-                    }
-                });
-            }
+        function toggleWishlist(hangHoaId, element) {
+            var icon = $(element).find('i');
+            var isInWishlist = icon.hasClass('fas');
 
-            function addToCart(maHangHoa) {
+            if (isInWishlist) {
                 $.ajax({
-                    url: '@Url.Action("AddToCart", "GioHang")',
-                    type: 'POST',
-                    data: {
-                        id: maHangHoa,
-                        soLuong: 1,
-                        __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
-                    },
+                    url: '/Wishlist/RemoveFromWishlistByHangHoaId',
+                    method: 'POST',
+                    data: { hangHoaId: hangHoaId, __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val() },
                     success: function (response) {
                         if (response.success) {
+                            icon.removeClass('fas').addClass('far');
+                            updateWishlistCount();
                             toastr.success(response.message);
-                            updateCartCount();
                         } else {
                             toastr.error(response.message);
                         }
                     },
                     error: function () {
-                        toastr.error("Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.");
+                        toastr.error('Có lỗi xảy ra khi xóa sản phẩm khỏi danh sách yêu thích.');
+                    }
+                });
+            } else {
+                $.ajax({
+                    url: '/Wishlist/AddToWishlist',
+                    method: 'POST',
+                    data: { id: hangHoaId, __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val() },
+                    success: function (response) {
+                        if (response.success) {
+                            icon.removeClass('far').addClass('fas');
+                            updateWishlistCount();
+                            toastr.success(response.message);
+                        } else {
+                            toastr.warning(response.message);
+                        }
+                    },
+                    error: function () {
+                        toastr.error('Có lỗi xảy ra khi thêm sản phẩm vào danh sách yêu thích.');
                     }
                 });
             }
+        }
 
-            $(document).ready(function () {
-                updateWishlistCount();
-                updateCartCount();
-                checkWishlistStatus();
+        function updateWishlistCount() {
+            $.ajax({
+                url: '/Wishlist/GetWishlistCount',
+                method: 'GET',
+                success: function (data) {
+                    $('.wishlist-count').text(data.count);
+                },
+                error: function () {
+                    console.error('Không thể cập nhật số lượng wishlist.');
+                }
             });
-        </script>
-    }
-</body>
-</html>
+        }
+
+        function updateCartCount() {
+            $.ajax({
+                url: '/GioHang/GetCartCount',
+                method: 'GET',
+                success: function (data) {
+                    $('.cart-count').text(data.count);
+                },
+                error: function () {
+                    console.error('Không thể cập nhật số lượng giỏ hàng.');
+                }
+            });
+        }
+
+        function addToCart(maHangHoa) {
+            $.ajax({
+                url: '@Url.Action("AddToCart", "GioHang")',
+                type: 'POST',
+                data: {
+                    id: maHangHoa,
+                    soLuong: 1,
+                    __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                },
+                success: function (response) {
+                    if (response.success) {
+                        toastr.success(response.message);
+                        updateCartCount();
+                    } else {
+                        toastr.error(response.message);
+                    }
+                },
+                error: function () {
+                    toastr.error("Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.");
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            updateWishlistCount();
+            updateCartCount();
+            checkWishlistStatus();
+        });
+    </script>
+}

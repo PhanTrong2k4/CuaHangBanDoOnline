@@ -1,4 +1,6 @@
 ﻿@inject CuaHangBanDoOnline.Repository.IHangHoaRepository HangHoaRepository
+@inject CuaHangBanDoOnline.Repository.IUserRepository UserRepository
+@using CuaHangBanDoOnline.Models
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,9 +20,6 @@
     <link href="~/lib/animate/animate.min.css" rel="stylesheet">
     <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="~/css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
@@ -116,9 +115,9 @@
                     <div class="d-inline-flex align-items-center">
                         <!-- Dropdown "Tài khoản của tôi" -->
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown">Tài khoản của tôi</button>
+                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Tài khoản của tôi</button>
                             <div class="dropdown-menu dropdown-menu-right">
-                                @if (Context.Request.Cookies["JWToken"] != null)
+                                @if (User.Identity.IsAuthenticated)
                                 {
                                     <a class="dropdown-item" href="@Url.Action("Profile", "Account")">Hồ sơ</a>
                                     <a class="dropdown-item" href="@Url.Action("Logout", "Account")">Đăng xuất</a>
@@ -133,7 +132,7 @@
                         </div>
                         <!-- Dropdown tiền tệ -->
                         <div class="btn-group mx-2">
-                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown">VND</button>
+                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">VND</button>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <button class="dropdown-item" type="button">USD</button>
                                 <button class="dropdown-item" type="button">EUR</button>
@@ -142,7 +141,7 @@
                         </div>
                         <!-- Dropdown ngôn ngữ -->
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown">VI</button>
+                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">VI</button>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <button class="dropdown-item" type="button">EN</button>
                                 <button class="dropdown-item" type="button">FR</button>
@@ -228,7 +227,40 @@
                                 <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="AboutUs">Giới thiệu</a>
                                 <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Liên hệ</a>
                                 <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Chính sách bảo mật</a>
-                                <a class="nav-item nav-link" asp-controller="Slide" asp-action="Index">Quản lý Slide</a>
+
+                                @{
+                                    int? maVaiTro = null;
+                                    if (User.Identity.IsAuthenticated)
+                                    {
+                                        var maNguoiDungClaim = User.Claims.FirstOrDefault(c => c.Type == "id")?.Value;
+                                        if (int.TryParse(maNguoiDungClaim, out int maNguoiDung))
+                                        {
+                                            var user = UserRepository.GetUserById(maNguoiDung);
+                                            if (user != null)
+                                            {
+                                                maVaiTro = user.MaVaiTro;
+                                            }
+                                        }
+                                    }
+                                    // Kiểm tra nếu không phải Admin hoặc Staff thì ẩn mục "Quyền"
+                                    bool isAdminOrStaff = maVaiTro == (int)RoleType.Admin || maVaiTro == (int)RoleType.Staff;
+                                    string displayStyle = isAdminOrStaff ? "" : "display: none;";
+                                }
+
+                                <!-- Luôn render mục "Quyền", nhưng ẩn đi nếu không phải Admin hoặc Staff -->
+                                <div class="nav-item dropdown" style="@displayStyle">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Quyền</a>
+                                    <div class="dropdown-menu rounded-0 m-0">
+                                        <a class="dropdown-item" asp-controller="DanhMuc" asp-action="Index">Danh Mục</a>
+                                        <a class="dropdown-item" asp-controller="DonHang" asp-action="ManageOrders">Quản lý đơn hàng</a>
+                                        <a class="dropdown-item" asp-controller="HangHoa" asp-action="Index">Hàng Hóa</a>
+                                        <a class="dropdown-item" asp-controller="Slide" asp-action="Create">Slide</a>
+                                        @if (maVaiTro == (int)RoleType.Admin)
+                                        {
+                                            <a class="dropdown-item" asp-controller="Manager" asp-action="Index">Quản Lý</a>
+                                        }
+                                    </div>
+                                </div>
                             </div>
                             <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                                 <a asp-controller="Wishlist" asp-action="Index" class="btn px-0">

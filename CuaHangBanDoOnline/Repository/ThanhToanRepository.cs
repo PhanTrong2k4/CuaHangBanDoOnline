@@ -71,5 +71,46 @@ namespace CuaHangBanDoOnline.Repository
             _context.SaveChanges();
             return thanhToan;
         }
+
+        // Phương thức mới để tạo Key Game cho từng sản phẩm
+        public List<ThanhToan> ThanhToanDonHangWithKeyGames(int maDonHang, List<(int MaHangHoa, decimal GiaBan, int SoLuong)> chiTietDonHangs, string phuongThucThanhToan)
+        {
+            var donHang = _context.DonHangs.Find(maDonHang);
+            if (donHang == null || donHang.TrangThai != "ChoDuyet")
+                return null;
+
+            var thanhToans = new List<ThanhToan>();
+            foreach (var chiTiet in chiTietDonHangs)
+            {
+                for (int i = 0; i < chiTiet.SoLuong; i++)
+                {
+                    var thanhToan = new ThanhToan
+                    {
+                        MaDonHang = maDonHang,
+                        MaHangHoa = chiTiet.MaHangHoa, // Gán MaHangHoa để biết Key Game thuộc sản phẩm nào
+                        SoTien = chiTiet.GiaBan,
+                        PhuongThucThanhToan = phuongThucThanhToan,
+                        NgayThanhToan = DateTime.Now,
+                        KeyGame = GenerateApiKey()
+                    };
+                    thanhToans.Add(thanhToan);
+                    _context.ThanhToans.Add(thanhToan);
+                }
+            }
+
+            donHang.TrangThai = "DaThanhToan";
+            _context.DonHangs.Update(donHang);
+            _context.SaveChanges();
+
+            return thanhToans;
+        }
+
+        // Hàm tạo API Key tự động
+        private string GenerateApiKey()
+        {
+            string prefix = "TGAME-";
+            string uniqueId = Guid.NewGuid().ToString("N").Substring(0, 16).ToUpper();
+            return $"{prefix}{uniqueId}";
+        }
     }
 }

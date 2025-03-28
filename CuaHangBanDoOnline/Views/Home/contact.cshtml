@@ -22,24 +22,31 @@
         <div class="col-lg-7 mb-5">
             <div class="contact-form bg-light p-30">
                 <div id="success"></div>
-                <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                <!-- Cập nhật form để gửi dữ liệu đến action Contact (POST) -->
+                <form asp-controller="Home" asp-action="Contact" method="post" id="contactForm" novalidate="novalidate">
                     <div class="control-group">
-                        <input type="text" class="form-control" id="name" placeholder="Tên của bạn"
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Tên của bạn"
                                required="required" data-validation-required-message="Vui lòng nhập tên của bạn" />
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="control-group">
-                        <input type="email" class="form-control" id="email" placeholder="Email của bạn"
-                               required="required" data-validation-required-message="Vui lòng nhập email của bạn" />
+                        <!-- Điền sẵn email nếu người dùng đã đăng nhập -->
+                        @{
+                            string userEmail = User.Identity.IsAuthenticated
+                            ? User.Claims.FirstOrDefault(c => c.Type == System.Security.Claims.ClaimTypes.Email)?.Value
+                            : "";
+                        }
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email của bạn"
+                               value="@userEmail" required="required" data-validation-required-message="Vui lòng nhập email của bạn" />
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="control-group">
-                        <input type="text" class="form-control" id="subject" placeholder="Chủ đề"
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Chủ đề"
                                required="required" data-validation-required-message="Vui lòng nhập chủ đề" />
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="control-group">
-                        <textarea class="form-control" rows="8" id="message" placeholder="Nội dung tin nhắn"
+                        <textarea class="form-control" rows="8" id="message" name="message" placeholder="Nội dung tin nhắn"
                                   required="required"
                                   data-validation-required-message="Vui lòng nhập nội dung tin nhắn"></textarea>
                         <p class="help-block text-danger"></p>
@@ -58,10 +65,43 @@
             </div>
             <div class="bg-light p-30 mb-3">
                 <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>51 Bình Giã, Phường Rạch Rừa, Vũng Tàu, Bà Rịa - Vũng Tàu</p>
-                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>TGame@gmail.com</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>tinchumvip123@gmail.com</p>
                 <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>+0903726212</p>
             </div>
         </div>
     </div>
 </div>
 <!-- Contact End -->
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#contactForm").on("submit", function (e) {
+                e.preventDefault(); // Ngăn chặn submit mặc định để xử lý AJAX
+
+                var formData = {
+                    name: $("#name").val(),
+                    email: $("#email").val(),
+                    subject: $("#subject").val(),
+                    message: $("#message").val()
+                };
+
+                $.ajax({
+                    url: '@Url.Action("Contact", "Home")',
+                    type: "POST",
+                    data: formData,
+                    success: function (response) {
+                        if (response.success) {
+                            toastr.success(response.message);
+                            $("#contactForm")[0].reset(); // Reset form sau khi gửi thành công
+                        } else {
+                            toastr.error(response.message);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        toastr.error("Đã xảy ra lỗi khi gửi tin nhắn: " + error);
+                    }
+                });
+            });
+        });
+    </script>
+}

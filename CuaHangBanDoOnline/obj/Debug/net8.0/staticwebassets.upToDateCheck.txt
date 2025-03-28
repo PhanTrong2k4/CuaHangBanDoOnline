@@ -11,6 +11,7 @@ wwwroot\favicon.ico
 wwwroot\images\b078e9f2-9d09-4dd8-95bb-c99cf26e4a8b.png
 wwwroot\images\b13ebbb1-3773-475d-b61c-ce5f21f53cd8.png
 wwwroot\images\bloodfield.jpeg
+wwwroot\images\ce461979-c5d7-4a12-a842-9aad51545ab7.png
 wwwroot\images\csgo2.jpeg
 wwwroot\images\d40b23f7-103b-4494-9fb1-1b3030c5c511.png
 wwwroot\images\Deadbydaylight.jpeg

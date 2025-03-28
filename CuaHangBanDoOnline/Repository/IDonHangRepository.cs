@@ -9,6 +9,6 @@ namespace CuaHangBanDoOnline.Repository
         DonHang GetDonHang(int maDonHang);
         void UpdateDonHang(DonHang donHang);
         void DeleteDonHang(int maDonHang); 
-        IEnumerable<DonHang> GetAllDonHangs(); // Thêm phương thức này
+        IEnumerable<DonHang> GetAllDonHangs(); 
     }
 }

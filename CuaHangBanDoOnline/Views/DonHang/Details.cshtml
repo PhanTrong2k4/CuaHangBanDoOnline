@@ -16,15 +16,36 @@
     <p><strong>Ngày Đặt Hàng:</strong> @Model.NgayDatHang.ToString("dd/MM/yyyy HH:mm")</p>
     <p><strong>Trạng Thái:</strong> @Model.TrangThai</p>
     <p><strong>Tổng Tiền:</strong> @Model.TongTien.ToString("#,##0") VNĐ</p>
-
     @if (Model.TrangThai == "DaThanhToan")
     {
-        var thanhToan = @Context.RequestServices.GetService<IThanhToanRepository>().GetThanhToans().FirstOrDefault(t => t.MaDonHang == Model.MaDonHang);
-        if (thanhToan != null && !string.IsNullOrEmpty(thanhToan.KeyGame))
+        var thanhToans = @Context.RequestServices.GetService<IThanhToanRepository>().GetThanhToans().Where(t => t.MaDonHang == Model.MaDonHang).ToList();
+        if (thanhToans.Any() && thanhToans.All(t => !string.IsNullOrEmpty(t.KeyGame)))
         {
             <div class="alert alert-info">
-                <p><strong>Key Game:</strong> @thanhToan.KeyGame</p>
-                <p>Vui lòng lưu lại Key Game này. Một email chứa Key Game đã được gửi đến bạn.</p>
+                <p><strong>Danh sách Key Game:</strong></p>
+                @{
+                    var keyGamesByProduct = new Dictionary<string, List<string>>();
+                    foreach (var chiTiet in Model.ChiTietDonHangs)
+                    {
+                        var keyGamesForProduct = thanhToans
+                        .Where(t => t.SoTien == chiTiet.GiaBan) // Giả định SoTien khớp với GiaBan
+                        .Take(chiTiet.SoLuong)
+                        .Select(t => t.KeyGame)
+                        .ToList();
+                        keyGamesByProduct[chiTiet.HangHoa.TenHangHoa] = keyGamesForProduct;
+                    }
+                }
+                @foreach (var product in keyGamesByProduct)
+                {
+                    <p><strong>@product.Key:</strong></p>
+                    <ul>
+                        @foreach (var key in product.Value)
+                        {
+                            <li>@key</li>
+                        }
+                    </ul>
+                }
+                <p>Vui lòng lưu lại các Key Game này. Một email chứa danh sách Key Game đã được gửi đến bạn.</p>
             </div>
         }
     }

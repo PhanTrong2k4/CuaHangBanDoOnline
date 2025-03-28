@@ -26,7 +26,6 @@ namespace CuaHangBanDoOnline.Controllers
             ApplyDiscounts(hangHoas);
             return View(hangHoas);
         }
-        [Authorize(Roles = "Admin,Staff,Customer")]
         public IActionResult Detail(int id)
         {
             var hangHoa = _repository.GetHangHoa(id);
@@ -34,7 +33,7 @@ namespace CuaHangBanDoOnline.Controllers
             ApplyDiscounts(new List<HangHoa> { hangHoa });
             return View(hangHoa);
         }
-        [Authorize(Roles = "Admin,Staff,Customer")]
+
         public IActionResult ViewSanPham(string search, string category, string price_range, string sort_by, int page = 1)
         {
             var hangHoas = _repository.GetHangHoas()

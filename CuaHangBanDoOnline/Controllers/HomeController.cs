@@ -1,11 +1,13 @@
 ﻿using CuaHangBanDoOnline.Models;
 using CuaHangBanDoOnline.Repository;
+using CuaHangBanDoOnline.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace CuaHangBanDoOnline.Controllers
 {
@@ -14,14 +16,16 @@ namespace CuaHangBanDoOnline.Controllers
         private readonly IHangHoaRepository _hangHoaRepository;
         private readonly IDanhMucRepository _danhMucRepository;
         private readonly IChitietdonhangRepository _chiTietDonHangRepository;
-        private readonly ISlideRepository _slideRepository; // Thêm repository cho Slide
+        private readonly ISlideRepository _slideRepository;
+        private readonly EmailService _emailService; // Thêm EmailService
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(
             IHangHoaRepository hangHoaRepository,
             IDanhMucRepository danhMucRepository,
             IChitietdonhangRepository chiTietDonHangRepository,
-            ISlideRepository slideRepository, // Thêm dependency injection
+            ISlideRepository slideRepository,
+            EmailService emailService, // Thêm dependency injection
             ILogger<HomeController> logger,
             IWishlistRepository wishlistRepository,
             IGioHangRepository gioHangRepository,
@@ -31,7 +35,8 @@ namespace CuaHangBanDoOnline.Controllers
             _hangHoaRepository = hangHoaRepository;
             _danhMucRepository = danhMucRepository;
             _chiTietDonHangRepository = chiTietDonHangRepository;
-            _slideRepository = slideRepository; // Khởi tạo
+            _slideRepository = slideRepository;
+            _emailService = emailService; // Khởi tạo
             _logger = logger;
         }
 
@@ -41,9 +46,8 @@ namespace CuaHangBanDoOnline.Controllers
             {
                 // Lấy danh sách slides từ repository
                 var slides = _slideRepository.GetSlides();
-                ViewBag.Slides = slides; // Truyền danh sách slides vào ViewBag
+                ViewBag.Slides = slides;
 
-                // Logic hiện tại của bạn (giữ nguyên)
                 var danhMucs = _danhMucRepository.GetDanhMucs();
                 if (danhMucs == null)
                 {
@@ -65,7 +69,6 @@ namespace CuaHangBanDoOnline.Controllers
                     }
                 }
 
-                // Lấy danh sách sản phẩm được mua nhiều dựa trên ChiTietDonHang
                 var topSellingProducts = _chiTietDonHangRepository.GetAllChiTietDonHangs()
                     .GroupBy(ct => ct.HangHoa)
                     .Select(g => new
@@ -80,7 +83,6 @@ namespace CuaHangBanDoOnline.Controllers
 
                 ViewBag.TopSellingProducts = topSellingProducts;
 
-                // Logic lọc sản phẩm hiện tại
                 var filteredHangHoas = _hangHoaRepository.GetHangHoasFiltered(search, category, priceRange, null, null, sortBy).ToList();
 
                 var currentDate = DateTime.Now;
@@ -148,7 +150,6 @@ namespace CuaHangBanDoOnline.Controllers
             }
         }
 
-        // Action SanPhamTheoDanhMuc (giữ nguyên, không thay đổi)
         public IActionResult SanPhamTheoDanhMuc(int id, string search, string priceRange, string sortBy, int page = 1)
         {
             try
@@ -235,10 +236,43 @@ namespace CuaHangBanDoOnline.Controllers
             }
         }
 
-        // Các action khác (giữ nguyên)
+        // Action GET: Hiển thị form liên hệ
         public IActionResult Contact()
         {
             return View();
+        }
+
+        // Action POST: Xử lý form liên hệ và gửi email
+        [HttpPost]
+        public async Task<IActionResult> Contact(string name, string email, string subject, string message)
+        {
+            try
+            {
+                // Kiểm tra dữ liệu đầu vào
+                if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(subject) || string.IsNullOrEmpty(message))
+                {
+                    return Json(new { success = false, message = "Vui lòng điền đầy đủ thông tin." });
+                }
+
+                // Tạo nội dung email
+                var emailBody = new StringBuilder();
+                emailBody.AppendLine("<h2>Thông tin liên hệ từ khách hàng</h2>");
+                emailBody.AppendLine($"<p><strong>Tên:</strong> {name}</p>");
+                emailBody.AppendLine($"<p><strong>Email:</strong> {email}</p>");
+                emailBody.AppendLine($"<p><strong>Chủ đề:</strong> {subject}</p>");
+                emailBody.AppendLine($"<p><strong>Nội dung:</strong></p>");
+                emailBody.AppendLine($"<p>{message}</p>");
+
+                // Gửi email đến tinchumvip123@gmail.com
+                await _emailService.SendEmailAsync("tinchumvip123@gmail.com", $"Liên hệ từ khách hàng: {subject}", emailBody.ToString());
+
+                return Json(new { success = true, message = "Tin nhắn của bạn đã được gửi thành công!" });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi gửi email liên hệ");
+                return Json(new { success = false, message = $"Lỗi khi gửi tin nhắn: {ex.Message}" });
+            }
         }
 
         public IActionResult Privacy()

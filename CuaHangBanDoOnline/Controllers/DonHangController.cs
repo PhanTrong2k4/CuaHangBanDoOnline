@@ -83,29 +83,47 @@ namespace CuaHangBanDoOnline.Controllers
             if (donHang == null || donHang.TrangThai != "ChoDuyet")
                 return NotFound();
 
-            // Tạo Key Game tự động (API Key)
-            string keyGame = GenerateApiKey(); // Hàm tự động tạo Key Game
+            // Chuẩn bị danh sách chi tiết đơn hàng
+            var chiTietDonHangs = donHang.ChiTietDonHangs.Select(ct => (ct.MaHangHoa, ct.GiaBan, ct.SoLuong, ct.HangHoa.TenHangHoa)).ToList();
 
-            // Cập nhật trạng thái và lưu Key Game
-            donHang.TrangThai = "DaThanhToan";
-            var thanhToan = new ThanhToan
+            // Tạo Key Game cho từng sản phẩm
+            var thanhToans = _thanhToanRepository.ThanhToanDonHangWithKeyGames(donHang.MaDonHang, chiTietDonHangs.Select(ct => (ct.MaHangHoa, ct.GiaBan, ct.SoLuong)).ToList(), "ChuyenKhoan");
+            if (thanhToans == null)
             {
-                MaDonHang = donHang.MaDonHang,
-                SoTien = donHang.TongTien,
-                PhuongThucThanhToan = "ChuyenKhoan", // Hoặc QRCode tùy bạn
-                NgayThanhToan = DateTime.Now,
-                KeyGame = keyGame
-            };
-            _thanhToanRepository.AddThanhToan(thanhToan);
+                TempData["Error"] = "Không thể duyệt đơn hàng.";
+                return RedirectToAction("ManageOrders");
+            }
+
+            // Nhóm Key Game theo tên sản phẩm
+            var keyGamesByProduct = new Dictionary<string, List<string>>();
+            foreach (var chiTiet in chiTietDonHangs)
+            {
+                var keyGamesForProduct = thanhToans
+                    .Where(t => t.MaDonHang == donHang.MaDonHang && t.SoTien == chiTiet.GiaBan) // Giả định SoTien khớp với GiaBan của sản phẩm
+                    .Take(chiTiet.SoLuong) // Lấy đúng số lượng Key Game
+                    .Select(t => t.KeyGame)
+                    .ToList();
+                keyGamesByProduct[chiTiet.TenHangHoa] = keyGamesForProduct;
+            }
+
+            // Tạo nội dung email với Key Game nhóm theo sản phẩm
+            var keyGameContent = "";
+            foreach (var product in keyGamesByProduct)
+            {
+                keyGameContent += $"<p><strong>{product.Key}:</strong></p>";
+                keyGameContent += string.Join("<br>", product.Value.Select(k => $"- {k}"));
+                keyGameContent += "<br>";
+            }
 
             // Gửi email thông báo
             var user = _userRepository.GetUserById(donHang.MaNguoiDung);
             var emailContent = $@"
-                <h2>Đơn hàng #{donHang.MaDonHang} đã được duyệt</h2>
-                <p>Cảm ơn bạn đã mua hàng! Dưới đây là chi tiết đơn hàng:</p>
-                <p><strong>Tổng tiền:</strong> {donHang.TongTien.ToString("#,##0")} VNĐ</p>
-                <p><strong>Key Game:</strong> {keyGame}</p>
-                <p>Vui lòng kiểm tra Key Game trong trang chi tiết đơn hàng của bạn.</p>";
+        <h2>Đơn hàng #{donHang.MaDonHang} đã được duyệt</h2>
+        <p>Cảm ơn bạn đã mua hàng! Dưới đây là chi tiết đơn hàng:</p>
+        <p><strong>Tổng tiền:</strong> {donHang.TongTien.ToString("#,##0")} VNĐ</p>
+        <p><strong>Danh sách Key Game:</strong></p>
+        {keyGameContent}
+        <p>Vui lòng kiểm tra Key Game trong trang chi tiết đơn hàng của bạn.</p>";
             await _emailService.SendEmailAsync(user.Email, "Đơn hàng đã được duyệt", emailContent);
 
             TempData["Success"] = "Đơn hàng đã được duyệt thành công!";

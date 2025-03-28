@@ -90,6 +90,14 @@ namespace CuaHangBanDoOnline.Controllers
                 return View();
             }
 
+            // Đảm bảo VaiTro được bao gồm
+            user = _userRepository.GetUserByEmailOrUsername(LoginInput); // Tải lại user để bao gồm VaiTro
+            if (user.VaiTro == null)
+            {
+                ViewBag.Error = "Tài khoản không có vai trò được gán.";
+                return View();
+            }
+
             var token = GenerateJwtToken(user);
             Response.Cookies.Append("JWToken", token, new CookieOptions
             {
@@ -484,10 +492,11 @@ namespace CuaHangBanDoOnline.Controllers
 
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.TenDangNhap),
-                new Claim(ClaimTypes.Role, user.VaiTro.TenVaiTro),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-            };
+        new Claim(JwtRegisteredClaimNames.Sub, user.TenDangNhap),
+        new Claim(ClaimTypes.Role, user.VaiTro.TenVaiTro),
+        new Claim("id", user.MaNguoiDung.ToString()), // Thêm claim "id"
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+    };
 
             var token = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],

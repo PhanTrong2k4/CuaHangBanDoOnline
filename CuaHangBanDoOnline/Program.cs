@@ -31,7 +31,8 @@ builder.Services.AddScoped<IHangHoaRepository, HangHoaRepository>();
 builder.Services.AddScoped<IDonHangRepository, DonHangRepository>();
 builder.Services.AddScoped<IChitietdonhangRepository, ChiTietDonHangRepository>();
 builder.Services.AddScoped<IWishlistRepository,  WishlistRepository >();
-builder.Services.AddScoped<ISlideRepository, SlideRepository>(); 
+builder.Services.AddScoped<ISlideRepository, SlideRepository>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 // Thêm Session
 builder.Services.AddSession(options =>

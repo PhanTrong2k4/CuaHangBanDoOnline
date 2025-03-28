@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CuaHangBanDoOnline")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa5bdf2955472c1993b20b34924c4f70f974730b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b947cf970eb1b80b373b2881ba5c5b69f66da48e")]
 [assembly: System.Reflection.AssemblyProductAttribute("CuaHangBanDoOnline")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CuaHangBanDoOnline")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

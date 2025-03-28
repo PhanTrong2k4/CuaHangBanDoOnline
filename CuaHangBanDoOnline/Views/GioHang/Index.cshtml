@@ -58,9 +58,15 @@
                     <i class="fa fa-shopping-basket text-muted mb-3" style="font-size: 4rem;"></i>
                     <h3 class="text-muted mb-2">Giỏ hàng của bạn đang trống</h3>
                     <p class="text-muted mb-3">Hãy thêm sản phẩm để bắt đầu mua sắm!</p>
-                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-md">
-                        <i class="fa fa-store mr-2"></i>Tiếp Tục Mua Sắm
-                    </a>
+                    <div class="d-flex justify-content-center">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-md mr-3">
+                            <i class="fa fa-store mr-2"></i>Tiếp Tục Mua Sắm
+                        </a>
+                        <!-- Thêm nút Đơn hàng của bạn -->
+                        <a asp-controller="DonHang" asp-action="Index" class="btn btn-outline-info btn-md">
+                            <i class="fa fa-list-alt mr-2"></i>Đơn Hàng Của Bạn
+                        </a>
+                    </div>
                 </div>
             }
             else
@@ -157,9 +163,15 @@
                 <!-- Cart Footer -->
                 <div class="card-footer bg-light p-3">
                     <div class="d-flex justify-content-between align-items-center flex-wrap">
-                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary btn-md mb-2 mb-md-0">
-                            <i class="fa fa-arrow-left mr-2"></i>Tiếp Tục Mua Sắm
-                        </a>
+                        <div class="d-flex">
+                            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary btn-md mb-2 mb-md-0 mr-2">
+                                <i class="fa fa-arrow-left mr-2"></i>Tiếp Tục Mua Sắm
+                            </a>
+                            <!-- Thêm nút Đơn hàng của bạn -->
+                            <a asp-controller="DonHang" asp-action="Index" class="btn btn-outline-info btn-md mb-2 mb-md-0">
+                                <i class="fa fa-list-alt mr-2"></i>Đơn Hàng Của Bạn
+                            </a>
+                        </div>
                         <div class="text-right">
                             <h4 class="mb-2">
                                 Tổng Cộng:
