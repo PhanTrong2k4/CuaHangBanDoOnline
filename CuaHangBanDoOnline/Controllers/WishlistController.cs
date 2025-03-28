@@ -2,6 +2,9 @@
 using CuaHangBanDoOnline.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace CuaHangBanDoOnline.Controllers
 {
@@ -9,12 +12,18 @@ namespace CuaHangBanDoOnline.Controllers
     {
         private readonly IWishlistRepository _wishlistRepository;
         private readonly IMemoryCache _cache;
+        private readonly IUserRepository _userRepository;
 
-        public WishlistController(IWishlistRepository wishlistRepository, IGioHangRepository gioHangRepository, IMemoryCache memoryCache)
+        public WishlistController(
+            IWishlistRepository wishlistRepository,
+            IGioHangRepository gioHangRepository,
+            IMemoryCache memoryCache,
+            IUserRepository userRepository)
             : base(wishlistRepository, gioHangRepository, memoryCache)
         {
             _wishlistRepository = wishlistRepository;
             _cache = memoryCache;
+            _userRepository = userRepository;
         }
 
         // Hiển thị danh sách wishlist của người dùng
@@ -22,8 +31,13 @@ namespace CuaHangBanDoOnline.Controllers
         {
             try
             {
-                int maNguoiDung = 1; // Thay bằng ID của người dùng hiện tại (ví dụ: từ User.Identity)
-                var wishlists = _wishlistRepository.GetWishlistByUserId(maNguoiDung);
+                var user = GetCurrentUser();
+                if (user == null)
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+
+                var wishlists = _wishlistRepository.GetWishlistByUserId(user.MaNguoiDung);
                 return View(wishlists);
             }
             catch (Exception ex)
@@ -37,26 +51,36 @@ namespace CuaHangBanDoOnline.Controllers
         [HttpGet]
         public IActionResult CheckWishlistStatus(int id)
         {
-            int maNguoiDung = 1;
-            var existingItem = _wishlistRepository.GetWishlistItem(maNguoiDung, id);
+            var user = GetCurrentUser();
+            if (user == null)
+            {
+                return Json(new { isInWishlist = false });
+            }
+
+            var existingItem = _wishlistRepository.GetWishlistItem(user.MaNguoiDung, id);
             return Json(new { isInWishlist = existingItem != null });
         }
 
         [HttpPost]
         public IActionResult AddToWishlist(int id)
         {
-            int maNguoiDung = 1;
-            var existingItem = _wishlistRepository.GetWishlistItem(maNguoiDung, id);
+            var user = GetCurrentUser();
+            if (user == null)
+            {
+                return Json(new { success = false, message = "Vui lòng đăng nhập để thêm sản phẩm vào danh sách yêu thích." });
+            }
+
+            var existingItem = _wishlistRepository.GetWishlistItem(user.MaNguoiDung, id);
 
             if (existingItem == null)
             {
                 var wishlistItem = new Wishlist
                 {
-                    MaNguoiDung = maNguoiDung,
+                    MaNguoiDung = user.MaNguoiDung,
                     MaHangHoa = id
                 };
                 _wishlistRepository.AddWishlistItem(wishlistItem);
-                _cache.Remove($"WishlistCount_{maNguoiDung}");
+                _cache.Remove($"WishlistCount_{user.MaNguoiDung}");
                 return Json(new { success = true, message = "Đã thêm sản phẩm vào danh sách yêu thích." });
             }
 
@@ -66,12 +90,17 @@ namespace CuaHangBanDoOnline.Controllers
         [HttpPost]
         public IActionResult RemoveFromWishlistByHangHoaId(int hangHoaId)
         {
-            int maNguoiDung = 1;
-            var wishlistItem = _wishlistRepository.GetWishlistItem(maNguoiDung, hangHoaId);
+            var user = GetCurrentUser();
+            if (user == null)
+            {
+                return Json(new { success = false, message = "Vui lòng đăng nhập để xóa sản phẩm khỏi danh sách yêu thích." });
+            }
+
+            var wishlistItem = _wishlistRepository.GetWishlistItem(user.MaNguoiDung, hangHoaId);
             if (wishlistItem != null)
             {
                 _wishlistRepository.RemoveWishlistItem(wishlistItem.MaWishlist);
-                _cache.Remove($"WishlistCount_{maNguoiDung}");
+                _cache.Remove($"WishlistCount_{user.MaNguoiDung}");
                 return Json(new { success = true, message = "Đã xóa sản phẩm khỏi danh sách yêu thích." });
             }
             return Json(new { success = false, message = "Sản phẩm không có trong danh sách yêu thích." });
@@ -80,9 +109,32 @@ namespace CuaHangBanDoOnline.Controllers
         [HttpGet]
         public IActionResult GetWishlistCount()
         {
-            int maNguoiDung = 1;
-            var count = _wishlistRepository.GetWishlistCountByUserId(maNguoiDung);
+            var user = GetCurrentUser();
+            if (user == null)
+            {
+                return Json(new { count = 0 });
+            }
+
+            var count = _wishlistRepository.GetWishlistCountByUserId(user.MaNguoiDung);
             return Json(new { count });
+        }
+
+        // Phương thức tiện ích để lấy thông tin người dùng hiện tại từ token
+        private User GetCurrentUser()
+        {
+            var token = Request.Cookies["JWToken"];
+            if (string.IsNullOrEmpty(token))
+            {
+                return null;
+            }
+
+            var username = new JwtSecurityTokenHandler().ReadJwtToken(token).Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Sub)?.Value;
+            if (string.IsNullOrEmpty(username))
+            {
+                return null;
+            }
+
+            return _userRepository.GetUserByEmailOrUsername(username);
         }
     }
 }

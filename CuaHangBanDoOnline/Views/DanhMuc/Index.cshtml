@@ -73,7 +73,7 @@
                                 </td>
                                 <td>
                                     <a asp-action="Edit" asp-route-id="@danhMuc.MaDanhMuc" class="btn btn-warning btn-sm">Chỉnh sửa</a>
-                                    <form asp-action="Delete" asp-route-id="@danhMuc.MaDanhMuc" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn xóa danh mục này không? Danh mục sẽ được đánh dấu là đã xóa.');">
+                                    <form asp-action="Delete" asp-route-id="@danhMuc.MaDanhMuc" method="post" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn xóa danh mục này không? Danh mục sẽ bị ẩn khỏi danh sách nhưng vẫn được lưu trong cơ sở dữ liệu.');">
                                         @Html.AntiForgeryToken()
                                         <button type="submit" class="btn btn-danger btn-sm ml-2">Xóa</button>
                                     </form>
@@ -86,4 +86,4 @@
         </div>
     }
 </div>
-<!-- Categories End --> 
+<!-- Categories End -->

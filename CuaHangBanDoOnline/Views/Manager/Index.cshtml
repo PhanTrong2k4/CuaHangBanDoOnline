@@ -1,0 +1,89 @@
+﻿@model IEnumerable<CuaHangBanDoOnline.Models.User>
+
+<h2>Quản lý tài khoản</h2>
+
+<!-- Form tìm kiếm -->
+<div class="mb-4">
+    <form asp-action="Index" method="get" class="search-form">
+        <div class="input-group">
+            <span class="input-group-text bg-light">
+                <i class="bi bi-search"></i>
+            </span>
+            <input type="text" name="searchEmail" id="searchEmail" class="form-control search-input"
+                   value="@ViewBag.SearchEmail" placeholder="Nhập email để tìm kiếm..." />
+            <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+            <a asp-action="Index" class="btn btn-outline-secondary ms-2">Xóa bộ lọc</a>
+        </div>
+    </form>
+</div>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Tên đăng nhập</th>
+            <th>Email</th>
+            <th>Vai trò</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (!Model.Any())
+        {
+            <tr>
+                <td colspan="4" class="text-center text-muted">Không tìm thấy người dùng nào.</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.TenDangNhap</td>
+                    <td>@user.Email</td>
+                    <td>@user.VaiTro.TenVaiTro</td>
+                    <td>
+                        @if (user.MaVaiTro != (int)CuaHangBanDoOnline.Models.RoleType.Admin)
+                        {
+                            <a asp-action="Edit" asp-route-id="@user.MaNguoiDung" class="btn btn-sm btn-primary me-1 square-btn">Thông tin</a>
+                            @if (user.MaVaiTro == (int)CuaHangBanDoOnline.Models.RoleType.Customer)
+                            {
+                                <form asp-action="ChangeRole" method="post" style="display:inline;">
+                                    <input type="hidden" name="maNguoiDung" value="@user.MaNguoiDung" />
+                                    <input type="hidden" name="newRole" value="Staff" />
+                                    <button type="submit" class="btn btn-sm btn-warning me-1 wide-btn">Thành nhân viên</button>
+                                </form>
+                            }
+                            else if (user.MaVaiTro == (int)CuaHangBanDoOnline.Models.RoleType.Staff)
+                            {
+                                <form asp-action="ChangeRole" method="post" style="display:inline;">
+                                    <input type="hidden" name="maNguoiDung" value="@user.MaNguoiDung" />
+                                    <input type="hidden" name="newRole" value="Customer" />
+                                    <button type="submit" class="btn btn-sm btn-warning me-1 wide-btn">Thành khách hàng</button>
+                                </form>
+                            }
+                            <a asp-action="Delete" asp-route-id="@user.MaNguoiDung" class="btn btn-sm btn-danger me-1 square-btn">Xóa</a>
+                        }
+                        else
+                        {
+                            <span class="text-muted">Không thể chỉnh sửa/xóa Admin</span>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -1,10 +1,33 @@
-﻿@model CuaHangBanDoOnline.Models.DonHang
+﻿@using CuaHangBanDoOnline.Repository
+@model CuaHangBanDoOnline.Models.DonHang
 
 <div class="container my-4">
     <h1 class="mb-4">Chi Tiết Đơn Hàng #@Model.MaDonHang</h1>
 
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+
     <p><strong>Ngày Đặt Hàng:</strong> @Model.NgayDatHang.ToString("dd/MM/yyyy HH:mm")</p>
     <p><strong>Trạng Thái:</strong> @Model.TrangThai</p>
+    <p><strong>Tổng Tiền:</strong> @Model.TongTien.ToString("#,##0") VNĐ</p>
+
+    @if (Model.TrangThai == "DaThanhToan")
+    {
+        var thanhToan = @Context.RequestServices.GetService<IThanhToanRepository>().GetThanhToans().FirstOrDefault(t => t.MaDonHang == Model.MaDonHang);
+        if (thanhToan != null && !string.IsNullOrEmpty(thanhToan.KeyGame))
+        {
+            <div class="alert alert-info">
+                <p><strong>Key Game:</strong> @thanhToan.KeyGame</p>
+                <p>Vui lòng lưu lại Key Game này. Một email chứa Key Game đã được gửi đến bạn.</p>
+            </div>
+        }
+    }
 
     <table class="table table-bordered">
         <thead>
@@ -26,13 +49,50 @@
                 </tr>
             }
         </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="3" class="text-end"><strong>Tổng tiền:</strong></td>
-                <td>@Model.ChiTietDonHangs.Sum(ctdh => ctdh.GiaBan * ctdh.SoLuong).ToString("#,##0") VNĐ</td>
-            </tr>
-        </tfoot>
     </table>
 
-    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+    @if (Model.TrangThai == "ChoDuyet")
+    {
+        <h3>Thanh toán</h3>
+        <div class="form-group">
+            <label>Phương thức thanh toán:</label>
+            <select id="paymentMethod" class="form-control" onchange="togglePaymentFields(this)">
+                <option value="QRCode">Mã QR</option>
+                <option value="ChuyenKhoan">Chuyển khoản ngân hàng</option>
+            </select>
+        </div>
+
+        <div id="qrCodeField" style="display: block;">
+            <p>Quét mã QR để thanh toán:</p>
+            <img src="/images/users/quetqr.jpg" alt="QR Code" style="max-width: 200px;" />
+        </div>
+
+        <div id="bankTransferFields" style="display: none;">
+            <p>Vui lòng chuyển khoản đến tài khoản sau:</p>
+            <table class="table table-bordered">
+                <tr><th>Tên ngân hàng</th><td>Sacombank</td></tr>
+                <tr><th>Số tài khoản</th><td>050139922260</td></tr>
+                <tr><th>Tên chủ tài khoản</th><td>DO TRUNG TIN</td></tr>
+                <tr><th>Nội dung chuyển khoản</th><td>THANH TOAN MA DON HANG @Model.MaDonHang SHOP TGAME</td></tr>
+            </table>
+        </div>
+    }
+
+    <a asp-action="Index" class="btn btn-secondary mt-3">Quay lại</a>
 </div>
+
+<script>
+    function togglePaymentFields(select) {
+        var qrCodeField = document.getElementById("qrCodeField");
+        var bankTransferFields = document.getElementById("bankTransferFields");
+
+        qrCodeField.style.display = "none";
+        bankTransferFields.style.display = "none";
+
+        if (select.value === "QRCode") {
+            qrCodeField.style.display = "block";
+        } else if (select.value === "ChuyenKhoan") {
+            bankTransferFields.style.display = "block";
+        }
+    }
+</script>

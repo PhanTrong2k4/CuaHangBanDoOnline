@@ -1,0 +1,1781 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\ASP.Net bao cao\\CuaHangsiu\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\controllers\\hanghoacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\controllers\\hanghoacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\controllers\\donhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\controllers\\donhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\donhangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\donhangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\hanghoa\\userproductlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\hanghoa\\userproductlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\userrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\userrespository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\userprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\userprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\migrations\\20250327171440_keygame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\migrations\\20250327171440_keygame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\thanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\thanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\userprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\userprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\donhang\\manageorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\donhang\\manageorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\wishlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\wishlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\donhang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\donhang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\idonhangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\idonhangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\donhang\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\donhang\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\donhang\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\donhang\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\donhang\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\donhang\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\donhang\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\donhang\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\thanhtoanrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\thanhtoanrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\userinfoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\userinfoviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\giohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\giohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Migrations\\20250327164541_updatethanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CuaHangBanDoOnline\\Migrations\\20250327164541_updatethanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\donhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\donhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\ithanhtoanrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\ithanhtoanrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\hanghoarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\hanghoarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\controllers\\thanhtoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\controllers\\thanhtoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\migrations\\20250327144236_migrations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\migrations\\20250327144236_migrations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\controllers\\danhmuccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\controllers\\danhmuccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\danhmucrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\danhmucrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\cuahangdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\cuahangdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\danhmuc\\chitietdanhmuc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\danhmuc\\chitietdanhmuc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\danhmuc\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\danhmuc\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\danhmuc\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\danhmuc\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\danhmuc\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\danhmuc\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\danhmuc\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\danhmuc\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\danhmuc\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\danhmuc\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\ihanghoarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\ihanghoarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\idanhmucrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\idanhmucrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\ichitietdonhangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\ichitietdonhangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\hanghoa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\hanghoa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\danhmuc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\danhmuc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\pagecontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\pagecontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\hanghoadanhmuc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\hanghoadanhmuc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\slide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\slide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\hanghoa\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\hanghoa\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\manager\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\manager\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\manager\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\manager\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\hanghoa\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\hanghoa\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\igiohangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\igiohangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\giohangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\giohangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\chitietdonhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\chitietdonhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\khuyenmai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\khuyenmai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\controllers\\slidecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\controllers\\slidecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\controllers\\managercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\controllers\\managercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\manager\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\manager\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\account\\confirmemail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\account\\confirmemail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\chitietgiohangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\chitietgiohangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\managerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\managerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\imanagerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\imanagerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Migrations\\20250326145126_trungtins.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CuaHangBanDoOnline\\Migrations\\20250326145126_trungtins.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\chitietgiohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\chitietgiohang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\home\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\home\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\home\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\home\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\home\\aboutus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\home\\aboutus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\shared\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\shared\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\slide\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\slide\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\slide\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\slide\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\sliderepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\sliderepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\isliderepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\isliderepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\hanghoa\\viewsanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\hanghoa\\viewsanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\wishlist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\wishlist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\wwwroot\\lib\\jquery-ui\\jquery-ui.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\wwwroot\\lib\\jquery-ui\\jquery-ui.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\wwwroot\\lib\\jquery-ui\\jquery-ui.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\wwwroot\\lib\\jquery-ui\\jquery-ui.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\wwwroot\\lib\\jquery\\jquery-3.4.1.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\wwwroot\\lib\\jquery\\jquery-3.4.1.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\wwwroot\\mail\\jqbootstrapvalidation-1.3.7.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\wwwroot\\mail\\jqbootstrapvalidation-1.3.7.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\chitietdonhangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\chitietdonhangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\home\\sanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\home\\sanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\wwwroot\\js\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\wwwroot\\js\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\repository\\ichitietgiohangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\repository\\ichitietgiohangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\views\\hanghoa\\themgiamgia.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\views\\hanghoa\\themgiamgia.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\cuahangbandoonline.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\cuahangbandoonline.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|e:\\asp.net bao cao\\cuahangsiu\\cuahangbandoonline\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2B8105BC-5340-434C-8B9E-318EF6EC2081}|CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj|solutionrelative:cuahangbandoonline\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserProfile.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\UserProfile.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\UserProfile.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\UserProfile.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\UserProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T13:13:41.864Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserRespository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\UserRespository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\UserRespository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\UserRespository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\UserRespository.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAzwGAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T03:16:24.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\appsettings.json",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\appsettings.json",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\appsettings.json",
+              "RelativeToolTip": "CuaHangBanDoOnline\\appsettings.json",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACAAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-27T08:33:37.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Program.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Program.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Program.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T08:35:18.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DonHangController.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\DonHangController.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Controllers\\DonHangController.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\DonHangController.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Controllers\\DonHangController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T11:51:07.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HangHoaConTroller.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\HangHoaConTroller.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Controllers\\HangHoaConTroller.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\HangHoaConTroller.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Controllers\\HangHoaConTroller.cs",
+              "ViewState": "AgIAAI4BAAAAAAAAAAAAwJYBAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T13:35:16.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Controllers\\AccountController.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwLUBAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T15:00:42.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DonHangRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\DonHangRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\DonHangRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\DonHangRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\DonHangRepository.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAwwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T13:12:04.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserProductList.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\HangHoa\\UserProductList.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\HangHoa\\UserProductList.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\HangHoa\\UserProductList.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\HangHoa\\UserProductList.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-25T15:19:15.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ManageOrders.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DonHang\\ManageOrders.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\DonHang\\ManageOrders.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DonHang\\ManageOrders.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\DonHang\\ManageOrders.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAswDMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T17:29:43.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UserProfileViewModel.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\UserProfileViewModel.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\UserProfileViewModel.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\UserProfileViewModel.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\UserProfileViewModel.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAiwBcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T03:12:57.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ThanhToan.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\ThanhToan.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\ThanhToan.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\ThanhToan.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\ThanhToan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T05:18:26.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "User.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\User.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\User.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\User.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\User.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAswA4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T04:44:56.813Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20250327171440_keygame.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Migrations\\20250327171440_keygame.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Migrations\\20250327171440_keygame.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Migrations\\20250327171440_keygame.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Migrations\\20250327171440_keygame.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwBEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T20:00:47.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IDonHangRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IDonHangRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\IDonHangRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IDonHangRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\IDonHangRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T12:55:35.626Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DonHang\\Index.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\DonHang\\Index.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DonHang\\Index.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\DonHang\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T13:45:00.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DonHang\\Create.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\DonHang\\Create.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DonHang\\Create.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\DonHang\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T16:23:30.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Wishlist.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\Wishlist.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\Wishlist.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\Wishlist.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\Wishlist.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T18:10:41.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DonHang\\Details.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\DonHang\\Details.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DonHang\\Details.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\DonHang\\Details.cshtml",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAswBUAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T13:45:41.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\EmailService.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\EmailService.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\EmailService.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\EmailService.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAkwC4AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T14:42:28.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DonHang\\Edit.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\DonHang\\Edit.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DonHang\\Edit.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\DonHang\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T13:46:51.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DonHang\\Delete.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\DonHang\\Delete.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DonHang\\Delete.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\DonHang\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T13:47:16.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "GioHangController.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\GioHangController.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Controllers\\GioHangController.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\GioHangController.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Controllers\\GioHangController.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T12:21:26.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ThanhToanRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\ThanhToanRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\ThanhToanRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\ThanhToanRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\ThanhToanRepository.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwBUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T13:19:56.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\IUserRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IUserRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\IUserRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAowBYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T12:32:16.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "UserInfoViewModel.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\UserInfoViewModel.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\UserInfoViewModel.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\UserInfoViewModel.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\UserInfoViewModel.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA1wBAAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T03:12:56.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Role.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\Role.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\Role.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\Role.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T04:39:00.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "GioHang.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\GioHang.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\GioHang.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\GioHang.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\GioHang.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T05:17:03.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "20250327164541_updatethanhtoan.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Migrations\\20250327164541_updatethanhtoan.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Migrations\\20250327164541_updatethanhtoan.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Migrations\\20250327164541_updatethanhtoan.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Migrations\\20250327164541_updatethanhtoan.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAmwAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T16:45:41.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Donhang.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\Donhang.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\Donhang.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\Donhang.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\Donhang.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T05:10:29.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "IThanhToanRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IThanhToanRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\IThanhToanRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IThanhToanRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\IThanhToanRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T12:33:56.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "HangHoaRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\HangHoaRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\HangHoaRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\HangHoaRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\HangHoaRepository.cs",
+              "ViewState": "AgIAAJMBAAAAAAAAAAAQwKkBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T13:08:11.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "ChiTietDanhMuc.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DanhMuc\\ChiTietDanhMuc.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\DanhMuc\\ChiTietDanhMuc.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DanhMuc\\ChiTietDanhMuc.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\DanhMuc\\ChiTietDanhMuc.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-23T08:38:55.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DanhMuc\\Edit.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\DanhMuc\\Edit.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DanhMuc\\Edit.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\DanhMuc\\Edit.cshtml",
+              "ViewState": "AgIAABQAAAAAAAAAAAAYwCsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T13:51:33.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ThanhToanController.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\ThanhToanController.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Controllers\\ThanhToanController.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\ThanhToanController.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Controllers\\ThanhToanController.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAuwCoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T13:36:05.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "DanhMucController.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\DanhMucController.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Controllers\\DanhMucController.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\DanhMucController.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Controllers\\DanhMucController.cs",
+              "ViewState": "AgIAANcAAAAAAAAAAAAuwO0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T13:30:20.704Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "CuaHangDbContext.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\CuaHangDbContext.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\CuaHangDbContext.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\CuaHangDbContext.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\CuaHangDbContext.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAA6wBwAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T05:42:00.921Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "20250327144236_Migrations.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Migrations\\20250327144236_Migrations.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Migrations\\20250327144236_Migrations.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Migrations\\20250327144236_Migrations.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Migrations\\20250327144236_Migrations.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T14:42:37.316Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DanhMuc\\Details.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\DanhMuc\\Details.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DanhMuc\\Details.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\DanhMuc\\Details.cshtml",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAYwJsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T13:52:15.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "DanhMucRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\DanhMucRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\DanhMucRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\DanhMucRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\DanhMucRepository.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAYwEQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T13:13:46.294Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DanhMuc\\Create.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\DanhMuc\\Create.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DanhMuc\\Create.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\DanhMuc\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T13:51:13.178Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DanhMuc\\Delete.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\DanhMuc\\Delete.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DanhMuc\\Delete.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\DanhMuc\\Delete.cshtml",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAYwCIAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T13:52:27.487Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DanhMuc\\Index.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\DanhMuc\\Index.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\DanhMuc\\Index.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\DanhMuc\\Index.cshtml",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAYwFgAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T13:51:05.719Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "IDanhMucRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IDanhMucRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\IDanhMucRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IDanhMucRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\IDanhMucRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T12:37:28.766Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "IHangHoaRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IHangHoaRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\IHangHoaRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IHangHoaRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\IHangHoaRepository.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAADwvxQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T11:41:18.479Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "IChitietdonhangRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IChitietdonhangRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\IChitietdonhangRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IChitietdonhangRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\IChitietdonhangRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T12:44:18.463Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "HangHoa.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\HangHoa.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\HangHoa.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\HangHoa.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\HangHoa.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAA6wC0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T05:07:42.573Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "DanhMuc.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\DanhMuc.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\DanhMuc.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\DanhMuc.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\DanhMuc.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T05:49:07.439Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "PageContent.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\PageContent.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\PageContent.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\PageContent.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\PageContent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T03:12:21.286Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "HangHoaDanhMuc.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\HangHoaDanhMuc.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\HangHoaDanhMuc.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\HangHoaDanhMuc.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\HangHoaDanhMuc.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T07:03:03.798Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T13:06:59.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "Slide.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\Slide.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\Slide.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\Slide.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\Slide.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T02:07:24.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\HangHoa\\Index.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\HangHoa\\Index.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\HangHoa\\Index.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\HangHoa\\Index.cshtml",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAJIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T13:48:50.513Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Manager\\Delete.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Manager\\Delete.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Manager\\Delete.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Manager\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T14:45:03.142Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Manager\\Edit.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Manager\\Edit.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Manager\\Edit.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Manager\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T11:52:55.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\HangHoa\\Create.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\HangHoa\\Create.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\HangHoa\\Create.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\HangHoa\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-27T11:52:24.417Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "IGioHangRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IGioHangRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\IGioHangRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IGioHangRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\IGioHangRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T12:51:03.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "GioHangRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\GioHangRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\GioHangRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\GioHangRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\GioHangRepository.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAuwHAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T12:17:16.483Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "Chitietdonhang.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\Chitietdonhang.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\Chitietdonhang.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\Chitietdonhang.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\Chitietdonhang.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAADwvwoAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T05:11:01.271Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "KhuyenMai.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\KhuyenMai.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\KhuyenMai.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\KhuyenMai.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\KhuyenMai.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T07:45:57.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "SlideController.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\SlideController.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Controllers\\SlideController.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\SlideController.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Controllers\\SlideController.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwA0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T02:19:36.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "ManagerController.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\ManagerController.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Controllers\\ManagerController.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\ManagerController.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Controllers\\ManagerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T03:12:30.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Controllers\\HomeController.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAYwP0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T04:50:16.374Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Manager\\Index.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Manager\\Index.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Manager\\Index.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Manager\\Index.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T14:45:05.753Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "Resetpassword.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Account\\Resetpassword.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Account\\Resetpassword.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Account\\Resetpassword.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Account\\Resetpassword.cshtml",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwCMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T14:44:56.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Account\\Register.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAgwCsAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T14:44:54.062Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Account\\Profile.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Account\\Profile.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Account\\Profile.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Account\\Profile.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABcAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T14:44:45.51Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Account\\Login.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAYwBkAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T14:43:45.837Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "Forgotpassword.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Account\\Forgotpassword.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Account\\Forgotpassword.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Account\\Forgotpassword.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Account\\Forgotpassword.cshtml",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAgwB4AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T14:42:23.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "ConfirmEmail.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Account\\ConfirmEmail.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Account\\ConfirmEmail.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Account\\ConfirmEmail.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Account\\ConfirmEmail.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T14:42:22.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "ChiTietGioHangRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\ChiTietGioHangRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\ChiTietGioHangRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\ChiTietGioHangRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\ChiTietGioHangRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T12:18:06.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "BaseController.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\BaseController.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Controllers\\BaseController.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Controllers\\BaseController.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Controllers\\BaseController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAgAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T15:36:21.884Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "ManagerRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\ManagerRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\ManagerRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\ManagerRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\ManagerRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAiwEMAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T03:16:31.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "IManagerRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IManagerRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\IManagerRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IManagerRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\IManagerRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T03:16:46.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAIQCAAAAAAAAAAAkwIwCAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-27T07:58:48.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "20250326145126_trungtins.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Migrations\\20250326145126_trungtins.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Migrations\\20250326145126_trungtins.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Migrations\\20250326145126_trungtins.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Migrations\\20250326145126_trungtins.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T14:51:26.305Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "ChiTietGioHang.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\ChiTietGioHang.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\ChiTietGioHang.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\ChiTietGioHang.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\ChiTietGioHang.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T05:17:54.328Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "checkout.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Home\\checkout.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Home\\checkout.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Home\\checkout.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Home\\checkout.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAIBJwAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-27T08:51:15.517Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "cart.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Home\\cart.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Home\\cart.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Home\\cart.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Home\\cart.cshtml",
+              "ViewState": "AgIAAGYAAAAAAAAAAIBJwCYAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-27T08:51:14.857Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "AboutUs.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Home\\AboutUs.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Home\\AboutUs.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Home\\AboutUs.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Home\\AboutUs.cshtml",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAcwDgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-25T06:16:01.372Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Home\\contact.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Home\\contact.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Home\\contact.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Home\\contact.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAcwEIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-27T08:51:16.053Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 81,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAACYAAAAAAAAAAAAcwEEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-27T07:53:38.417Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 82,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Shared\\Index.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Shared\\Index.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Shared\\Index.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Shared\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T02:16:23.312Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 83,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-23T08:07:01.627Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 84,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Slide\\Create.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Slide\\Create.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Slide\\Create.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Slide\\Create.cshtml",
+              "ViewState": "AgIAADMAAAAAAAAAAAAqwEgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T02:16:33.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 85,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Slide\\Edit.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Slide\\Edit.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Slide\\Edit.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Slide\\Edit.cshtml",
+              "ViewState": "AgIAACMAAAAAAAAAAAAqwDgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-26T02:16:46.491Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 86,
+              "Title": "SlideRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\SlideRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\SlideRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\SlideRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\SlideRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T02:11:30.86Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 87,
+              "Title": "ISlideRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\ISlideRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\ISlideRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\ISlideRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\ISlideRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T02:11:16.604Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 88,
+              "Title": "ViewSanPham.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\HangHoa\\ViewSanPham.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\HangHoa\\ViewSanPham.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\HangHoa\\ViewSanPham.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\HangHoa\\ViewSanPham.cshtml",
+              "ViewState": "AgIAACwBAAAAAAAAAAAgwEEBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-25T15:55:45.149Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 89,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Wishlist\\Index.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Wishlist\\Index.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Wishlist\\Index.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Wishlist\\Index.cshtml",
+              "ViewState": "AgIAAJoAAAAAAAAAAIBJwNEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-24T16:30:34.533Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 90,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-23T11:58:31.011Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 93,
+              "Title": "jquery-3.4.1.min.js",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery\\jquery-3.4.1.min.js",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\wwwroot\\lib\\jquery\\jquery-3.4.1.min.js",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery\\jquery-3.4.1.min.js",
+              "RelativeToolTip": "CuaHangBanDoOnline\\wwwroot\\lib\\jquery\\jquery-3.4.1.min.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAADrVwEAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-25T14:26:03.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 92,
+              "Title": "jquery-ui.min.js",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-ui\\jquery-ui.min.js",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\wwwroot\\lib\\jquery-ui\\jquery-ui.min.js",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-ui\\jquery-ui.min.js",
+              "RelativeToolTip": "CuaHangBanDoOnline\\wwwroot\\lib\\jquery-ui\\jquery-ui.min.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-25T14:27:32.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 91,
+              "Title": "jquery-ui.css",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-ui\\jquery-ui.css",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\wwwroot\\lib\\jquery-ui\\jquery-ui.css",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\lib\\jquery-ui\\jquery-ui.css",
+              "RelativeToolTip": "CuaHangBanDoOnline\\wwwroot\\lib\\jquery-ui\\jquery-ui.css",
+              "ViewState": "AgIAALcHAAAAAAAAAAAqwM8HAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-25T14:28:02.808Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 94,
+              "Title": "jqBootstrapValidation-1.3.7.min.js",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\mail\\jqBootstrapValidation-1.3.7.min.js",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\wwwroot\\mail\\jqBootstrapValidation-1.3.7.min.js",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\mail\\jqBootstrapValidation-1.3.7.min.js",
+              "RelativeToolTip": "CuaHangBanDoOnline\\wwwroot\\mail\\jqBootstrapValidation-1.3.7.min.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-25T14:18:50.828Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 96,
+              "Title": "style.css",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\css\\style.css",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\wwwroot\\css\\style.css",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\css\\style.css",
+              "RelativeToolTip": "CuaHangBanDoOnline\\wwwroot\\css\\style.css",
+              "ViewState": "AgIAAAkmAAAAAAAAAAAiwBomAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-23T10:52:02.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 95,
+              "Title": "site.css",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\wwwroot\\css\\site.css",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "CuaHangBanDoOnline\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAABwAAAAAAAAAAIBJwCoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-23T08:08:30.82Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 97,
+              "Title": "ChiTietDonHangRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\ChiTietDonHangRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\ChiTietDonHangRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\ChiTietDonHangRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\ChiTietDonHangRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAMBUwCIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T12:19:49.403Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 98,
+              "Title": "SanPham.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Home\\SanPham.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\Home\\SanPham.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\Home\\SanPham.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\Home\\SanPham.cshtml",
+              "ViewState": "AgIAAHUAAAAAAAAAAIBJwJEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-23T07:25:42.8Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 100,
+              "Title": "site.js",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\wwwroot\\js\\site.js",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "CuaHangBanDoOnline\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-25T02:46:35.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 99,
+              "Title": "main.js",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\js\\main.js",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\wwwroot\\js\\main.js",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\js\\main.js",
+              "RelativeToolTip": "CuaHangBanDoOnline\\wwwroot\\js\\main.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-25T04:04:20.798Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 101,
+              "Title": "IChiTietGioHangRepository.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IChiTietGioHangRepository.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Repository\\IChiTietGioHangRepository.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Repository\\IChiTietGioHangRepository.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Repository\\IChiTietGioHangRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T13:01:50.549Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 102,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Models\\ErrorViewModel.cs",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T05:49:57.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 103,
+              "Title": "ThemGiamGia.cshtml",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\HangHoa\\ThemGiamGia.cshtml",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Views\\HangHoa\\ThemGiamGia.cshtml",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Views\\HangHoa\\ThemGiamGia.cshtml",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Views\\HangHoa\\ThemGiamGia.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-23T07:59:38.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 104,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\appsettings.Development.json",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\appsettings.Development.json",
+              "RelativeToolTip": "CuaHangBanDoOnline\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-27T08:35:53.533Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 105,
+              "Title": "CuaHangBanDoOnline.csproj",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj",
+              "RelativeToolTip": "CuaHangBanDoOnline\\CuaHangBanDoOnline.csproj",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-02T11:25:29.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 106,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "CuaHangBanDoOnline\\Properties\\launchSettings.json",
+              "ToolTip": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\Properties\\launchSettings.json",
+              "RelativeToolTip": "CuaHangBanDoOnline\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAB8AAAAAAAAAAABhwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-25T10:12:24.151Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

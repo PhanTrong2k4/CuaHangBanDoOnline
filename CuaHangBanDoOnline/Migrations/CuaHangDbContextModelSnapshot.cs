@@ -90,14 +90,16 @@ namespace CuaHangBanDoOnline.Migrations
 
                     b.Property<string>("MoTa")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<decimal>("PhanTramGiamGia")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("TenDanhMuc")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("MaDanhMuc");
 
@@ -194,15 +196,15 @@ namespace CuaHangBanDoOnline.Migrations
 
             modelBuilder.Entity("CuaHangBanDoOnline.Models.HangHoaDanhMuc", b =>
                 {
-                    b.Property<int>("MaDanhMuc")
-                        .HasColumnType("int");
-
                     b.Property<int>("MaHangHoa")
                         .HasColumnType("int");
 
-                    b.HasKey("MaDanhMuc", "MaHangHoa");
+                    b.Property<int>("MaDanhMuc")
+                        .HasColumnType("int");
 
-                    b.HasIndex("MaHangHoa");
+                    b.HasKey("MaHangHoa", "MaDanhMuc");
+
+                    b.HasIndex("MaDanhMuc");
 
                     b.ToTable("HangHoaDanhMucs");
                 });
@@ -263,6 +265,34 @@ namespace CuaHangBanDoOnline.Migrations
                     b.ToTable("PageContents");
                 });
 
+            modelBuilder.Entity("CuaHangBanDoOnline.Models.PasswordResetToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("Expires")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsUsed")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("MaNguoiDung")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MaNguoiDung");
+
+                    b.ToTable("PasswordResetTokens");
+                });
+
             modelBuilder.Entity("CuaHangBanDoOnline.Models.Role", b =>
                 {
                     b.Property<int>("MaVaiTro")
@@ -279,7 +309,22 @@ namespace CuaHangBanDoOnline.Migrations
 
                     b.ToTable("Roles");
 
-                    b.UseTptMappingStrategy();
+                    b.HasData(
+                        new
+                        {
+                            MaVaiTro = 1,
+                            TenVaiTro = "Admin"
+                        },
+                        new
+                        {
+                            MaVaiTro = 2,
+                            TenVaiTro = "Staff"
+                        },
+                        new
+                        {
+                            MaVaiTro = 3,
+                            TenVaiTro = "Customer"
+                        });
                 });
 
             modelBuilder.Entity("CuaHangBanDoOnline.Models.Slide", b =>
@@ -315,6 +360,9 @@ namespace CuaHangBanDoOnline.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaThanhToan"));
 
+                    b.Property<string>("KeyGame")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("MaDonHang")
                         .HasColumnType("int");
 
@@ -345,7 +393,13 @@ namespace CuaHangBanDoOnline.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("EmailConfirmationToken")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsEmailConfirmed")
+                        .HasColumnType("bit");
 
                     b.Property<int>("MaVaiTro")
                         .HasColumnType("int");
@@ -356,13 +410,50 @@ namespace CuaHangBanDoOnline.Migrations
 
                     b.Property<string>("TenDangNhap")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("MaNguoiDung");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
+
                     b.HasIndex("MaVaiTro");
 
+                    b.HasIndex("TenDangNhap")
+                        .IsUnique();
+
                     b.ToTable("NguoiDungs");
+                });
+
+            modelBuilder.Entity("CuaHangBanDoOnline.Models.UserProfile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AvatarPath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MaNguoiDung")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SoDienThoai")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MaNguoiDung")
+                        .IsUnique();
+
+                    b.ToTable("UserProfiles");
                 });
 
             modelBuilder.Entity("CuaHangBanDoOnline.Models.Wishlist", b =>
@@ -386,60 +477,6 @@ namespace CuaHangBanDoOnline.Migrations
                     b.HasIndex("MaNguoiDung");
 
                     b.ToTable("Wishlists");
-                });
-
-            modelBuilder.Entity("CuaHangBanDoOnline.Models.VaiTroChuCuaHang", b =>
-                {
-                    b.HasBaseType("CuaHangBanDoOnline.Models.Role");
-
-                    b.Property<string>("DiaChiCuaHang")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TenCuaHang")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("VaiTroChuCuaHang", (string)null);
-                });
-
-            modelBuilder.Entity("CuaHangBanDoOnline.Models.VaiTroKhachHang", b =>
-                {
-                    b.HasBaseType("CuaHangBanDoOnline.Models.Role");
-
-                    b.Property<string>("CapDoHoiVien")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DiemThuong")
-                        .HasColumnType("int");
-
-                    b.ToTable("VaiTroKhachHang", (string)null);
-                });
-
-            modelBuilder.Entity("CuaHangBanDoOnline.Models.VaiTroNhanVien", b =>
-                {
-                    b.HasBaseType("CuaHangBanDoOnline.Models.Role");
-
-                    b.Property<DateTime>("NgayBatDau")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ViTriCongViec")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("VaiTroNhanVien", (string)null);
-                });
-
-            modelBuilder.Entity("CuaHangBanDoOnline.Models.VaiTroQuanLy", b =>
-                {
-                    b.HasBaseType("CuaHangBanDoOnline.Models.Role");
-
-                    b.Property<string>("PhongBan")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("VaiTroQuanLy", (string)null);
                 });
 
             modelBuilder.Entity("CuaHangBanDoOnline.Models.ChiTietDonHang", b =>
@@ -536,6 +573,17 @@ namespace CuaHangBanDoOnline.Migrations
                     b.Navigation("HangHoa");
                 });
 
+            modelBuilder.Entity("CuaHangBanDoOnline.Models.PasswordResetToken", b =>
+                {
+                    b.HasOne("CuaHangBanDoOnline.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("MaNguoiDung")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("CuaHangBanDoOnline.Models.ThanhToan", b =>
                 {
                     b.HasOne("CuaHangBanDoOnline.Models.DonHang", "DonHang")
@@ -552,10 +600,21 @@ namespace CuaHangBanDoOnline.Migrations
                     b.HasOne("CuaHangBanDoOnline.Models.Role", "VaiTro")
                         .WithMany()
                         .HasForeignKey("MaVaiTro")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("VaiTro");
+                });
+
+            modelBuilder.Entity("CuaHangBanDoOnline.Models.UserProfile", b =>
+                {
+                    b.HasOne("CuaHangBanDoOnline.Models.User", "User")
+                        .WithOne("UserProfile")
+                        .HasForeignKey("CuaHangBanDoOnline.Models.UserProfile", "MaNguoiDung")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CuaHangBanDoOnline.Models.Wishlist", b =>
@@ -575,42 +634,6 @@ namespace CuaHangBanDoOnline.Migrations
                     b.Navigation("HangHoa");
 
                     b.Navigation("NguoiDung");
-                });
-
-            modelBuilder.Entity("CuaHangBanDoOnline.Models.VaiTroChuCuaHang", b =>
-                {
-                    b.HasOne("CuaHangBanDoOnline.Models.Role", null)
-                        .WithOne()
-                        .HasForeignKey("CuaHangBanDoOnline.Models.VaiTroChuCuaHang", "MaVaiTro")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("CuaHangBanDoOnline.Models.VaiTroKhachHang", b =>
-                {
-                    b.HasOne("CuaHangBanDoOnline.Models.Role", null)
-                        .WithOne()
-                        .HasForeignKey("CuaHangBanDoOnline.Models.VaiTroKhachHang", "MaVaiTro")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("CuaHangBanDoOnline.Models.VaiTroNhanVien", b =>
-                {
-                    b.HasOne("CuaHangBanDoOnline.Models.Role", null)
-                        .WithOne()
-                        .HasForeignKey("CuaHangBanDoOnline.Models.VaiTroNhanVien", "MaVaiTro")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("CuaHangBanDoOnline.Models.VaiTroQuanLy", b =>
-                {
-                    b.HasOne("CuaHangBanDoOnline.Models.Role", null)
-                        .WithOne()
-                        .HasForeignKey("CuaHangBanDoOnline.Models.VaiTroQuanLy", "MaVaiTro")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("CuaHangBanDoOnline.Models.DanhMuc", b =>
@@ -640,6 +663,8 @@ namespace CuaHangBanDoOnline.Migrations
             modelBuilder.Entity("CuaHangBanDoOnline.Models.User", b =>
                 {
                     b.Navigation("DonHangs");
+
+                    b.Navigation("UserProfile");
 
                     b.Navigation("Wishlists");
                 });

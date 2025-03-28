@@ -1,6 +1,9 @@
 ﻿using CuaHangBanDoOnline.Models;
 using CuaHangBanDoOnline.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace CuaHangBanDoOnline.Controllers
 {
@@ -11,19 +14,22 @@ namespace CuaHangBanDoOnline.Controllers
         private readonly IHangHoaRepository _hangHoaRepository;
         private readonly IDonHangRepository _donHangRepository;
         private readonly IChitietdonhangRepository _chiTietDonHangRepository;
+        private readonly IUserRepository _userRepository;
 
         public GioHangController(
             IGioHangRepository gioHangRepository,
             IChiTietGioHangRepository chiTietGioHangRepository,
             IHangHoaRepository hangHoaRepository,
             IDonHangRepository donHangRepository,
-            IChitietdonhangRepository chiTietDonHangRepository)
+            IChitietdonhangRepository chiTietDonHangRepository,
+            IUserRepository userRepository)
         {
             _gioHangRepository = gioHangRepository;
             _chiTietGioHangRepository = chiTietGioHangRepository;
             _hangHoaRepository = hangHoaRepository;
             _donHangRepository = donHangRepository;
             _chiTietDonHangRepository = chiTietDonHangRepository;
+            _userRepository = userRepository;
         }
 
         // Xem giỏ hàng
@@ -31,14 +37,19 @@ namespace CuaHangBanDoOnline.Controllers
         {
             try
             {
-                int maNguoiDung = 1;
-                var gioHang = _gioHangRepository.GetGioHangByUserId(maNguoiDung);
+                var user = GetCurrentUser();
+                if (user == null)
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+
+                var gioHang = _gioHangRepository.GetGioHangByUserId(user.MaNguoiDung);
                 if (gioHang == null || !gioHang.ChiTietGioHangs.Any())
                 {
                     TempData["Error"] = "Giỏ hàng của bạn đang trống.";
                     gioHang = new GioHang
                     {
-                        MaNguoiDung = maNguoiDung,
+                        MaNguoiDung = user.MaNguoiDung,
                         ChiTietGioHangs = new List<ChiTietGioHang>()
                     };
                 }
@@ -50,24 +61,33 @@ namespace CuaHangBanDoOnline.Controllers
                 TempData["Error"] = "Có lỗi xảy ra khi tải giỏ hàng. Vui lòng thử lại.";
                 return View(new GioHang
                 {
-                    MaNguoiDung = 1,
+                    MaNguoiDung = GetCurrentUser()?.MaNguoiDung ?? 0,
                     ChiTietGioHangs = new List<ChiTietGioHang>()
                 });
             }
         }
 
-        // Thêm sản phẩm vào giỏ hàng (cập nhật để hỗ trợ redirectToCheckout)
+        // Thêm sản phẩm vào giỏ hàng
         [HttpPost]
         public IActionResult AddToCart(int id, int soLuong = 1, bool redirectToCheckout = false)
         {
             try
             {
-                int maNguoiDung = 1;
-                var gioHang = _gioHangRepository.GetGioHangByUserId(maNguoiDung);
+                var user = GetCurrentUser();
+                if (user == null)
+                {
+                    if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                    {
+                        return Json(new { success = false, message = "Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng." });
+                    }
+                    return RedirectToAction("Login", "Account");
+                }
+
+                var gioHang = _gioHangRepository.GetGioHangByUserId(user.MaNguoiDung);
 
                 if (gioHang == null)
                 {
-                    gioHang = _gioHangRepository.CreateGioHang(maNguoiDung);
+                    gioHang = _gioHangRepository.CreateGioHang(user.MaNguoiDung);
                 }
 
                 var chiTietGioHang = _chiTietGioHangRepository.GetChiTietGioHangByHangHoaId(gioHang.MaGioHang, id);
@@ -109,13 +129,11 @@ namespace CuaHangBanDoOnline.Controllers
                     _chiTietGioHangRepository.AddChiTietGioHang(chiTietGioHang);
                 }
 
-                // Kiểm tra nếu yêu cầu là AJAX (từ JavaScript)
                 if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
                 {
                     return Json(new { success = true, message = "Đã thêm sản phẩm vào giỏ hàng." });
                 }
 
-                // Nếu không phải AJAX (từ form), chuyển hướng dựa trên redirectToCheckout
                 if (redirectToCheckout)
                 {
                     return RedirectToAction("Checkout");
@@ -144,8 +162,13 @@ namespace CuaHangBanDoOnline.Controllers
         {
             try
             {
-                int maNguoiDung = 1;
-                int count = _gioHangRepository.GetCartCountByUserId(maNguoiDung);
+                var user = GetCurrentUser();
+                if (user == null)
+                {
+                    return Json(new { count = 0 });
+                }
+
+                int count = _gioHangRepository.GetCartCountByUserId(user.MaNguoiDung);
                 return Json(new { count });
             }
             catch (Exception ex)
@@ -161,10 +184,24 @@ namespace CuaHangBanDoOnline.Controllers
         {
             try
             {
+                var user = GetCurrentUser();
+                if (user == null)
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+
                 var chiTietGioHang = _chiTietGioHangRepository.GetChiTietGioHang(maChiTietGioHang);
                 if (chiTietGioHang == null)
                 {
                     TempData["Error"] = "Mục không tồn tại trong giỏ hàng.";
+                    return RedirectToAction("Index");
+                }
+
+                // Kiểm tra xem chi tiết giỏ hàng có thuộc về người dùng hiện tại không
+                var gioHang = _gioHangRepository.GetGioHangByUserId(user.MaNguoiDung);
+                if (gioHang == null || chiTietGioHang.MaGioHang != gioHang.MaGioHang)
+                {
+                    TempData["Error"] = "Mục không thuộc giỏ hàng của bạn.";
                     return RedirectToAction("Index");
                 }
 
@@ -201,10 +238,24 @@ namespace CuaHangBanDoOnline.Controllers
         {
             try
             {
+                var user = GetCurrentUser();
+                if (user == null)
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+
                 var chiTietGioHang = _chiTietGioHangRepository.GetChiTietGioHang(maChiTietGioHang);
                 if (chiTietGioHang == null)
                 {
                     TempData["Error"] = "Mục không tồn tại trong giỏ hàng.";
+                    return RedirectToAction("Index");
+                }
+
+                // Kiểm tra xem chi tiết giỏ hàng có thuộc về người dùng hiện tại không
+                var gioHang = _gioHangRepository.GetGioHangByUserId(user.MaNguoiDung);
+                if (gioHang == null || chiTietGioHang.MaGioHang != gioHang.MaGioHang)
+                {
+                    TempData["Error"] = "Mục không thuộc giỏ hàng của bạn.";
                     return RedirectToAction("Index");
                 }
 
@@ -225,8 +276,13 @@ namespace CuaHangBanDoOnline.Controllers
         {
             try
             {
-                int maNguoiDung = 1;
-                var gioHang = _gioHangRepository.GetGioHangByUserId(maNguoiDung);
+                var user = GetCurrentUser();
+                if (user == null)
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+
+                var gioHang = _gioHangRepository.GetGioHangByUserId(user.MaNguoiDung);
 
                 if (gioHang == null || !gioHang.ChiTietGioHangs.Any())
                 {
@@ -248,7 +304,7 @@ namespace CuaHangBanDoOnline.Controllers
                 // Tạo đơn hàng mới
                 var donHang = new DonHang
                 {
-                    MaNguoiDung = maNguoiDung,
+                    MaNguoiDung = user.MaNguoiDung,
                     NgayDatHang = DateTime.Now,
                     TrangThai = "ChoDuyet",
                     ChiTietDonHangs = new List<ChiTietDonHang>()
@@ -271,6 +327,9 @@ namespace CuaHangBanDoOnline.Controllers
                     _hangHoaRepository.UpdateHangHoa(hangHoa);
                 }
 
+                // Tính tổng tiền cho đơn hàng
+                donHang.TongTien = donHang.ChiTietDonHangs.Sum(ctdh => ctdh.GiaBan * ctdh.SoLuong);
+
                 _donHangRepository.CreateDonHang(donHang);
 
                 // Xóa giỏ hàng sau khi tạo đơn hàng
@@ -285,6 +344,24 @@ namespace CuaHangBanDoOnline.Controllers
                 TempData["Error"] = "Có lỗi xảy ra khi tạo đơn hàng.";
                 return RedirectToAction("Index");
             }
+        }
+
+        // Phương thức tiện ích để lấy thông tin người dùng hiện tại từ token
+        private User GetCurrentUser()
+        {
+            var token = Request.Cookies["JWToken"];
+            if (string.IsNullOrEmpty(token))
+            {
+                return null;
+            }
+
+            var username = new JwtSecurityTokenHandler().ReadJwtToken(token).Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Sub)?.Value;
+            if (string.IsNullOrEmpty(username))
+            {
+                return null;
+            }
+
+            return _userRepository.GetUserByEmailOrUsername(username);
         }
     }
 }

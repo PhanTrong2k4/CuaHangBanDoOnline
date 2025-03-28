@@ -7,6 +7,10 @@
     {
         <div class="alert alert-success">@TempData["Success"]</div>
     }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
 
     @if (Model.Any())
     {
@@ -27,7 +31,7 @@
                         <td>@donHang.MaDonHang</td>
                         <td>@donHang.NgayDatHang.ToString("dd/MM/yyyy HH:mm")</td>
                         <td>@donHang.TrangThai</td>
-                        <td>@donHang.ChiTietDonHangs.Sum(ctdh => ctdh.GiaBan * ctdh.SoLuong).ToString("#,##0") VNĐ</td>
+                        <td>@donHang.TongTien.ToString("#,##0") VNĐ</td>
                         <td>
                             <a asp-action="Details" asp-route-id="@donHang.MaDonHang" class="btn btn-sm btn-primary">Chi tiết</a>
                         </td>

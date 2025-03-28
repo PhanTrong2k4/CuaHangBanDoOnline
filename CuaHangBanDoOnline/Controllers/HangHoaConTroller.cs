@@ -1,5 +1,6 @@
 ﻿using CuaHangBanDoOnline.Models;
 using CuaHangBanDoOnline.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using System.Linq;
 
 namespace CuaHangBanDoOnline.Controllers
 {
+    
     public class HangHoaController : Controller
     {
         private readonly IHangHoaRepository _repository;
@@ -17,14 +19,14 @@ namespace CuaHangBanDoOnline.Controllers
         {
             _repository = repository;
         }
-
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult Index()
         {
             var hangHoas = _repository.GetHangHoas();
             ApplyDiscounts(hangHoas);
             return View(hangHoas);
         }
-
+        [Authorize(Roles = "Admin,Staff,Customer")]
         public IActionResult Detail(int id)
         {
             var hangHoa = _repository.GetHangHoa(id);
@@ -32,7 +34,7 @@ namespace CuaHangBanDoOnline.Controllers
             ApplyDiscounts(new List<HangHoa> { hangHoa });
             return View(hangHoa);
         }
-
+        [Authorize(Roles = "Admin,Staff,Customer")]
         public IActionResult ViewSanPham(string search, string category, string price_range, string sort_by, int page = 1)
         {
             var hangHoas = _repository.GetHangHoas()
@@ -101,19 +103,20 @@ namespace CuaHangBanDoOnline.Controllers
 
             return View(pagedHangHoas);
         }
-
+        [Authorize(Roles = "Admin,Staff,Customer")]
         public IActionResult Search(string query)
         {
             return RedirectToAction("ViewSanPham", new { search = query });
         }
-
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult Create()
         {
             ViewBag.DanhMucs = new MultiSelectList(_repository.GetDanhMucs(), "MaDanhMuc", "TenDanhMuc");
             return View(new HangHoa());
         }
-
+        
         [HttpPost]
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult Create(HangHoa hangHoa, IFormFile HinhAnh)
         {
             if (ModelState.IsValid)
@@ -131,6 +134,7 @@ namespace CuaHangBanDoOnline.Controllers
             return View(hangHoa);
         }
 
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult Edit(int id)
         {
             var hangHoa = _repository.GetHangHoa(id);
@@ -149,6 +153,7 @@ namespace CuaHangBanDoOnline.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult Themdanhmuc(int maHangHoa, int maDanhMuc)
         {
             try
@@ -189,6 +194,7 @@ namespace CuaHangBanDoOnline.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult XoaDanhMuc(int maHangHoa, int maDanhMuc)
         {
             try
@@ -222,6 +228,7 @@ namespace CuaHangBanDoOnline.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult Edit(int id, HangHoa hangHoa, IFormFile HinhAnh)
         {
             if (id != hangHoa.MaHangHoa) return BadRequest();
@@ -270,6 +277,7 @@ namespace CuaHangBanDoOnline.Controllers
             return View(hangHoa);
         }
 
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult Delete(int id)
         {
             var hangHoa = _repository.GetHangHoa(id);
@@ -282,6 +290,7 @@ namespace CuaHangBanDoOnline.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult DeleteConfirmed(int id)
         {
             var hangHoa = _repository.DeleteHangHoa(id);
@@ -297,6 +306,7 @@ namespace CuaHangBanDoOnline.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult ThemGiamGia(int id)
         {
             var hangHoa = _repository.GetHangHoa(id);
@@ -307,6 +317,7 @@ namespace CuaHangBanDoOnline.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult ThemGiamGia(int id, decimal phanTramGiamGia, DateTime ngayBatDau, DateTime ngayKetThuc)
         {
             try
@@ -325,6 +336,7 @@ namespace CuaHangBanDoOnline.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,Staff")]
         public IActionResult XoaGiamGia(int id)
         {
             try
@@ -389,6 +401,7 @@ namespace CuaHangBanDoOnline.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin,Staff,Customer")]
         public IActionResult Autocomplete(string term)
         {
             if (string.IsNullOrEmpty(term))

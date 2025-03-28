@@ -4,13 +4,20 @@ namespace CuaHangBanDoOnline.Repository
 {
     public interface IUserRepository
     {
-        IEnumerable<User> GetUsers();
-        User GetUser(int maNguoiDung);
         User AddUser(User user);
-        User UpdateUser(User user);
-        User DeleteUser(int maNguoiDung);
-        bool IsUserInRoleAsync(int userId, string roleName);
-        User GetUserByUsername(string tenDangNhap); 
-        bool UserExists(string tenDangNhap); 
+        User GetUserByEmailOrUsername(string input);
+        void ConfirmEmail(string token);
+        bool EmailExists(string email);
+        bool UserExists(string tenDangNhap);
+        void AddPasswordResetToken(int maNguoiDung, string token, DateTime expires);
+        User GetUserByResetToken(string token);
+        void UpdateUser(User user);
+        PasswordResetToken GetResetToken(string token);
+        void UpdateResetToken(PasswordResetToken resetToken);
+        UserProfile GetUserProfile(int maNguoiDung); 
+        void UpdateUserProfile(UserProfile profile); 
+        User GetUserByConfirmationToken(string token);
+        User GetUserById(int maNguoiDung); 
+        IEnumerable<User> GetAllUsers(); 
     }
 }

@@ -8,7 +8,6 @@ namespace CuaHangBanDoOnline.Repository
         DanhMuc GetDanhMuc(int maDanhMuc);
         DanhMuc AddDanhMuc(DanhMuc danhMuc);
         DanhMuc UpdateDanhMuc(DanhMuc danhMuc);
-        DanhMuc DeleteDanhMuc(int maDanhMuc); // Soft delete
-        void HardDeleteDanhMuc(int maDanhMuc); // Hard delete (tùy chọn)
+        DanhMuc DeleteDanhMuc(int maDanhMuc);
     }
 }

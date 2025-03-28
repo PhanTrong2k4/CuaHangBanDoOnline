@@ -7,11 +7,14 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CuaHangBanDoOnline.Controllers
 {
+    [Authorize(Roles = "Admin,Staff")]
     public class SlideController : Controller
     {
+
         private readonly CuaHangDbContext _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IHangHoaRepository _hangHoaRepository;

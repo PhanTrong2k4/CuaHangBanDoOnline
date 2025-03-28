@@ -1,7 +1,5 @@
 ﻿using CuaHangBanDoOnline.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace CuaHangBanDoOnline.Repository
 {
@@ -16,17 +14,23 @@ namespace CuaHangBanDoOnline.Repository
 
         public IEnumerable<ThanhToan> GetThanhToans()
         {
-            return _context.ThanhToans.ToList();
+            return _context.ThanhToans.Include(tt => tt.DonHang).ToList();
         }
 
         public ThanhToan GetThanhToan(int maThanhToan)
         {
-            return _context.ThanhToans.Find(maThanhToan);
+            return _context.ThanhToans.Include(tt => tt.DonHang).FirstOrDefault(tt => tt.MaThanhToan == maThanhToan);
         }
 
         public ThanhToan AddThanhToan(ThanhToan thanhToan)
         {
             _context.ThanhToans.Add(thanhToan);
+            var donHang = _context.DonHangs.Find(thanhToan.MaDonHang);
+            if (donHang != null && donHang.TrangThai == "ChoDuyet" && !string.IsNullOrEmpty(thanhToan.KeyGame))
+            {
+                donHang.TrangThai = "DaThanhToan";
+                _context.DonHangs.Update(donHang);
+            }
             _context.SaveChanges();
             return thanhToan;
         }
@@ -43,9 +47,28 @@ namespace CuaHangBanDoOnline.Repository
             var thanhToan = _context.ThanhToans.Find(maThanhToan);
             if (thanhToan != null)
             {
-                thanhToan.PhuongThucThanhToan = "Đã xóa";
+                thanhToan.PhuongThucThanhToan = "DaXoa";
                 _context.SaveChanges();
             }
+            return thanhToan;
+        }
+
+        public ThanhToan ThanhToanDonHang(int maDonHang, string phuongThucThanhToan, decimal soTien)
+        {
+            var donHang = _context.DonHangs.Find(maDonHang);
+            if (donHang == null || donHang.TrangThai != "ChoDuyet")
+                return null;
+
+            var thanhToan = new ThanhToan
+            {
+                MaDonHang = maDonHang,
+                SoTien = soTien,
+                PhuongThucThanhToan = phuongThucThanhToan,
+                NgayThanhToan = DateTime.Now
+            };
+
+            _context.ThanhToans.Add(thanhToan);
+            _context.SaveChanges();
             return thanhToan;
         }
     }

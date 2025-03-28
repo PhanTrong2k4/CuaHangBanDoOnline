@@ -1,4 +1,5 @@
 ﻿using CuaHangBanDoOnline.Models;
+
 namespace CuaHangBanDoOnline.Repository
 {
     public interface IDonHangRepository
@@ -7,6 +8,7 @@ namespace CuaHangBanDoOnline.Repository
         IEnumerable<DonHang> GetDonHangsByUserId(int maNguoiDung);
         DonHang GetDonHang(int maDonHang);
         void UpdateDonHang(DonHang donHang);
-        void DeleteDonHang(int maDonHang);
+        void DeleteDonHang(int maDonHang); 
+        IEnumerable<DonHang> GetAllDonHangs(); // Thêm phương thức này
     }
 }

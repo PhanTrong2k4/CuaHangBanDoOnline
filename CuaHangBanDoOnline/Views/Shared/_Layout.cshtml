@@ -18,11 +18,14 @@
     <link href="~/lib/animate/animate.min.css" rel="stylesheet">
     <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="~/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-    <!-- Toastr CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 
-    <!-- CSS cho autocomplete -->
+    <!-- CSS cho autocomplete và dropdown -->
     <style>
         .ui-autocomplete {
             max-height: 300px;
@@ -43,6 +46,57 @@
             .ui-menu-item-wrapper:hover {
                 background-color: #f0f0f0;
             }
+
+        /* Đổi màu chữ của nút "Tài khoản của tôi" và các mục trong dropdown thành màu đen */
+        .btn-group .btn-light {
+            color: #000 !important; /* Màu chữ đen */
+        }
+
+        .btn-group .dropdown-menu .dropdown-item {
+            color: #000 !important; /* Màu chữ đen cho các mục trong dropdown */
+        }
+
+            .btn-group .dropdown-menu .dropdown-item:hover {
+                background-color: #f0f0f0; /* Màu nền khi hover */
+                color: #000 !important; /* Giữ màu chữ đen khi hover */
+            }
+
+        /* Đặt màu vàng cố định cho các thành phần */
+        .text-primary {
+            color: #FFC107 !important; /* Màu vàng */
+        }
+
+        .bg-primary {
+            background-color: #FFC107 !important; /* Màu vàng */
+        }
+
+        /* Màu cho button trên trang Hồ sơ */
+        @{
+            bool isProfilePage = Context.Request.Path.Equals("/Account/Profile", StringComparison.OrdinalIgnoreCase);
+            string primaryButtonColor = isProfilePage ? "#007BFF" : "#FFC107"; // Xanh cho trang Hồ sơ, vàng cho các trang khác
+            string primaryButtonHoverColor = isProfilePage ? "#0056b3" : "#e0a800"; // Xanh đậm hoặc vàng đậm khi hover
+        }
+
+        .btn-primary {
+            background-color: @primaryButtonColor !important;
+            border-color: @primaryButtonColor !important;
+            color: #fff !important; /* Chữ màu trắng để dễ đọc */
+        }
+
+            .btn-primary:hover {
+                background-color: @primaryButtonHoverColor !important;
+                border-color: @primaryButtonHoverColor !important;
+            }
+
+        .btn-outline-primary {
+            color: @primaryButtonColor !important;
+            border-color: @primaryButtonColor !important;
+        }
+
+            .btn-outline-primary:hover {
+                background-color: @primaryButtonColor !important;
+                color: #fff !important;
+            }
     </style>
 </head>
 <body>
@@ -60,23 +114,35 @@
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
+                        <!-- Dropdown "Tài khoản của tôi" -->
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Tài khoản của tôi</button>
+                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown">Tài khoản của tôi</button>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <button class="dropdown-item" type="button">Đăng nhập</button>
-                                <button class="dropdown-item" type="button">Đăng ký</button>
+                                @if (Context.Request.Cookies["JWToken"] != null)
+                                {
+                                    <a class="dropdown-item" href="@Url.Action("Profile", "Account")">Hồ sơ</a>
+                                    <a class="dropdown-item" href="@Url.Action("Logout", "Account")">Đăng xuất</a>
+                                }
+                                else
+                                {
+                                    <a class="dropdown-item" href="@Url.Action("Login", "Account")">Đăng nhập</a>
+                                    <a class="dropdown-item" href="@Url.Action("Register", "Account")">Đăng ký</a>
+                                    <a class="dropdown-item" href="@Url.Action("ForgotPassword", "Account")">Quên mật khẩu</a>
+                                }
                             </div>
                         </div>
+                        <!-- Dropdown tiền tệ -->
                         <div class="btn-group mx-2">
-                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">VND</button>
+                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown">VND</button>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <button class="dropdown-item" type="button">USD</button>
                                 <button class="dropdown-item" type="button">EUR</button>
                                 <button class="dropdown-item" type="button">GBP</button>
                             </div>
                         </div>
+                        <!-- Dropdown ngôn ngữ -->
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">VI</button>
+                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown">VI</button>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <button class="dropdown-item" type="button">EN</button>
                                 <button class="dropdown-item" type="button">FR</button>
@@ -86,11 +152,11 @@
                     </div>
                     <div class="d-inline-flex align-items-center d-block d-lg-none">
                         <a asp-controller="Wishlist" asp-action="Index" class="btn px-0 ml-2">
-                            <i class="fas fa-heart text-dark"></i>
+                            <i class="fas fa-heart text-primary"></i>
                             <span class="badge text-dark border border-dark rounded-circle wishlist-count" style="padding-bottom: 2px;">@(ViewBag.WishlistCount ?? 0)</span>
                         </a>
                         <a asp-controller="GioHang" asp-action="Index" class="btn px-0 ml-2">
-                            <i class="fas fa-shopping-cart text-dark"></i>
+                            <i class="fas fa-shopping-cart text-primary"></i>
                             <span class="badge text-dark border border-dark rounded-circle cart-count" style="padding-bottom: 2px;">@(ViewBag.CartCount ?? 0)</span>
                         </a>
                     </div>
@@ -119,7 +185,6 @@
                     <p class="m-0">Dịch vụ khách hàng</p>
                     <h5 class="m-0">+012 345 6789</h5>
                 </div>
-
             </div>
         </div>
         <!-- Topbar End -->
@@ -159,7 +224,7 @@
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
                                 <a class="nav-item nav-link active" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
-                                <a class="nav-item nav-link" asp-area="" asp-controller="HangHoa" asp-action="ViewSanPham">Cửa hàng</a>       
+                                <a class="nav-item nav-link" asp-area="" asp-controller="HangHoa" asp-action="ViewSanPham">Cửa hàng</a>
                                 <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="AboutUs">Giới thiệu</a>
                                 <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Liên hệ</a>
                                 <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Chính sách bảo mật</a>

@@ -40,24 +40,6 @@ namespace CuaHangBanDoOnline.Controllers
             return View(thanhToan);
         }
 
-        public IActionResult Edit(int id)
-        {
-            var thanhToan = _repository.GetThanhToan(id);
-            if (thanhToan == null) return NotFound();
-            return View(thanhToan);
-        }
-
-        [HttpPost]
-        public IActionResult Edit(int id, ThanhToan thanhToan)
-        {
-            if (id != thanhToan.MaThanhToan) return BadRequest();
-            if (ModelState.IsValid)
-            {
-                _repository.UpdateThanhToan(thanhToan);
-                return RedirectToAction("Index");
-            }
-            return View(thanhToan);
-        }
 
         public IActionResult Delete(int id)
         {

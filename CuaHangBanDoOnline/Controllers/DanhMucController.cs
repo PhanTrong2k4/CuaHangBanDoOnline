@@ -1,5 +1,6 @@
 ﻿using CuaHangBanDoOnline.Models;
 using CuaHangBanDoOnline.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Linq;
 
 namespace CuaHangBanDoOnline.Controllers
 {
+    [Authorize(Roles = "Admin,Staff")]
     public class DanhMucController : Controller
     {
         private readonly IDanhMucRepository _danhMucRepository;
@@ -211,7 +213,6 @@ namespace CuaHangBanDoOnline.Controllers
             }
             return View(danhMuc);
         }
-
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]

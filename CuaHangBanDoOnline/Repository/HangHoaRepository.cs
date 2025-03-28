@@ -40,7 +40,9 @@ public class HangHoaRepository : IHangHoaRepository
 
     public IEnumerable<DanhMuc> GetDanhMucs()
     {
-        return _context.DanhMucs.ToList();
+        return _context.DanhMucs
+            .Where(d => d.TenDanhMuc != "Đã xóa") // Chỉ lấy các danh mục chưa bị xóa
+            .ToList();
     }
 
     public HangHoa GetHangHoa(int maHangHoa)

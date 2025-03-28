@@ -11,5 +11,4 @@
 
         public ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; } = new List<ChiTietDonHang>(); // Danh sách chi tiết đơn hàng
     }
-
 }
