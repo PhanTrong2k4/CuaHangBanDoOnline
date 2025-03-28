@@ -39,22 +39,27 @@
                     <input type="number" id="soLuong" name="soLuong" value="1" min="1" max="@Model.SoLuongTon" />
                 </div>
                 <div class="button-container">
+                    <div class="top-buttons">
+                        <!-- Nút Thêm vào giỏ -->
+                        <form asp-controller="GioHang" asp-action="AddToCart" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@Model.MaHangHoa" />
+                            <input type="hidden" name="soLuong" id="soLuongThemGio" value="1" />
+                            <input type="hidden" name="redirectToCheckout" value="false" />
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-add-to-cart" onclick="document.getElementById('soLuongThemGio').value = document.getElementById('soLuong').value;">Thêm vào giỏ</button>
+                        </form>
+
+                        <!-- Nút Thêm vào wishlist -->
+                        <button onclick="addToWishlist(@Model.MaHangHoa)" class="btn btn-wishlist">Thêm vào wishlist</button>
+                    </div>
+
                     <!-- Nút Mua ngay -->
-                    <form asp-controller="GioHang" asp-action="AddToCart" method="post" style="display:inline;">
+                    <form asp-controller="GioHang" asp-action="AddToCart" method="post" class="buy-now-form">
                         <input type="hidden" name="id" value="@Model.MaHangHoa" />
                         <input type="hidden" name="soLuong" id="soLuongMuaNgay" value="1" />
                         <input type="hidden" name="redirectToCheckout" value="true" />
                         @Html.AntiForgeryToken()
                         <button type="submit" class="btn btn-buy-now" onclick="document.getElementById('soLuongMuaNgay').value = document.getElementById('soLuong').value;">Mua ngay</button>
-                    </form>
-
-                    <!-- Nút Thêm vào giỏ -->
-                    <form asp-controller="GioHang" asp-action="AddToCart" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="@Model.MaHangHoa" />
-                        <input type="hidden" name="soLuong" id="soLuongThemGio" value="1" />
-                        <input type="hidden" name="redirectToCheckout" value="false" />
-                        @Html.AntiForgeryToken()
-                        <button type="submit" class="btn btn-add-to-cart" onclick="document.getElementById('soLuongThemGio').value = document.getElementById('soLuong').value;">Thêm vào giỏ</button>
                     </form>
                 </div>
             </div>
@@ -79,12 +84,6 @@
             Được sản xuất bởi thương hiệu uy tín, đảm bảo độ bền và hiệu suất tối ưu.
         </p>
     </div>
-</div>
-
-<!-- Additional Buttons -->
-<div class="extra-buttons">
-    <button onclick="addToCart(@Model.MaHangHoa)" class="btn btn-primary">Thêm vào giỏ hàng</button>
-    <button onclick="addToWishlist(@Model.MaHangHoa)" class="btn btn-secondary">Thêm vào wishlist</button>
 </div>
 
 <style>
@@ -225,11 +224,18 @@
 
     .button-container {
         display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .top-buttons {
+        display: flex;
         gap: 15px;
+        justify-content: flex-start;
     }
 
     .btn {
-        padding: 12px 20px;
+        padding: 10px 18px;
         border: none;
         border-radius: 8px;
         font-size: 1rem;
@@ -241,8 +247,29 @@
         text-decoration: none;
     }
 
+    .btn-add-to-cart {
+        background: #28a745;
+        flex: 1;
+    }
+
+        .btn-add-to-cart:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+
+    .btn-wishlist {
+        background: #6c757d;
+        flex: 1;
+    }
+
+        .btn-wishlist:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
     .btn-buy-now {
         background: #dc3545;
+        width: 100%; /* Chiếm toàn bộ chiều rộng của container */
     }
 
         .btn-buy-now:hover {
@@ -250,14 +277,9 @@
             transform: translateY(-2px);
         }
 
-    .btn-add-to-cart {
-        background: #28a745;
+    .buy-now-form {
+        width: 100%;
     }
-
-        .btn-add-to-cart:hover {
-            background: #218838;
-            transform: translateY(-2px);
-        }
 
     /* Product Details */
     .product-details {
@@ -296,29 +318,6 @@
         color: #dc3545;
         font-weight: 600;
     }
-
-    /* Extra Buttons */
-    .extra-buttons {
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    .btn-primary {
-        background: #007bff;
-    }
-
-        .btn-primary:hover {
-            background: #0056b3;
-        }
-
-    .btn-secondary {
-        background: #6c757d;
-        margin-left: 10px;
-    }
-
-        .btn-secondary:hover {
-            background: #5a6268;
-        }
 </style>
 
 <script>
