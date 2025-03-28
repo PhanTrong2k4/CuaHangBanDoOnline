@@ -33,26 +33,35 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var slide in Model)
+            @if (Model != null && Model.Any())
+            {
+                foreach (var slide in Model)
+                {
+                    <tr>
+                        <td>@slide.Id</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(slide.Image))
+                            {
+                                <img src="@slide.Image" alt="@slide.Title" style="width: 100px; height: auto;" />
+                            }
+                            else
+                            {
+                                <span>Không có hình ảnh</span>
+                            }
+                        </td>
+                        <td>@slide.Title</td>
+                        <td>@slide.Link</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@slide.Id" class="btn btn-warning">Sửa</a>
+                            <a asp-action="Delete" asp-route-id="@slide.Id" class="btn btn-danger">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
             {
                 <tr>
-                    <td>@slide.Id</td>
-                    <td>
-                        @if (!string.IsNullOrEmpty(slide.Image))
-                        {
-                            <img src="@slide.Image" alt="@slide.Title" style="width: 100px; height: auto;" />
-                        }
-                        else
-                        {
-                            <span>Không có hình ảnh</span>
-                        }
-                    </td>
-                    <td>@slide.Title</td>
-                    <td>@slide.Link</td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@slide.Id" class="btn btn-warning">Sửa</a>
-                        <a asp-action="Delete" asp-route-id="@slide.Id" class="btn btn-danger">Xóa</a>
-                    </td>
+                    <td colspan="5" class="text-center">Chưa có slide nào.</td>
                 </tr>
             }
         </tbody>

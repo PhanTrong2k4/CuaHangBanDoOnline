@@ -208,21 +208,31 @@ namespace CuaHangBanDoOnline.Controllers
             var slide = await _context.Slides.FindAsync(id);
             if (slide == null)
             {
-                return NotFound();
+                TempData["Error"] = "Slide không tồn tại.";
+                return RedirectToAction(nameof(Index));
             }
 
-            if (!string.IsNullOrEmpty(slide.Image))
+            try
             {
-                var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, slide.Image.TrimStart('/'));
-                if (System.IO.File.Exists(imagePath))
+                // Xóa hình ảnh nếu có
+                if (!string.IsNullOrEmpty(slide.Image))
                 {
-                    System.IO.File.Delete(imagePath);
+                    var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, slide.Image.TrimStart('/'));
+                    if (System.IO.File.Exists(imagePath))
+                    {
+                        System.IO.File.Delete(imagePath);
+                    }
                 }
+
+                _context.Slides.Remove(slide);
+                await _context.SaveChangesAsync();
+                TempData["Success"] = "Xóa slide thành công!";
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Có lỗi xảy ra khi xóa slide: " + ex.Message;
             }
 
-            _context.Slides.Remove(slide);
-            await _context.SaveChangesAsync();
-            TempData["Success"] = "Xóa slide thành công!";
             return RedirectToAction(nameof(Index));
         }
     }

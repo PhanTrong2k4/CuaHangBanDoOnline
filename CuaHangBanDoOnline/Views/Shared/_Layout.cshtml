@@ -96,6 +96,26 @@
                 background-color: @primaryButtonColor !important;
                 color: #fff !important;
             }
+
+        /* Điều chỉnh nút Tài khoản của tôi trong navbar */
+        .navbar-nav .btn-group {
+            margin-left: 15px; /* Khoảng cách với icon Giỏ hàng */
+        }
+
+        .navbar-nav .btn-account {
+            background-color: #fff; /* Màu nền trắng */
+            color: #000; /* Màu chữ đen */
+            border: 1px solid #ccc; /* Viền nhẹ */
+            border-radius: 5px; /* Bo góc */
+            padding: 5px 10px; /* Padding nhỏ hơn */
+            font-size: 0.9rem; /* Kích thước chữ nhỏ hơn */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+            .navbar-nav .btn-account:hover {
+                background-color: #f0f0f0; /* Màu xám nhạt khi hover */
+                transform: translateY(-2px); /* Hiệu ứng nâng lên */
+            }
     </style>
 </head>
 <body>
@@ -103,52 +123,7 @@
         <!-- Topbar Start -->
         <div class="container-fluid">
             <div class="row bg-secondary py-1 px-xl-5">
-                <div class="col-lg-6 d-none d-lg-block">
-                    <div class="d-inline-flex align-items-center h-100">
-                        <a class="text-body mr-3" asp-controller="Home" asp-action="AboutUs">Giới thiệu</a>
-                        <a class="text-body mr-3" asp-controller="Home" asp-action="Contact">Liên hệ</a>
-                        <a class="text-body mr-3" asp-controller="Home" asp-action="Support">Hỗ trợ</a>
-                        <a class="text-body mr-3" asp-controller="Home" asp-action="Faq">Câu hỏi thường gặp</a>
-                    </div>
-                </div>
                 <div class="col-lg-6 text-center text-lg-right">
-                    <div class="d-inline-flex align-items-center">
-                        <!-- Dropdown "Tài khoản của tôi" -->
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Tài khoản của tôi</button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                @if (User.Identity.IsAuthenticated)
-                                {
-                                    <a class="dropdown-item" href="@Url.Action("Profile", "Account")">Hồ sơ</a>
-                                    <a class="dropdown-item" href="@Url.Action("Logout", "Account")">Đăng xuất</a>
-                                }
-                                else
-                                {
-                                    <a class="dropdown-item" href="@Url.Action("Login", "Account")">Đăng nhập</a>
-                                    <a class="dropdown-item" href="@Url.Action("Register", "Account")">Đăng ký</a>
-                                    <a class="dropdown-item" href="@Url.Action("ForgotPassword", "Account")">Quên mật khẩu</a>
-                                }
-                            </div>
-                        </div>
-                        <!-- Dropdown tiền tệ -->
-                        <div class="btn-group mx-2">
-                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">VND</button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <button class="dropdown-item" type="button">USD</button>
-                                <button class="dropdown-item" type="button">EUR</button>
-                                <button class="dropdown-item" type="button">GBP</button>
-                            </div>
-                        </div>
-                        <!-- Dropdown ngôn ngữ -->
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">VI</button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <button class="dropdown-item" type="button">EN</button>
-                                <button class="dropdown-item" type="button">FR</button>
-                                <button class="dropdown-item" type="button">JP</button>
-                            </div>
-                        </div>
-                    </div>
                     <div class="d-inline-flex align-items-center d-block d-lg-none">
                         <a asp-controller="Wishlist" asp-action="Index" class="btn px-0 ml-2">
                             <i class="fas fa-heart text-primary"></i>
@@ -242,7 +217,6 @@
                                             }
                                         }
                                     }
-                                    // Kiểm tra nếu không phải Admin hoặc Staff thì ẩn mục "Quyền"
                                     bool isAdminOrStaff = maVaiTro == (int)RoleType.Admin || maVaiTro == (int)RoleType.Staff;
                                     string displayStyle = isAdminOrStaff ? "" : "display: none;";
                                 }
@@ -254,7 +228,7 @@
                                         <a class="dropdown-item" asp-controller="DanhMuc" asp-action="Index">Danh Mục</a>
                                         <a class="dropdown-item" asp-controller="DonHang" asp-action="ManageOrders">Quản lý đơn hàng</a>
                                         <a class="dropdown-item" asp-controller="HangHoa" asp-action="Index">Hàng Hóa</a>
-                                        <a class="dropdown-item" asp-controller="Slide" asp-action="Create">Slide</a>
+                                        <a class="dropdown-item" asp-controller="Slide" asp-action="Index">Slide</a>
                                         @if (maVaiTro == (int)RoleType.Admin)
                                         {
                                             <a class="dropdown-item" asp-controller="Manager" asp-action="Index">Quản Lý</a>
@@ -271,6 +245,23 @@
                                     <i class="fas fa-shopping-cart text-primary"></i>
                                     <span class="badge text-secondary border border-secondary rounded-circle cart-count" style="padding-bottom: 2px;">@(ViewBag.CartCount ?? 0)</span>
                                 </a>
+                                <!-- Dropdown "Tài khoản của tôi" -->
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-account dropdown-toggle" data-toggle="dropdown">Tài khoản của tôi</button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <a class="dropdown-item" href="@Url.Action("Profile", "Account")">Hồ sơ</a>
+                                            <a class="dropdown-item" href="@Url.Action("Logout", "Account")">Đăng xuất</a>
+                                        }
+                                        else
+                                        {
+                                            <a class="dropdown-item" href="@Url.Action("Login", "Account")">Đăng nhập</a>
+                                            <a class="dropdown-item" href="@Url.Action("Register", "Account")">Đăng ký</a>
+                                            <a class="dropdown-item" href="@Url.Action("ForgotPassword", "Account")">Quên mật khẩu</a>
+                                        }
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </nav>
@@ -299,8 +290,6 @@
     <script src="~/lib/easing/easing.min.js"></script>
     <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="~/mail/jqBootstrapValidation-1.3.7.min.js"></script>
-    <!-- Comment vì file contact.js không tồn tại -->
-    <!-- <script src="~/mail/contact.js"></script> -->
     <script src="~/js/main.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 

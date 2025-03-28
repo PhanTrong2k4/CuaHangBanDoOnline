@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WmvGvdUizj/5k5Z/I99RH3eCSPWj/KvtCclT+c+v8E0=",
+  "Hash": "LuFJWwu1R2xO08vk2sCz25D2Tx4B2sEqBJCRHUgnjXM=",
   "Source": "CuaHangBanDoOnline",
   "BasePath": "_content/CuaHangBanDoOnline",
   "Mode": "Default",
@@ -269,12 +269,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\images\\b078e9f2-9d09-4dd8-95bb-c99cf26e4a8b.png",
+      "Identity": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\images\\746f54f5-a48e-4daa-b14d-44116e3db0a2.jpg",
       "SourceId": "CuaHangBanDoOnline",
       "SourceType": "Discovered",
       "ContentRoot": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\",
       "BasePath": "_content/CuaHangBanDoOnline",
-      "RelativePath": "images/b078e9f2-9d09-4dd8-95bb-c99cf26e4a8b#[.{fingerprint}]?.png",
+      "RelativePath": "images/746f54f5-a48e-4daa-b14d-44116e3db0a2#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -283,11 +283,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "r3co1cr3ru",
-      "Integrity": "uetg3sF17WGSUxYYjnilLVDnudljFSW/YlltTY7ORzk=",
+      "Fingerprint": "0ojc8wn301",
+      "Integrity": "cFlsa+tlh7TFtZwwue8lxvhve0iaagVpQLjEQ/Sd8mo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\b078e9f2-9d09-4dd8-95bb-c99cf26e4a8b.png"
+      "OriginalItemSpec": "wwwroot\\images\\746f54f5-a48e-4daa-b14d-44116e3db0a2.jpg"
     },
     {
       "Identity": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\images\\b13ebbb1-3773-475d-b61c-ce5f21f53cd8.png",
@@ -3376,8 +3376,8 @@
       ]
     },
     {
-      "Route": "images/b078e9f2-9d09-4dd8-95bb-c99cf26e4a8b.png",
-      "AssetFile": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\images\\b078e9f2-9d09-4dd8-95bb-c99cf26e4a8b.png",
+      "Route": "images/746f54f5-a48e-4daa-b14d-44116e3db0a2.0ojc8wn301.jpg",
+      "AssetFile": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\images\\746f54f5-a48e-4daa-b14d-44116e3db0a2.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3386,56 +3386,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "21936"
+          "Value": "455060"
         },
         {
           "Name": "Content-Type",
-          "Value": "image/png"
+          "Value": "image/jpeg"
         },
         {
           "Name": "ETag",
-          "Value": "\"uetg3sF17WGSUxYYjnilLVDnudljFSW/YlltTY7ORzk=\""
+          "Value": "\"cFlsa+tlh7TFtZwwue8lxvhve0iaagVpQLjEQ/Sd8mo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 27 Mar 2025 20:13:48 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=3600, must-revalidate"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-uetg3sF17WGSUxYYjnilLVDnudljFSW/YlltTY7ORzk="
-        }
-      ]
-    },
-    {
-      "Route": "images/b078e9f2-9d09-4dd8-95bb-c99cf26e4a8b.r3co1cr3ru.png",
-      "AssetFile": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\images\\b078e9f2-9d09-4dd8-95bb-c99cf26e4a8b.png",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "21936"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/png"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"uetg3sF17WGSUxYYjnilLVDnudljFSW/YlltTY7ORzk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 27 Mar 2025 20:13:48 GMT"
+          "Value": "Fri, 28 Mar 2025 14:24:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3445,15 +3408,52 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "r3co1cr3ru"
+          "Value": "0ojc8wn301"
         },
         {
           "Name": "label",
-          "Value": "images/b078e9f2-9d09-4dd8-95bb-c99cf26e4a8b.png"
+          "Value": "images/746f54f5-a48e-4daa-b14d-44116e3db0a2.jpg"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-uetg3sF17WGSUxYYjnilLVDnudljFSW/YlltTY7ORzk="
+          "Value": "sha256-cFlsa+tlh7TFtZwwue8lxvhve0iaagVpQLjEQ/Sd8mo="
+        }
+      ]
+    },
+    {
+      "Route": "images/746f54f5-a48e-4daa-b14d-44116e3db0a2.jpg",
+      "AssetFile": "E:\\ASP.Net bao cao\\CuaHangsiu\\CuaHangBanDoOnline\\wwwroot\\images\\746f54f5-a48e-4daa-b14d-44116e3db0a2.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "455060"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cFlsa+tlh7TFtZwwue8lxvhve0iaagVpQLjEQ/Sd8mo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 28 Mar 2025 14:24:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cFlsa+tlh7TFtZwwue8lxvhve0iaagVpQLjEQ/Sd8mo="
         }
       ]
     },

@@ -8,7 +8,7 @@ wwwroot\css\site.css
 wwwroot\css\style.css
 wwwroot\css\style.min.css
 wwwroot\favicon.ico
-wwwroot\images\b078e9f2-9d09-4dd8-95bb-c99cf26e4a8b.png
+wwwroot\images\746f54f5-a48e-4daa-b14d-44116e3db0a2.jpg
 wwwroot\images\b13ebbb1-3773-475d-b61c-ce5f21f53cd8.png
 wwwroot\images\bloodfield.jpeg
 wwwroot\images\ce461979-c5d7-4a12-a842-9aad51545ab7.png

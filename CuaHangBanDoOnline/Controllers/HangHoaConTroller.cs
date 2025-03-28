@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace CuaHangBanDoOnline.Controllers
 {
-    
+
     public class HangHoaController : Controller
     {
         private readonly IHangHoaRepository _repository;
@@ -113,7 +113,7 @@ namespace CuaHangBanDoOnline.Controllers
             ViewBag.DanhMucs = new MultiSelectList(_repository.GetDanhMucs(), "MaDanhMuc", "TenDanhMuc");
             return View(new HangHoa());
         }
-        
+
         [HttpPost]
         [Authorize(Roles = "Admin,Staff")]
         public IActionResult Create(HangHoa hangHoa, IFormFile HinhAnh)

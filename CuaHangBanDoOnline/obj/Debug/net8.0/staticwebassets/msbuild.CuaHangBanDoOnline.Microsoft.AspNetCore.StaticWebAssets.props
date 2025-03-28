@@ -198,23 +198,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\b078e9f2-9d09-4dd8-95bb-c99cf26e4a8b.png'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\746f54f5-a48e-4daa-b14d-44116e3db0a2.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>CuaHangBanDoOnline</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/CuaHangBanDoOnline</BasePath>
-      <RelativePath>images/b078e9f2-9d09-4dd8-95bb-c99cf26e4a8b.png</RelativePath>
+      <RelativePath>images/746f54f5-a48e-4daa-b14d-44116e3db0a2.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>r3co1cr3ru</Fingerprint>
-      <Integrity>uetg3sF17WGSUxYYjnilLVDnudljFSW/YlltTY7ORzk=</Integrity>
+      <Fingerprint>0ojc8wn301</Fingerprint>
+      <Integrity>cFlsa+tlh7TFtZwwue8lxvhve0iaagVpQLjEQ/Sd8mo=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\b078e9f2-9d09-4dd8-95bb-c99cf26e4a8b.png'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\746f54f5-a48e-4daa-b14d-44116e3db0a2.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\b13ebbb1-3773-475d-b61c-ce5f21f53cd8.png'))">
       <SourceType>Package</SourceType>

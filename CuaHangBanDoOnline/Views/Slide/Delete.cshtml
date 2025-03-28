@@ -1,0 +1,49 @@
+﻿@model CuaHangBanDoOnline.Models.Slide
+
+@{
+    ViewData["Title"] = "Xóa Slide";
+}
+
+<div class="container-fluid pt-5">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+        <span class="bg-secondary pr-3">Xóa Slide</span>
+    </h2>
+
+    <div class="alert alert-warning">
+        <h4>Bạn có chắc chắn muốn xóa slide này không?</h4>
+        <p>Hành động này không thể hoàn tác.</p>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-2">ID</dt>
+                <dd class="col-sm-10">@Model.Id</dd>
+
+                <dt class="col-sm-2">Hình ảnh</dt>
+                <dd class="col-sm-10">
+                    @if (!string.IsNullOrEmpty(Model.Image))
+                    {
+                        <img src="@Model.Image" alt="@Model.Title" style="width: 100px; height: auto;" />
+                    }
+                    else
+                    {
+                        <span>Không có hình ảnh</span>
+                    }
+                </dd>
+
+                <dt class="col-sm-2">Tiêu đề</dt>
+                <dd class="col-sm-10">@Model.Title</dd>
+
+                <dt class="col-sm-2">Liên kết</dt>
+                <dd class="col-sm-10">@Model.Link</dd>
+            </dl>
+        </div>
+    </div>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger mt-3">Xóa</button>
+        <a asp-action="Index" class="btn btn-secondary mt-3">Quay lại</a>
+    </form>
+</div>
